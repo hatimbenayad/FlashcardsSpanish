@@ -283,63 +283,91 @@
         }
     
         .sections-container {
-            width: 100%;
-            max-width: 500px;
-            background-color: #f9f9f9; /* Distinct background for sections */
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow to make it stand out */
-            padding: 20px;
-        }
-    
-        .section {
-            margin-bottom: 15px;
-        }
-    
-        .section-button {
-            width: 100%;
-            padding: 10px;
-            background-color: #2196F3;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-    
-        .section-button:hover {
-            background-color: #0b7dda;
-        }
-    
-        .section-button.active {
-            background-color: #4CAF50;
-        }
-    
-        .lessons-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 10px;
-            padding: 10px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-        }
-    
-        .lesson-button {
-            padding: 8px 16px;
-            border: 1px solid #ddd;
-            border-radius: 20px;
-            background-color: white;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-align: left;
-        }
-    
-        .lesson-button:hover {
-            background-color: #f0f0f0;
-        }
-    
+    width: 100%;
+    max-width: 500px;
+    background-color: #f9f9f9; /* Distinct background for sections */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow to make it stand out */
+    padding: 20px;
+}
+
+.section {
+    margin-bottom: 15px;
+    padding: 5px 0; /* Add padding to the section for better spacing */
+}
+
+.section-button {
+    width: 100%;
+    padding: 12px; /* Slightly larger padding */
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px; /* Larger font for better readability */
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.section-button:hover {
+    background-color: #0b7dda;
+}
+
+.section-button.active {
+    background-color: #4CAF50;
+}
+
+.lessons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Increased gap between buttons */
+    margin-top: 15px; /* More space above the list */
+    padding: 15px; /* More padding inside the list container */
+    max-height: 400px; /* Limit height to avoid overly long lists */
+    overflow-y: auto; /* Add scrollbar if content overflows */
+    background-color: #ffffff; /* White background for contrast */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Customize the scrollbar for better aesthetics */
+.lessons-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.lessons-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.lessons-list::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.lessons-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.lesson-button {
+    padding: 12px 20px; 
+    font-size: 16px; 
+    line-height: 1.5; 
+    text-align: left;
+    background-color: #f9f9f9; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s; 
+}
+
+.lesson-button:hover {
+    background-color: #e0f7fa; 
+    transform: translateX(5px); 
+}
+
+.lesson-button:active {
+    background-color: #b2ebf2; 
+}
         #lessonModalOptions .modal-button {
             background-color: #2196F3;
             color: white;
