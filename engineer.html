@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineer Guide</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-image: url('https://raw.githubusercontent.com/your-username/your-repo/main/brick-wall.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: 0;
+        }
+
+        .job-container {
+            position: relative;
+            z-index: 1;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #2196F3;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: #333;
+            margin-top: 20px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        p, ul {
+            color: #333;
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .back-button {
+            width: 100%;
+            max-width: 200px;
+            padding: 12px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #0b7dda;
+        }
+
+        @media (max-width: 600px) {
+            .job-container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            p, ul {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="job-container">
+        <h1>Engineer Guide</h1>
+        
+        <h3>🔧 Verbs (Daily Engineering Actions)</h3>
+        <ul>
+            <li><strong>Diseñar</strong> – To design ("Estoy diseñando un prototipo" = "I’m designing a prototype").</li>
+            <li><strong>Calcular</strong> – To calculate ("Hay que calcular la resistencia" = "We need to calculate the resistance").</li>
+            <li><strong>Montar/Ensamblar</strong> – To assemble ("Montamos las piezas mañana" = "We’ll assemble the parts tomorrow").</li>
+            <li><strong>Probar/Testear</strong> – To test ("Vamos a testear el software" = "We’ll test the software").</li>
+            <li><strong>Depurar</strong> – To debug ("Estoy depurando el código" = "I’m debugging the code").</li>
+            <li><strong>Joderla (vulgar but common)</strong> – To mess up ("La he jodido con el circuito" = "I messed up the circuit").</li>
+            <li><strong>Parchear</strong> – To patch (a quick fix, "Esto es un parche, no una solución" = "This is a patch, not a solution").</li>
+        </ul>
+
+        <h3>💻 Tech & Engineering Slang</h3>
+        <ul>
+            <li><strong>Un chisme</strong> – A gadget/device ("Pásame ese chisme" = "Hand me that gadget").</li>
+            <li><strong>Un bug</strong> – A bug (yes, they use the English word too).</li>
+            <li><strong>Un feature</strong> – A feature (also borrowed from English).</li>
+            <li><strong>Está capado</strong> – It’s limited/nerfed ("La versión gratis está capada" = "The free version is nerfed").</li>
+            <li><strong>Está to flama (Spain)</strong> – It’s awesome ("El nuevo motor está to flama").</li>
+            <li><strong>Un pete</strong> – A crash/failure ("El servidor ha pegado un pete" = "The server crashed").</li>
+        </ul>
+
+        <h3>🏗️ Construction & Hardware Terms</h3>
+        <ul>
+            <li><strong>Una chapa</strong> – A metal sheet ("Corta esa chapa" = "Cut that sheet metal").</li>
+            <li><strong>Un tornillo</strong> – A screw ("Falta un tornillo aquí" = "There’s a screw missing here").</li>
+            <li><strong>Una tuerca</strong> – A nut ("Aprieta las tuercas" = "Tighten the nuts").</li>
+            <li><strong>Un cable pelado</strong> – A stripped wire ("Cuidado con ese cable pelado" = "Watch out for that stripped wire").</li>
+        </ul>
+
+        <h3>👨‍💻 Office/Team Phrases</h3>
+        <ul>
+            <li>"¿Qué tal va el proyecto?" – "How’s the project going?"</li>
+            <li>"Esto está en fase beta" – "This is in beta phase."</li>
+            <li>"Hay que meterle caña" – "We need to push hard" (meter caña = give it gas).</li>
+            <li>"Esto es un peñazo" – "This is a pain in the ass" (boring/tedious task).</li>
+            <li>"Vamos a hacer una puesta en común" – "Let’s have a quick meeting."</li>
+            <li>"Eso es pan comido" – "That’s a piece of cake."</li>
+        </ul>
+
+        <h3>🤬 When Things Go Wrong</h3>
+        <ul>
+            <li>"Se ha liado parda" – "All hell broke loose."</li>
+            <li>"Esto es un desco" (short for descontrol) – "This is chaos."</li>
+            <li>"La hemos cagado" (vulgar) – "We screwed up."</li>
+            <li>"Hay que rehacerlo desde cero" – "We have to redo it from scratch."</li>
+        </ul>
+
+        <h3>💡 Pro Tips</h3>
+        <ul>
+            <li>In Spain, "colega" or "tío/a" is how engineers casually address each other ("Oye, tío, esto no funciona").</li>
+            <li>If someone says "Esto es peor que la ITV" ("This is worse than the car inspection"), they mean it’s a bureaucratic nightmare.</li>
+            <li>"Vamos a echar un cable" = "Let’s help out" (literally "throw a cable").</li>
+        </ul>
+
+        <button class="back-button" onclick="window.location.href='index.html'">Back to Main</button>
+    </div>
+</body>
+</html>
