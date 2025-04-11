@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spanish Flashcard Game</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .app-container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .progress-container {
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+        .progress-bar {
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            height: 10px;
+            width: 100%;
+        }
+        .progress-fill {
+            background-color: #4CAF50;
+            height: 100%;
+            border-radius: 10px;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        .counter {
+            font-size: 14px;
+            color: #666;
+        }
+        .word-display {
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            margin: 30px 0;
+            color: #333;
+        }
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .option-button {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+        .option-button:hover {
+            background-color: #f9f9f9;
+        }
+        .option-button.correct {
+            background-color: #4CAF50;
+            color: white;
+            border-color: #4CAF50;
+        }
+        .option-button.incorrect {
+            background-color: #F44336;
+            color: white;
+            border-color: #F44336;
+        }
+        .next-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            display: none;
+        }
+        .next-button:hover {
+            background-color: #0b7dda;
+        }
+        .feedback {
+            text-align: center;
+            margin: 10px 0;
+            font-weight: bold;
+            height: 20px;
+        }
+        .feedback.correct {
+            color: #4CAF50;
+        }
+        .feedback.incorrect {
+            color: #F44336;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="header">
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+            <div class="counter" id="counter">0/0</div>
+        </div>
+        
+        <div class="word-display" id="wordDisplay">Loading...</div>
+        
+        <div class="options-container" id="optionsContainer">
+            
+        </div>
+        
+        <div class="feedback" id="feedback"></div>
+        
+        <button class="next-button" id="nextButton">Next</button>
+    </div>
+
+    <script>
+        const vocabulary = [
+            {spanish: "el hombre", english: "man"},
+            {spanish: "la mujer", english: "woman"},
+            {spanish: "el niño", english: "boy"},
+            {spanish: "la niña", english: "girl"},
+            {spanish: "el agua", english: "water"},
+            {spanish: "el fuego", english: "fire"},
+            {spanish: "la tierra", english: "earth"},
+            {spanish: "el aire", english: "air"},
+            {spanish: "el perro", english: "dog"},
+            {spanish: "el gato", english: "cat"},
+            {spanish: "el caballo", english: "horse"},
+            {spanish: "la casa", english: "house"},
+            {spanish: "el coche", english: "car"},
+            {spanish: "el libro", english: "book"},
+            {spanish: "la comida", english: "food"},
+            {spanish: "la bebida", english: "drink"},
+            {spanish: "el sol", english: "sun"},
+            {spanish: "la luna", english: "moon"},
+            {spanish: "la estrella", english: "star"},
+            {spanish: "el cielo", english: "sky"},
+            {spanish: "el mar", english: "sea"},
+            {spanish: "el río", english: "river"},
+            {spanish: "la montaña", english: "mountain"},
+            {spanish: "el árbol", english: "tree"},
+            {spanish: "la flor", english: "flower"},
+            {spanish: "el amor", english: "love"},
+            {spanish: "el odio", english: "hate"},
+            {spanish: "el miedo", english: "fear"},
+            {spanish: "la alegría", english: "joy"},
+            {spanish: "la tristeza", english: "sadness"},
+            {spanish: "el tiempo", english: "time"},
+            {spanish: "el espacio", english: "space"},
+            {spanish: "el dinero", english: "money"},
+            {spanish: "el trabajo", english: "work"},
+            {spanish: "la escuela", english: "school"},
+            {spanish: "el hospital", english: "hospital"},
+            {spanish: "el médico", english: "doctor"},
+            {spanish: "la enfermera", english: "nurse"},
+            {spanish: "el profesor", english: "teacher"},
+            {spanish: "el estudiante", english: "student"},
+            {spanish: "el amigo", english: "friend"},
+            {spanish: "el enemigo", english: "enemy"},
+            {spanish: "la familia", english: "family"},
+            {spanish: "el padre", english: "father"},
+            {spanish: "la madre", english: "mother"},
+            {spanish: "el hermano", english: "brother"},
+            {spanish: "la hermana", english: "sister"},
+            {spanish: "el hijo", english: "son"},
+            {spanish: "la hija", english: "daughter"},
+            {spanish: "el abuelo", english: "grandfather"},
+            {spanish: "la abuela", english: "grandmother"},
+            {spanish: "el tío", english: "uncle"},
+            {spanish: "la tía", english: "aunt"},
+            {spanish: "el primo", english: "cousin (male)"},
+            {spanish: "la prima", english: "cousin (female)"},
+            {spanish: "el sobrino", english: "nephew"},
+            {spanish: "la sobrina", english: "niece"},
+            {spanish: "el esposo", english: "husband"},
+            {spanish: "la esposa", english: "wife"},
+            {spanish: "el color", english: "color"},
+            {spanish: "rojo", english: "red"},
+            {spanish: "azul", english: "blue"},
+            {spanish: "verde", english: "green"},
+            {spanish: "amarillo", english: "yellow"},
+            {spanish: "negro", english: "black"},
+            {spanish: "blanco", english: "white"},
+            {spanish: "gris", english: "gray"},
+            {spanish: "naranja", english: "orange"},
+            {spanish: "púrpura", english: "purple"},
+            {spanish: "rosa", english: "pink"},
+            {spanish: "marrón", english: "brown"},
+            {spanish: "el día", english: "day"},
+            {spanish: "la noche", english: "night"},
+            {spanish: "la mañana", english: "morning"},
+            {spanish: "la tarde", english: "afternoon"},
+            {spanish: "la semana", english: "week"},
+            {spanish: "el mes", english: "month"},
+            {spanish: "el año", english: "year"},
+            {spanish: "lunes", english: "Monday"},
+            {spanish: "martes", english: "Tuesday"},
+            {spanish: "miércoles", english: "Wednesday"},
+            {spanish: "jueves", english: "Thursday"},
+            {spanish: "viernes", english: "Friday"},
+            {spanish: "sábado", english: "Saturday"},
+            {spanish: "domingo", english: "Sunday"},
+            {spanish: "enero", english: "January"},
+            {spanish: "febrero", english: "February"},
+            {spanish: "marzo", english: "March"},
+            {spanish: "abril", english: "April"},
+            {spanish: "mayo", english: "May"},
+            {spanish: "junio", english: "June"},
+            {spanish: "julio", english: "July"},
+            {spanish: "agosto", english: "August"},
+            {spanish: "septiembre", english: "September"},
+            {spanish: "octubre", english: "October"},
+            {spanish: "noviembre", english: "November"},
+            {spanish: "diciembre", english: "December"},
+            {spanish: "el número", english: "number"},
+            {spanish: "uno", english: "one"},
+            {spanish: "dos", english: "two"},
+            {spanish: "tres", english: "three"},
+            {spanish: "cuatro", english: "four"},
+            {spanish: "cinco", english: "five"},
+            {spanish: "seis", english: "six"},
+            {spanish: "siete", english: "seven"},
+            {spanish: "ocho", english: "eight"},
+            {spanish: "nueve", english: "nine"},
+            {spanish: "diez", english: "ten"},
+            {spanish: "la comida", english: "food"},
+            {spanish: "el desayuno", english: "breakfast"},
+            {spanish: "el almuerzo", english: "lunch"},
+            {spanish: "la cena", english: "dinner"},
+            {spanish: "el pan", english: "bread"},
+            {spanish: "el arroz", english: "rice"},
+            {spanish: "la pasta", english: "pasta"},
+            {spanish: "la carne", english: "meat"},
+            {spanish: "el pollo", english: "chicken"},
+            {spanish: "el pescado", english: "fish"},
+            {spanish: "la fruta", english: "fruit"},
+            {spanish: "la verdura", english: "vegetable"},
+            {spanish: "la manzana", english: "apple"},
+            {spanish: "el plátano", english: "banana"},
+            {spanish: "la naranja", english: "orange"},
+            {spanish: "la fresa", english: "strawberry"},
+            {spanish: "el limón", english: "lemon"},
+            {spanish: "la papa", english: "potato"},
+            {spanish: "la zanahoria", english: "carrot"},
+            {spanish: "el tomate", english: "tomato"},
+            {spanish: "la lechuga", english: "lettuce"},
+            {spanish: "la cebolla", english: "onion"},
+            {spanish: "el huevo", english: "egg"},
+            {spanish: "el queso", english: "cheese"},
+            {spanish: "la leche", english: "milk"},
+            {spanish: "el azúcar", english: "sugar"},
+            {spanish: "la sal", english: "salt"},
+            {spanish: "la pimienta", english: "pepper"},
+            {spanish: "el aceite", english: "oil"},
+            {spanish: "el vinagre", english: "vinegar"},
+            {spanish: "el chocolate", english: "chocolate"},
+            {spanish: "el helado", english: "ice cream"},
+            {spanish: "el café", english: "coffee"},
+            {spanish: "el té", english: "tea"},
+            {spanish: "el jugo", english: "juice"},
+            {spanish: "el agua", english: "water"},
+            {spanish: "la cerveza", english: "beer"},
+            {spanish: "el vino", english: "wine"},
+            {spanish: "el cuerpo", english: "body"},
+            {spanish: "la cabeza", english: "head"},
+            {spanish: "el pelo", english: "hair"},
+            {spanish: "la cara", english: "face"},
+            {spanish: "los ojos", english: "eyes"},
+            {spanish: "la nariz", english: "nose"},
+            {spanish: "la boca", english: "mouth"},
+            {spanish: "los dientes", english: "teeth"},
+            {spanish: "las orejas", english: "ears"},
+            {spanish: "el cuello", english: "neck"},
+            {spanish: "los hombros", english: "shoulders"},
+            {spanish: "los brazos", english: "arms"},
+            {spanish: "las manos", english: "hands"},
+            {spanish: "los dedos", english: "fingers"},
+            {spanish: "el pecho", english: "chest"},
+            {spanish: "la espalda", english: "back"},
+            {spanish: "el estómago", english: "stomach"},
+            {spanish: "las piernas", english: "legs"},
+            {spanish: "las rodillas", english: "knees"},
+            {spanish: "los pies", english: "feet"},
+            {spanish: "el corazón", english: "heart"},
+            {spanish: "la perspectiva", english: "perspective"},
+{spanish: "el desafío", english: "challenge"},
+{spanish: "la curiosidad", english: "curiosity"},
+{spanish: "el entorno", english: "environment"},
+{spanish: "la posibilidad", english: "possibility"},
+{spanish: "el recurso", english: "resource"},
+{spanish: "la inquietud", english: "concern/worry"},
+{spanish: "el planteamiento", english: "approach/proposal"},
+{spanish: "la evaluación", english: "evaluation"},
+{spanish: "el ámbito", english: "scope/field"},
+{spanish: "desarrollar", english: "to develop"},
+{spanish: "considerar", english: "to consider"},
+{spanish: "establecer", english: "to establish"},
+{spanish: "destacar", english: "to stand out/highlight"},
+{spanish: "plantear", english: "to propose/set out"},
+{spanish: "reflexionar", english: "to reflect/ponder"},
+{spanish: "gestionar", english: "to manage"},
+{spanish: "fomentar", english: "to promote/encourage"},
+{spanish: "aportar", english: "to contribute"},
+{spanish: "vincular", english: "to link/connect"},
+{spanish: "tener en cuenta", english: "to take into account"},
+{spanish: "darse cuenta de", english: "to realize"},
+{spanish: "estar al tanto de", english: "to be aware of"},
+{spanish: "a largo plazo", english: "long-term"},
+{spanish: "en cierta medida", english: "to some extent"},
+{spanish: "poner en práctica", english: "to put into practice"},
+{spanish: "hacer frente a", english: "to face/confront"},
+{spanish: "llevar a cabo", english: "to carry out"},
+{spanish: "sacar provecho de", english: "to take advantage of"},
+{spanish: "dar por sentado", english: "to take for granted"},
+{spanish: "fundamental", english: "fundamental"},
+{spanish: "relevante", english: "relevant"},
+{spanish: "imprescindible", english: "essential"},
+{spanish: "sostenible", english: "sustainable"},
+{spanish: "viable", english: "viable/feasible"},
+{spanish: "evidente", english: "evident"},
+{spanish: "significativo", english: "significant"},
+{spanish: "determinante", english: "decisive/determining"},
+{spanish: "riguroso", english: "rigorous"},
+{spanish: "eficaz", english: "effective"},
+        ]
+            
+let currentIndex = 0;
+let totalWords = 0;
+let words = [];
+let incorrectWords = [];
+let currentOptions = [];
+let selectedAnswer = null;
+let correctAnswerIndex = null;
+let reviewQueue = [];
+
+
+const wordDisplay = document.getElementById('wordDisplay');
+const optionsContainer = document.getElementById('optionsContainer');
+const nextButton = document.getElementById('nextButton');
+const feedback = document.getElementById('feedback');
+const counter = document.getElementById('counter');
+const progressFill = document.getElementById('progressFill');
+
+
+function initializeApp() {
+    
+    words = [...vocabulary];
+    totalWords = words.length;
+    shuffleArray(words);
+    showNextWord();
+    nextButton.addEventListener('click', handleNextButtonClick);
+}
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+function showNextWord() {
+    optionsContainer.innerHTML = '';
+    feedback.textContent = '';
+    feedback.className = 'feedback';
+    nextButton.style.display = 'none';
+    selectedAnswer = null;
+    let currentWord;
+    if (reviewQueue.length > 0 && currentIndex % 5 === 0 && currentIndex > 0) {
+        currentWord = reviewQueue.shift();
+    } else {
+        if (currentIndex >= words.length) {
+            wordDisplay.textContent = "All words completed!";
+            if (incorrectWords.length > 0) {
+                words = [...incorrectWords];
+                incorrectWords = [];
+                currentIndex = 0;
+                shuffleArray(words);
+                showNextWord();
+            }
+            return;
+        }
+        currentWord = words[currentIndex];
+        currentIndex++;
+    }
+    
+    wordDisplay.textContent = currentWord.spanish;
+    generateOptions(currentWord);
+
+    updateProgress();
+}
+function generateOptions(currentWord) {
+    const optionsPool = vocabulary.filter(word => word.english !== currentWord.english);
+    shuffleArray(optionsPool);
+    const incorrectOptions = optionsPool.slice(0, 4);
+    const allOptions = [...incorrectOptions, currentWord];
+    shuffleArray(allOptions);
+    currentOptions = allOptions;
+    correctAnswerIndex = allOptions.findIndex(option => option.english === currentWord.english);
+    allOptions.forEach((option, index) => {
+        const button = document.createElement('button');
+        button.className = 'option-button';
+        button.textContent = option.english;
+        button.dataset.index = index;
+        button.addEventListener('click', () => handleOptionClick(index));
+        optionsContainer.appendChild(button);
+    });
+}
+function handleOptionClick(index) {
+    
+    if (selectedAnswer !== null) return;
+    
+    selectedAnswer = index;
+    const isCorrect = index === correctAnswerIndex;
+    
+    
+    const buttons = optionsContainer.querySelectorAll('.option-button');
+    
+    
+    buttons[index].classList.add(isCorrect ? 'correct' : 'incorrect');
+    
+   
+    if (!isCorrect) {
+        buttons[correctAnswerIndex].classList.add('correct');
+        
+        const currentWord = currentOptions[correctAnswerIndex];
+        incorrectWords.push(currentWord);
+        reviewQueue.push(currentWord);
+        
+        
+        feedback.textContent = "Incorrect";
+        feedback.className = 'feedback incorrect';
+    } else {
+        
+        feedback.textContent = "Correct!";
+        feedback.className = 'feedback correct';
+    }
+    
+    
+    nextButton.style.display = 'block';
+}
+
+
+function handleNextButtonClick() {
+    showNextWord();
+}
+
+
+function updateProgress() {
+    counter.textContent = `${currentIndex}/${totalWords}`;
+    const progressPercent = (currentIndex / totalWords) * 100;
+    progressFill.style.width = `${progressPercent}%`;
+}
+window.addEventListener('DOMContentLoaded', initializeApp);
+</script>
