@@ -362,646 +362,1846 @@ verbs: [
     {spanish: "vislumbrar", english: "to glimpse/envision"}
 ],
             
-            expressions: [
-  { spanish: "buenos días", english: "good morning" },
-  { spanish: "buenas tardes", english: "good afternoon" },
-  { spanish: "buenas noches", english: "good evening/night" },
-  { spanish: "hola", english: "hello" },
-  { spanish: "adiós", english: "goodbye" },
-  { spanish: "por favor", english: "please" },
-  { spanish: "gracias", english: "thank you" },
-  { spanish: "de nada", english: "you're welcome" },
-  { spanish: "¿cómo estás?", english: "how are you?" },
-  { spanish: "estoy bien", english: "I'm fine" },
-  { spanish: "mucho gusto", english: "nice to meet you" },
-  { spanish: "disculpe", english: "excuse me" },
-  { spanish: "lo siento", english: "I'm sorry" },
-  { spanish: "¿qué hora es?", english: "what time is it?" },
-  { spanish: "¿dónde está...?", english: "where is...?" },
-  { spanish: "hasta luego", english: "see you later" },
-  { spanish: "¿cómo te llamas?", english: "what's your name?" },
-  { spanish: "me llamo...", english: "my name is..." },
-  { spanish: "no entiendo", english: "I don't understand" },
-  { spanish: "¿puedes repetir, por favor?", english: "can you repeat, please?" },
-  { spanish: "hablo un poco de español", english: "I speak a little Spanish" },
-  { spanish: "¿cuánto cuesta?", english: "how much does it cost?" },
-  { spanish: "quiero...", english: "I want..." },
-  { spanish: "necesito ayuda", english: "I need help" },
-  { spanish: "¿dónde está el baño?", english: "where is the bathroom?" },
-  { spanish: "estoy perdido/a", english: "I'm lost" },
-  { spanish: "puedes ayudarme", english: "can you help me?" },
-  { spanish: "tengo una pregunta", english: "I have a question" },
-  { spanish: "¿a qué hora abre/cierra?", english: "what time does it open/close?" },
-  { spanish: "está cerca de aquí", english: "is it near here?" },
-  { spanish: "me gustaría...", english: "I would like..." },
-  { spanish: "no hay problema", english: "no problem" },
-  { spanish: "¿qué significa...?", english: "what does... mean?" },
-  { spanish: "un momento, por favor", english: "one moment, please" },
-  { spanish: "feliz cumpleaños", english: "happy birthday" },
-  { spanish: "¡salud!", english: "cheers! / bless you!" },
-  { spanish: "¿cómo se dice... en español?", english: "how do you say... in Spanish?" },
-  { spanish: "tengo hambre", english: "I'm hungry" },
-  { spanish: "tengo sed", english: "I'm thirsty" },
-  { spanish: "¿puedo pagar con tarjeta?", english: "can I pay with a card?" },
-  { spanish: "la cuenta, por favor", english: "the bill, please" },
-  { spanish: "estoy cansado/a", english: "I'm tired" },
-  { spanish: "vivo en...", english: "I live in..." },
-  { spanish: "¿de dónde eres?", english: "where are you from?" },
-  { spanish: "soy de...", english: "I'm from..." },
-  { spanish: "hace buen/mal tiempo", english: "the weather is good/bad" },
-  { spanish: "¿qué recomiendas?", english: "what do you recommend?" },
-  { spanish: "espero que sí", english: "I hope so" },
-  { spanish: "quizás mañana", english: "maybe tomorrow" },
-  { spanish: "no estoy seguro/a", english: "I'm not sure" },
-  // Socializing and Conversations
-  { spanish: "¡qué buena onda!", english: "how cool!" },
-  { spanish: "cuéntame más", english: "tell me more" },
-  { spanish: "¿qué tal tu día?", english: "how’s your day going?" },
-  { spanish: "estoy de acuerdo", english: "I agree" },
-  { spanish: "no estoy de acuerdo", english: "I don’t agree" },
-  { spanish: "¿qué opinas?", english: "what do you think?" },
-  { spanish: "me parece genial", english: "I think that’s great" },
-  { spanish: "¡qué interesante!", english: "how interesting!" },
-  { spanish: "bromeas, ¿verdad?", english: "you’re kidding, right?" },
-  { spanish: "me da igual", english: "I don’t care" },
-  { spanish: "¡qué casualidad!", english: "what a coincidence!" },
-  { spanish: "¿te cae bien?", english: "do you like him/her?" },
-  { spanish: "es un placer charlar contigo", english: "it’s a pleasure talking to you" },
-  { spanish: "mantengamos el contacto", english: "let’s keep in touch" },
-  { spanish: "¡qué divertido!", english: "how fun!" },
-  { spanish: "¿cuándo nos vemos?", english: "when do we meet up?" },
-  { spanish: "estoy emocionado/a", english: "I’m excited" },
-  { spanish: "me haces reír", english: "you make me laugh" },
-  { spanish: "¿qué planes tienes?", english: "what are your plans?" },
-  { spanish: "vamos a salir", english: "let’s go out" },
-  { spanish: "¡qué sorpresa!", english: "what a surprise!" },
-  { spanish: "te entiendo perfectamente", english: "I totally get you" },
-  { spanish: "eso suena increíble", english: "that sounds amazing" },
-  { spanish: "me siento un poco nervioso/a", english: "I feel a bit nervous" },
-  { spanish: "¡qué lindo gesto!", english: "what a nice gesture!" },
-  { spanish: "¿cómo lo llevas?", english: "how are you holding up?" },
-  { spanish: "es una larga historia", english: "it’s a long story" },
-  { spanish: "no me lo esperaba", english: "I didn’t expect that" },
-  { spanish: "¡qué alivio!", english: "what a relief!" },
-  { spanish: "te apoyo totalmente", english: "I totally support you" },
-  { spanish: "¿cómo te sientes?", english: "how are you feeling?" },
-  { spanish: "me dio mucha pena", english: "I felt really bad" },
-  { spanish: "¡qué envidia!", english: "I’m so jealous!" },
-  { spanish: "estoy de buen humor", english: "I’m in a good mood" },
-  { spanish: "no te preocupes", english: "don’t worry" },
-  { spanish: "¡venga, anímate!", english: "come on, cheer up!" },
-  { spanish: "me encantó conocerte", english: "I loved meeting you" },
-  { spanish: "espero verte pronto", english: "I hope to see you soon" },
-  { spanish: "¿qué tal si...?", english: "how about...?" },
-  { spanish: "tienes toda la razón", english: "you’re absolutely right" },
-  { spanish: "me parece justo", english: "that seems fair" },
-  { spanish: "¡qué exagerado/a!", english: "how exaggerated!" },
-  { spanish: "me estás tomando el pelo", english: "you’re pulling my leg" },
-  { spanish: "no me convence", english: "I’m not convinced" },
-  { spanish: "es una pasada", english: "it’s awesome" },
-  { spanish: "¿y tú qué dices?", english: "and what do you say?" },
-  { spanish: "me da curiosidad", english: "I’m curious" },
-  { spanish: "¡qué emoción!", english: "how exciting!" },
-  { spanish: "estoy flipando", english: "I’m freaking out" },
-  // Dining and Restaurants
-  { spanish: "¿tienen menú del día?", english: "do you have a daily menu?" },
-  { spanish: "¿qué lleva este plato?", english: "what’s in this dish?" },
-  { spanish: "soy alérgico/a a...", english: "I’m allergic to..." },
-  { spanish: "¿pueden hacerlo rápido?", english: "can you make it quick?" },
-  { spanish: "está delicioso", english: "it’s delicious" },
-  { spanish: "¿tienen opciones vegetarianas?", english: "do you have vegetarian options?" },
-  { spanish: "sin gluten, por favor", english: "gluten-free, please" },
-  { spanish: "¿pueden separar la cuenta?", english: "can you split the bill?" },
-  { spanish: "está un poco frío", english: "it’s a bit cold" },
-  { spanish: "¿me traes más agua?", english: "can you bring more water?" },
-  { spanish: "no quiero cebolla", english: "I don’t want onion" },
-  { spanish: "¿tienen postres caseros?", english: "do you have homemade desserts?" },
-  { spanish: "está muy salado", english: "it’s too salty" },
-  { spanish: "¿me das un tenedor, por favor?", english: "can I have a fork, please?" },
-  { spanish: "quiero hacer una reserva", english: "I want to make a reservation" },
-  { spanish: "¿tienen terraza?", english: "do you have an outdoor area?" },
-  { spanish: "para dos personas", english: "for two people" },
-  { spanish: "¿cuál es el plato estrella?", english: "what’s the signature dish?" },
-  { spanish: "está todo perfecto", english: "everything’s perfect" },
-  { spanish: "¿me lo envuelves para llevar?", english: "can you wrap it to go?" },
-  { spanish: "no me gustó mucho", english: "I didn’t like it much" },
-  { spanish: "¿tienen vino de la casa?", english: "do you have house wine?" },
-  { spanish: "una mesa cerca de la ventana", english: "a table by the window" },
-  { spanish: "¿cuánto tiempo de espera?", english: "how long is the wait?" },
-  { spanish: "esto no es lo que pedí", english: "this isn’t what I ordered" },
-  // Shopping
-  { spanish: "¿dónde están los probadores?", english: "where are the fitting rooms?" },
-  { spanish: "¿tienen esta talla?", english: "do you have this size?" },
-  { spanish: "¿puedo devolverlo?", english: "can I return it?" },
-  { spanish: "¿hay descuento?", english: "is there a discount?" },
-  { spanish: "me lo llevo", english: "I’ll take it" },
-  { spanish: "¿en qué pasillo está...?", english: "in which aisle is...?" },
-  { spanish: "¿tienen algo más barato?", english: "do you have something cheaper?" },
-  { spanish: "está en oferta", english: "it’s on sale" },
-  { spanish: "¿me das una bolsa?", english: "can you give me a bag?" },
-  { spanish: "¿aceptan efectivo?", english: "do you accept cash?" },
-  { spanish: "no me queda bien", english: "it doesn’t fit me" },
-  { spanish: "¿tienen garantía?", english: "does it come with a warranty?" },
-  { spanish: "quiero cambiarlo", english: "I want to exchange it" },
-  { spanish: "¿cuál es el precio final?", english: "what’s the final price?" },
-  { spanish: "está un poco caro", english: "it’s a bit expensive" },
-  { spanish: "¿pueden envolverlo para regalo?", english: "can you gift-wrap it?" },
-  { spanish: "¿tienen stock?", english: "do you have it in stock?" },
-  { spanish: "lo vi más barato en otro lado", english: "I saw it cheaper elsewhere" },
-  { spanish: "¿cuándo llega?", english: "when will it arrive?" },
-  { spanish: "quiero hacer un reclamo", english: "I want to make a complaint" },
-  // Travel and Directions
-  { spanish: "¿cómo llego a...?", english: "how do I get to...?" },
-  { spanish: "¿es lejos de aquí?", english: "is it far from here?" },
-  { spanish: "gira a la derecha", english: "turn right" },
-  { spanish: "gira a la izquierda", english: "turn left" },
-  { spanish: "sigue recto", english: "go straight" },
-  { spanish: "¿dónde está la estación?", english: "where’s the station?" },
-  { spanish: "un billete de ida", english: "a one-way ticket" },
-  { spanish: "un billete de ida y vuelta", english: "a round-trip ticket" },
-  { spanish: "¿a qué hora sale el tren?", english: "what time does the train leave?" },
-  { spanish: "¿cuál es el próximo autobús?", english: "when’s the next bus?" },
-  { spanish: "me bajé en la parada equivocada", english: "I got off at the wrong stop" },
-  { spanish: "¿dónde está la salida?", english: "where’s the exit?" },
-  { spanish: "necesito un taxi", english: "I need a taxi" },
-  { spanish: "¿cuánto es hasta el aeropuerto?", english: "how much to the airport?" },
-  { spanish: "¿pueden llevar mi equipaje?", english: "can you take my luggage?" },
-  { spanish: "perdí mi maleta", english: "I lost my suitcase" },
-  { spanish: "¿dónde está la oficina de turismo?", english: "where’s the tourist office?" },
-  { spanish: "¿tienen un mapa?", english: "do you have a map?" },
-  { spanish: "quiero alquilar un coche", english: "I want to rent a car" },
-  { spanish: "¿cuál es el límite de velocidad?", english: "what’s the speed limit?" },
-  { spanish: "¿es seguro caminar por aquí?", english: "is it safe to walk here?" },
-  { spanish: "¿dónde puedo cambiar dinero?", english: "where can I exchange money?" },
-  { spanish: "¿cuál es la mejor ruta?", english: "what’s the best route?" },
-  { spanish: "estoy buscando un hotel", english: "I’m looking for a hotel" },
-  { spanish: "¿tienen habitaciones disponibles?", english: "do you have any rooms available?" },
-  { spanish: "quiero una habitación individual", english: "I want a single room" },
-  { spanish: "¿incluye desayuno?", english: "does it include breakfast?" },
-  { spanish: "la llave de mi habitación", english: "the key to my room" },
-  { spanish: "¿dónde está el ascensor?", english: "where’s the elevator?" },
-  { spanish: "no funciona el aire acondicionado", english: "the air conditioning isn’t working" },
-  { spanish: "¿pueden limpiar mi habitación?", english: "can you clean my room?" },
-  { spanish: "¿a qué hora es el check-out?", english: "what time is check-out?" },
-  { spanish: "quiero extender mi estancia", english: "I want to extend my stay" },
-  { spanish: "¿dónde está el parking?", english: "where’s the parking?" },
-  { spanish: "¿es una zona turística?", english: "is it a tourist area?" },
-  { spanish: "¿qué lugares recomiendas visitar?", english: "what places do you recommend visiting?" },
-  { spanish: "necesito un guía", english: "I need a guide" },
-  { spanish: "¿hay wifi gratis?", english: "is there free wifi?" },
-  { spanish: "¿cuál es la contraseña del wifi?", english: "what’s the wifi password?" },
-  { spanish: "perdí mi pasaporte", english: "I lost my passport" },
-  { spanish: "¿dónde está la embajada?", english: "where’s the embassy?" },
-  { spanish: "necesito un adaptador de enchufe", english: "I need a plug adapter" },
-  // Work and Professional Settings
-  { spanish: "¿cuándo es la reunión?", english: "when’s the meeting?" },
-  { spanish: "necesito enviar un correo", english: "I need to send an email" },
-  { spanish: "¿puedes revisarlo?", english: "can you review it?" },
-  { spanish: "estoy trabajando en ello", english: "I’m working on it" },
-  { spanish: "¿cuál es el plazo?", english: "what’s the deadline?" },
-  { spanish: "necesito más tiempo", english: "I need more time" },
-  { spanish: "¿puedes confirmar la cita?", english: "can you confirm the appointment?" },
-  { spanish: "quiero programar una reunión", english: "I want to schedule a meeting" },
-  { spanish: "¿dónde está la sala de conferencias?", english: "where’s the conference room?" },
-  { spanish: "necesito hacer una presentación", english: "I need to give a presentation" },
-  { spanish: "esto es urgente", english: "this is urgent" },
-  { spanish: "¿puedes ayudarme con el informe?", english: "can you help me with the report?" },
-  { spanish: "estoy sobrecargado/a de trabajo", english: "I’m overwhelmed with work" },
-  { spanish: "¿cuál es la política de la empresa?", english: "what’s the company policy?" },
-  { spanish: "necesito hablar con el jefe", english: "I need to talk to the boss" },
-  { spanish: "¿puedo trabajar desde casa?", english: "can I work from home?" },
-  { spanish: "quiero solicitar un día libre", english: "I want to request a day off" },
-  { spanish: "¿cuándo pagan el salario?", english: "when do they pay the salary?" },
-  { spanish: "tengo una entrevista de trabajo", english: "I have a job interview" },
-  { spanish: "¿cuáles son los requisitos?", english: "what are the requirements?" },
-  { spanish: "envíame los detalles, por favor", english: "send me the details, please" },
-  { spanish: "necesito una factura", english: "I need an invoice" },
-  { spanish: "¿puedes firmar aquí?", english: "can you sign here?" },
-  { spanish: "esto no estaba en el contrato", english: "this wasn’t in the contract" },
-  { spanish: "¿cómo funciona el sistema?", english: "how does the system work?" },
-  { spanish: "necesito acceso al servidor", english: "I need access to the server" },
-  { spanish: "hay un error en el documento", english: "there’s an error in the document" },
-  { spanish: "quiero proponer una idea", english: "I want to propose an idea" },
-  { spanish: "¿quién está a cargo?", english: "who’s in charge?" },
-  { spanish: "necesito un intérprete", english: "I need an interpreter" },
-  // Emergencies and Health
-  { spanish: "¡llama a una ambulancia!", english: "call an ambulance!" },
-  { spanish: "necesito un médico", english: "I need a doctor" },
-  { spanish: "me siento mal", english: "I feel sick" },
-  { spanish: "¿dónde está el hospital?", english: "where’s the hospital?" },
-  { spanish: "tengo dolor aquí", english: "I have pain here" },
-  { spanish: "¿tienen una farmacia cerca?", english: "is there a pharmacy nearby?" },
-  { spanish: "necesito una receta", english: "I need a prescription" },
-  { spanish: "me mareé", english: "I feel dizzy" },
-  { spanish: "tengo fiebre", english: "I have a fever" },
-  { spanish: "¿pueden darme algo para el dolor?", english: "can you give me something for the pain?" },
-  { spanish: "me torcí el tobillo", english: "I sprained my ankle" },
-  { spanish: "me corté", english: "I cut myself" },
-  { spanish: "necesito puntos", english: "I need stitches" },
-  { spanish: "estoy teniendo una reacción alérgica", english: "I’m having an allergic reaction" },
-  { spanish: "¿dónde está la comisaría?", english: "where’s the police station?" },
-  { spanish: "me robaron", english: "I was robbed" },
-  { spanish: "perdí mi cartera", english: "I lost my wallet" },
-  { spanish: "necesito reportar un robo", english: "I need to report a theft" },
-  { spanish: "es una emergencia", english: "it’s an emergency" },
-  { spanish: "¿dónde está el extintor?", english: "where’s the fire extinguisher?" },
-  { spanish: "¡cuidado!", english: "watch out!" },
-  { spanish: "necesito un abogado", english: "I need a lawyer" },
-  { spanish: "me siento inseguro/a", english: "I feel unsafe" },
-  { spanish: "¿pueden escoltarme?", english: "can you escort me?" },
-  // Expressing Opinions and Emotions
-  { spanish: "me parece una locura", english: "I think it’s crazy" },
-  { spanish: "estoy harto/a", english: "I’m fed up" },
-  { spanish: "me da mucha rabia", english: "it makes me really angry" },
-  { spanish: "estoy decepcionado/a", english: "I’m disappointed" },
-  { spanish: "me siento frustrado/a", english: "I feel frustrated" },
-  { spanish: "es justo lo que necesitaba", english: "it’s exactly what I needed" },
-  { spanish: "no me parece correcto", english: "I don’t think it’s right" },
-  { spanish: "me da mucha ilusión", english: "I’m really excited about it" },
-  { spanish: "estoy confundido/a", english: "I’m confused" },
-  { spanish: "me preocupa mucho", english: "I’m really worried" },
-  { spanish: "no me lo creo", english: "I can’t believe it" },
-  { spanish: "es una gran oportunidad", english: "it’s a great opportunity" },
-  { spanish: "me siento inspirado/a", english: "I feel inspired" },
-  { spanish: "esto me aburre", english: "this bores me" },
-  { spanish: "es un poco decepcionante", english: "it’s a bit disappointing" },
-  { spanish: "me encanta la idea", english: "I love the idea" },
-  { spanish: "no me gusta para nada", english: "I don’t like it at all" },
-  { spanish: "es una pérdida de tiempo", english: "it’s a waste of time" },
-  { spanish: "me siento aliviado/a", english: "I feel relieved" },
-  { spanish: "es bastante impresionante", english: "it’s pretty impressive" },
-  // Miscellaneous Practical Phrases
-  { spanish: "¿puedes tomar una foto?", english: "can you take a picture?" },
-  { spanish: "necesito cargar mi teléfono", english: "I need to charge my phone" },
-  { spanish: "¿dónde está el enchufe?", english: "where’s the outlet?" },
-  { spanish: "se me acabó la batería", english: "my battery died" },
-  { spanish: "¿puedes prestarme un bolígrafo?", english: "can you lend me a pen?" },
-  { spanish: "tengo una cita a las...", english: "I have an appointment at..." },
-  { spanish: "llegué tarde, lo siento", english: "I’m late, sorry" },
-  { spanish: "¿puedes esperar un segundo?", english: "can you wait a second?" },
-  { spanish: "no tengo cambio", english: "I don’t have change" },
-  { spanish: "¿puedes darme indicaciones?", english: "can you give me directions?" },
-  { spanish: "esto es nuevo para mí", english: "this is new to me" },
-  { spanish: "no estoy acostumbrado/a", english: "I’m not used to it" },
-  { spanish: "¿es obligatorio?", english: "is it mandatory?" },
-  { spanish: "necesito un recibo", english: "I need a receipt" },
-  { spanish: "¿puedes escribirlo?", english: "can you write it down?" },
-  { spanish: "me olvidé de algo", english: "I forgot something" },
-  { spanish: "tengo que cancelar", english: "I have to cancel" },
-  { spanish: "¿puedo entrar?", english: "can I come in?" },
-  { spanish: "¿está permitido fumar?", english: "is smoking allowed?" },
-  { spanish: "necesito un paraguas", english: "I need an umbrella" },
-  { spanish: "está empezando a llover", english: "it’s starting to rain" },
-  { spanish: "¿dónde dejo esto?", english: "where do I leave this?" },
-  { spanish: "no toques eso", english: "don’t touch that" },
-  { spanish: "¿puedo usar tu teléfono?", english: "can I use your phone?" },
-  { spanish: "tengo una duda", english: "I have a doubt" },
-  { spanish: "¿es confiable?", english: "is it reliable?" },
-  { spanish: "parece sospechoso", english: "it seems suspicious" },
-  { spanish: "necesito confirmación", english: "I need confirmation" },
-  { spanish: "¿puedes explicármelo otra vez?", english: "can you explain it again?" },
-  { spanish: "esto me está costando", english: "this is tough for me" },
-  { spanish: "voy a intentarlo", english: "I’m going to try" },
-  { spanish: "me rindo", english: "I give up" },
-  { spanish: "es más complicado de lo que pensaba", english: "it’s more complicated than I thought" },
-  { spanish: "tengo que pensarlo", english: "I need to think about it" },
-  { spanish: "es una decisión difícil", english: "it’s a tough decision" },
-  { spanish: "no quiero meter la pata", english: "I don’t want to mess up" },
-  { spanish: "esto me está volviendo loco/a", english: "this is driving me crazy" },
-  { spanish: "necesito un descanso", english: "I need a break" },
-  { spanish: "vamos paso a paso", english: "let’s take it step by step" },
-  { spanish: "¿puedes darme un ejemplo?", english: "can you give me an example?" },
-  { spanish: "es justo lo que quería", english: "it’s exactly what I wanted" },
-  { spanish: "mejor de lo esperado", english: "better than expected" },
-  { spanish: "no es para tanto", english: "it’s not a big deal" },
-  { spanish: "¿cuál es el plan?", english: "what’s the plan?" },
-  { spanish: "me pillaste desprevenido/a", english: "you caught me off guard" },
-  { spanish: "es un malentendido", english: "it’s a misunderstanding" },
-  { spanish: "¿puedes aclararlo?", english: "can you clarify?" },
-  { spanish: "no es mi estilo", english: "it’s not my style" },
-  { spanish: "me siento fuera de lugar", english: "I feel out of place" },
-  { spanish: "esto no tiene sentido", english: "this doesn’t make sense" },
-  { spanish: "es un poco raro", english: "it’s a bit weird" },
-  { spanish: "mejor dejémoslo ahí", english: "let’s leave it at that" },
-  { spanish: "no quiero discutir", english: "I don’t want to argue" },
-  { spanish: "vamos a cambiar de tema", english: "let’s change the subject" },
-  { spanish: "espero no molestarte", english: "I hope I’m not bothering you" },
-  { spanish: "gracias por la paciencia", english: "thanks for your patience" },
-  { spanish: "esto significa mucho para mí", english: "this means a lot to me" },
-  { spanish: "te lo agradezco de verdad", english: "I really appreciate it" },
-  { spanish: "me salvaste la vida", english: "you saved my life" },
-  { spanish: "sin ti no lo hubiera logrado", english: "I couldn’t have done it without you" },
-  { spanish: "es un detalle muy bonito", english: "it’s a really nice touch" },
-  { spanish: "me hiciste el día", english: "you made my day" },
-  { spanish: "eres un sol", english: "you’re a gem" },
-  { spanish: "¡qué buena vibra!", english: "what great vibes!" },
-  { spanish: "esto es inolvidable", english: "this is unforgettable" },
-  { spanish: "me siento como en casa", english: "I feel at home" }
-],
+
+    // ... (other categories like nouns, verbs, adjectives)
+  
+    expressions: [
+      // Basic Greetings and Politeness
+      { 
+        spanish: "buenos días", 
+        english: "good morning", 
+        example: { 
+          spanish: "Buenos días, ¿cómo amaneciste hoy?", 
+          english: "Good morning, how did you wake up today?" 
+        } 
+      },
+      { 
+        spanish: "buenas tardes", 
+        english: "good afternoon", 
+        example: { 
+          spanish: "Buenas tardes, ¿ya almorzaste?", 
+          english: "Good afternoon, have you already had lunch?" 
+        } 
+      },
+      { 
+        spanish: "buenas noches", 
+        english: "good evening/night", 
+        example: { 
+          spanish: "Buenas noches, que descanses bien.", 
+          english: "Good evening/night, rest well." 
+        } 
+      },
+      { 
+        spanish: "hola", 
+        english: "hello", 
+        example: { 
+          spanish: "Hola, ¿cómo te va hoy?", 
+          english: "Hello, how are you doing today?" 
+        } 
+      },
+      { 
+        spanish: "adiós", 
+        english: "goodbye", 
+        example: { 
+          spanish: "Adiós, nos vemos la próxima semana.", 
+          english: "Goodbye, see you next week." 
+        } 
+      },
+      { 
+        spanish: "por favor", 
+        english: "please", 
+        example: { 
+          spanish: "Por favor, ¿me pasas la sal?", 
+          english: "Please, can you pass me the salt?" 
+        } 
+      },
+      { 
+        spanish: "gracias", 
+        english: "thank you", 
+        example: { 
+          spanish: "Gracias por ayudarme con esto.", 
+          english: "Thank you for helping me with this." 
+        } 
+      },
+      { 
+        spanish: "de nada", 
+        english: "you're welcome", 
+        example: { 
+          spanish: "De nada, siempre es un placer ayudarte.", 
+          english: "You're welcome, it’s always a pleasure to help you." 
+        } 
+      },
+      { 
+        spanish: "¿cómo estás?", 
+        english: "how are you?", 
+        example: { 
+          spanish: "¿Cómo estás? Te noto un poco cansado.", 
+          english: "How are you? You seem a bit tired." 
+        } 
+      },
+      { 
+        spanish: "estoy bien", 
+        english: "I'm fine", 
+        example: { 
+          spanish: "Estoy bien, gracias por preguntar.", 
+          english: "I'm fine, thanks for asking." 
+        } 
+      },
+      { 
+        spanish: "mucho gusto", 
+        english: "nice to meet you", 
+        example: { 
+          spanish: "Mucho gusto, soy Ana, ¿y tú?", 
+          english: "Nice to meet you, I’m Ana, and you?" 
+        } 
+      },
+      { 
+        spanish: "disculpe", 
+        english: "excuse me", 
+        example: { 
+          spanish: "Disculpe, ¿sabe dónde está la estación?", 
+          english: "Excuse me, do you know where the station is?" 
+        } 
+      },
+      { 
+        spanish: "lo siento", 
+        english: "I'm sorry", 
+        example: { 
+          spanish: "Lo siento, llegué tarde por el tráfico.", 
+          english: "I’m sorry, I arrived late because of traffic." 
+        } 
+      },
+      { 
+        spanish: "¿qué hora es?", 
+        english: "what time is it?", 
+        example: { 
+          spanish: "¿Qué hora es? No quiero llegar tarde.", 
+          english: "What time is it? I don’t want to be late." 
+        } 
+      },
+      { 
+        spanish: "¿dónde está...?", 
+        english: "where is...?", 
+        example: { 
+          spanish: "¿Dónde está el supermercado más cercano?", 
+          english: "Where is the nearest supermarket?" 
+        } 
+      },
+      { 
+        spanish: "hasta luego", 
+        english: "see you later", 
+        example: { 
+          spanish: "Hasta luego, cuídate mucho.", 
+          english: "See you later, take care." 
+        } 
+      },
+      { 
+        spanish: "¿cómo te llamas?", 
+        english: "what's your name?", 
+        example: { 
+          spanish: "¿Cómo te llamas? No nos hemos presentado.", 
+          english: "What’s your name? We haven’t introduced ourselves." 
+        } 
+      },
+      { 
+        spanish: "me llamo...", 
+        english: "my name is...", 
+        example: { 
+          spanish: "Me llamo Carlos, ¿y tú?", 
+          english: "My name is Carlos, and yours?" 
+        } 
+      },
+      { 
+        spanish: "no entiendo", 
+        english: "I don't understand", 
+        example: { 
+          spanish: "No entiendo, ¿puedes explicarlo otra vez?", 
+          english: "I don’t understand, can you explain it again?" 
+        } 
+      },
+      { 
+        spanish: "¿puedes repetir, por favor?", 
+        english: "can you repeat, please?", 
+        example: { 
+          spanish: "¿Puedes repetir, por favor? No te escuché bien.", 
+          english: "Can you repeat, please? I didn’t hear you well." 
+        } 
+      },
+      { 
+        spanish: "hablo un poco de español", 
+        english: "I speak a little Spanish", 
+        example: { 
+          spanish: "Hablo un poco de español, pero necesito practicar.", 
+          english: "I speak a little Spanish, but I need to practice." 
+        } 
+      },
+      { 
+        spanish: "¿cuánto cuesta?", 
+        english: "how much does it cost?", 
+        example: { 
+          spanish: "¿Cuánto cuesta esta camiseta?", 
+          english: "How much does this shirt cost?" 
+        } 
+      },
+      { 
+        spanish: "quiero...", 
+        english: "I want...", 
+        example: { 
+          spanish: "Quiero un café con leche, por favor.", 
+          english: "I want a coffee with milk, please." 
+        } 
+      },
+      { 
+        spanish: "necesito ayuda", 
+        english: "I need help", 
+        example: { 
+          spanish: "Necesito ayuda con este formulario.", 
+          english: "I need help with this form." 
+        } 
+      },
+      { 
+        spanish: "¿dónde está el baño?", 
+        english: "where is the bathroom?", 
+        example: { 
+          spanish: "¿Dónde está el baño? Lo necesito urgente.", 
+          english: "Where is the bathroom? I need it urgently." 
+        } 
+      },
+      { 
+        spanish: "estoy perdido/a", 
+        english: "I'm lost", 
+        example: { 
+          spanish: "Estoy perdido, ¿puedes ayudarme a encontrar mi hotel?", 
+          english: "I’m lost, can you help me find my hotel?" 
+        } 
+      },
+      { 
+        spanish: "puedes ayudarme", 
+        english: "can you help me?", 
+        example: { 
+          spanish: "Puedes ayudarme, no sé cómo llegar al centro.", 
+          english: "Can you help me? I don’t know how to get to the city center." 
+        } 
+      },
+      { 
+        spanish: "tengo una pregunta", 
+        english: "I have a question", 
+        example: { 
+          spanish: "Tengo una pregunta, ¿a qué hora cierra la tienda?", 
+          english: "I have a question, what time does the store close?" 
+        } 
+      },
+      { 
+        spanish: "¿a qué hora abre/cierra?", 
+        english: "what time does it open/close?", 
+        example: { 
+          spanish: "¿A qué hora abre el museo mañana?", 
+          english: "What time does the museum open tomorrow?" 
+        } 
+      },
+      { 
+        spanish: "está cerca de aquí", 
+        english: "is it near here?", 
+        example: { 
+          spanish: "¿El restaurante está cerca de aquí?", 
+          english: "Is the restaurant near here?" 
+        } 
+      },
+      { 
+        spanish: "me gustaría...", 
+        english: "I would like...", 
+        example: { 
+          spanish: "Me gustaría reservar una mesa para dos.", 
+          english: "I would like to reserve a table for two." 
+        } 
+      },
+      { 
+        spanish: "no hay problema", 
+        english: "no problem", 
+        example: { 
+          spanish: "No hay problema, puedo esperar un poco más.", 
+          english: "No problem, I can wait a bit longer." 
+        } 
+      },
+      { 
+        spanish: "¿qué significa...?", 
+        english: "what does... mean?", 
+        example: { 
+          spanish: "¿Qué significa ‘rápido’ en español?", 
+          english: "What does ‘rápido’ mean in Spanish?" 
+        } 
+      },
+      { 
+        spanish: "un momento, por favor", 
+        english: "one moment, please", 
+        example: { 
+          spanish: "Un momento, por favor, voy a buscar mi cartera.", 
+          english: "One moment, please, I’ll go get my wallet." 
+        } 
+      },
+      { 
+        spanish: "feliz cumpleaños", 
+        english: "happy birthday", 
+        example: { 
+          spanish: "Feliz cumpleaños, espero que tengas un gran día.", 
+          english: "Happy birthday, I hope you have a great day." 
+        } 
+      },
+      { 
+        spanish: "¡salud!", 
+        english: "cheers! / bless you!", 
+        example: { 
+          spanish: "¡Salud! Brindo por nuestra amistad.", 
+          english: "Cheers! I toast to our friendship." 
+        } 
+      },
+      { 
+        spanish: "¿cómo se dice... en español?", 
+        english: "how do you say... in Spanish?", 
+        example: { 
+          spanish: "¿Cómo se dice ‘dog’ en español?", 
+          english: "How do you say ‘dog’ in Spanish?" 
+        } 
+      },
+      { 
+        spanish: "tengo hambre", 
+        english: "I'm hungry", 
+        example: { 
+          spanish: "Tengo hambre, ¿vamos a comer algo?", 
+          english: "I’m hungry, shall we go eat something?" 
+        } 
+      },
+      { 
+        spanish: "tengo sed", 
+        english: "I'm thirsty", 
+        example: { 
+          spanish: "Tengo sed, ¿me traes un vaso de agua?", 
+          english: "I’m thirsty, can you bring me a glass of water?" 
+        } 
+      },
+      { 
+        spanish: "¿puedo pagar con tarjeta?", 
+        english: "can I pay with a card?", 
+        example: { 
+          spanish: "¿Puedo pagar con tarjeta o solo aceptan efectivo?", 
+          english: "Can I pay with a card, or do you only accept cash?" 
+        } 
+      },
+      { 
+        spanish: "la cuenta, por favor", 
+        english: "the bill, please", 
+        example: { 
+          spanish: "La cuenta, por favor, ya terminamos de comer.", 
+          english: "The bill, please, we’re done eating." 
+        } 
+      },
+      { 
+        spanish: "estoy cansado/a", 
+        english: "I'm tired", 
+        example: { 
+          spanish: "Estoy cansado, fue un día muy largo.", 
+          english: "I’m tired, it was a very long day." 
+        } 
+      },
+      { 
+        spanish: "vivo en...", 
+        english: "I live in...", 
+        example: { 
+          spanish: "Vivo en Madrid, ¿y tú dónde vives?", 
+          english: "I live in Madrid, and where do you live?" 
+        } 
+      },
+      { 
+        spanish: "¿de dónde eres?", 
+        english: "where are you from?", 
+        example: { 
+          spanish: "¿De dónde eres? Tienes un acento interesante.", 
+          english: "Where are you from? You have an interesting accent." 
+        } 
+      },
+      { 
+        spanish: "soy de...", 
+        english: "I'm from...", 
+        example: { 
+          spanish: "Soy de México, ¿y tú de dónde eres?", 
+          english: "I’m from Mexico, and where are you from?" 
+        } 
+      },
+      { 
+        spanish: "hace buen/mal tiempo", 
+        english: "the weather is good/bad", 
+        example: { 
+          spanish: "Hace buen tiempo, ¿salimos a pasear?", 
+          english: "The weather is good, shall we go for a walk?" 
+        } 
+      },
+      { 
+        spanish: "¿qué recomiendas?", 
+        english: "what do you recommend?", 
+        example: { 
+          spanish: "¿Qué recomiendas para el almuerzo?", 
+          english: "What do you recommend for lunch?" 
+        } 
+      },
+      { 
+        spanish: "espero que sí", 
+        english: "I hope so", 
+        example: { 
+          spanish: "¿Crees que llegaremos a tiempo? Espero que sí.", 
+          english: "Do you think we’ll arrive on time? I hope so." 
+        } 
+      },
+      { 
+        spanish: "quizás mañana", 
+        english: "maybe tomorrow", 
+        example: { 
+          spanish: "No puedo hoy, pero quizás mañana sí.", 
+          english: "I can’t today, but maybe tomorrow I can." 
+        } 
+      },
+      { 
+        spanish: "no estoy seguro/a", 
+        english: "I'm not sure", 
+        example: { 
+          spanish: "No estoy seguro de cuál es el camino correcto.", 
+          english: "I’m not sure which way is the right one." 
+        } 
+      },
+  
+      // Socializing and Conversations
+      { 
+        spanish: "¡qué buena onda!", 
+        english: "how cool!", 
+        example: { 
+          spanish: "¡Qué buena onda! Me encanta tu energía.", 
+          english: "How cool! I love your energy." 
+        } 
+      },
+      { 
+        spanish: "cuéntame más", 
+        english: "tell me more", 
+        example: { 
+          spanish: "Eso suena interesante, cuéntame más.", 
+          english: "That sounds interesting, tell me more." 
+        } 
+      },
+      { 
+        spanish: "¿qué tal tu día?", 
+        english: "how’s your day going?", 
+        example: { 
+          spanish: "¿Qué tal tu día? ¿Algo emocionante?", 
+          english: "How’s your day going? Anything exciting?" 
+        } 
+      },
+      { 
+        spanish: "estoy de acuerdo", 
+        english: "I agree", 
+        example: { 
+          spanish: "Estoy de acuerdo, esa idea es perfecta.", 
+          english: "I agree, that idea is perfect." 
+        } 
+      },
+      { 
+        spanish: "no estoy de acuerdo", 
+        english: "I don’t agree", 
+        example: { 
+          spanish: "No estoy de acuerdo, creo que hay otra solución.", 
+          english: "I don’t agree, I think there’s another solution." 
+        } 
+      },
+      { 
+        spanish: "¿qué opinas?", 
+        english: "what do you think?", 
+        example: { 
+          spanish: "¿Qué opinas de este restaurante?", 
+          english: "What do you think of this restaurant?" 
+        } 
+      },
+      { 
+        spanish: "me parece genial", 
+        english: "I think that’s great", 
+        example: { 
+          spanish: "Me parece genial que hayas ganado el premio.", 
+          english: "I think that’s great that you won the award." 
+        } 
+      },
+      { 
+        spanish: "¡qué interesante!", 
+        english: "how interesting!", 
+        example: { 
+          spanish: "¡Qué interesante! No sabía eso de ti.", 
+          english: "How interesting! I didn’t know that about you." 
+        } 
+      },
+      { 
+        spanish: "bromeas, ¿verdad?", 
+        english: "you’re kidding, right?", 
+        example: { 
+          spanish: "Bromeas, ¿verdad? No puede ser cierto.", 
+          english: "You’re kidding, right? That can’t be true." 
+        } 
+      },
+      { 
+        spanish: "me da igual", 
+        english: "I don’t care", 
+        example: { 
+          spanish: "Me da igual, elige tú el lugar.", 
+          english: "I don’t care, you choose the place." 
+        } 
+      },
+      { 
+        spanish: "¡qué casualidad!", 
+        english: "what a coincidence!", 
+        example: { 
+          spanish: "¡Qué casualidad! Yo también estuve allí ayer.", 
+          english: "What a coincidence! I was there yesterday too." 
+        } 
+      },
+      { 
+        spanish: "¿te cae bien?", 
+        english: "do you like him/her?", 
+        example: { 
+          spanish: "¿Te cae bien Juan? Es muy simpático.", 
+          english: "Do you like Juan? He’s very nice." 
+        } 
+      },
+      { 
+        spanish: "es un placer charlar contigo", 
+        english: "it’s a pleasure talking to you", 
+        example: { 
+          spanish: "Es un placer charlar contigo, siempre aprendo algo.", 
+          english: "It’s a pleasure talking to you, I always learn something." 
+        } 
+      },
+      { 
+        spanish: "mantengamos el contacto", 
+        english: "let’s keep in touch", 
+        example: { 
+          spanish: "Mantengamos el contacto, no quiero perderte de vista.", 
+          english: "Let’s keep in touch, I don’t want to lose sight of you." 
+        } 
+      },
+      { 
+        spanish: "¡qué divertido!", 
+        english: "how fun!", 
+        example: { 
+          spanish: "¡Qué divertido! Me reí mucho con tu historia.", 
+          english: "How fun! I laughed a lot with your story." 
+        } 
+      },
+      { 
+        spanish: "¿cuándo nos vemos?", 
+        english: "when do we meet up?", 
+        example: { 
+          spanish: "¿Cuándo nos vemos? Tengo muchas ganas de verte.", 
+          english: "When do we meet up? I’m really looking forward to seeing you." 
+        } 
+      },
+      { 
+        spanish: "estoy emocionado/a", 
+        english: "I’m excited", 
+        example: { 
+          spanish: "Estoy emocionado por el concierto de esta noche.", 
+          english: "I’m excited about tonight’s concert." 
+        } 
+      },
+      { 
+        spanish: "me haces reír", 
+        english: "you make me laugh", 
+        example: { 
+          spanish: "Me haces reír con tus bromas, eres muy gracioso.", 
+          english: "You make me laugh with your jokes, you’re very funny." 
+        } 
+      },
+      { 
+        spanish: "¿qué planes tienes?", 
+        english: "what are your plans?", 
+        example: { 
+          spanish: "¿Qué planes tienes para el fin de semana?", 
+          english: "What are your plans for the weekend?" 
+        } 
+      },
+      { 
+        spanish: "vamos a salir", 
+        english: "let’s go out", 
+        example: { 
+          spanish: "Vamos a salir esta noche, ¿te unes?", 
+          english: "Let’s go out tonight, are you joining us?" 
+        } 
+      },
+      { 
+        spanish: "¡qué sorpresa!", 
+        english: "what a surprise!", 
+        example: { 
+          spanish: "¡Qué sorpresa! No esperaba verte aquí.", 
+          english: "What a surprise! I didn’t expect to see you here." 
+        } 
+      },
+      { 
+        spanish: "te entiendo perfectamente", 
+        english: "I totally get you", 
+        example: { 
+          spanish: "Te entiendo perfectamente, yo también lo he pasado.", 
+          english: "I totally get you, I’ve been through that too." 
+        } 
+      },
+      { 
+        spanish: "eso suena increíble", 
+        english: "that sounds amazing", 
+        example: { 
+          spanish: "Eso suena increíble, ¿cuándo lo harás?", 
+          english: "That sounds amazing, when are you doing it?" 
+        } 
+      },
+      { 
+        spanish: "me siento un poco nervioso/a", 
+        english: "I feel a bit nervous", 
+        example: { 
+          spanish: "Me siento un poco nervioso antes de la entrevista.", 
+          english: "I feel a bit nervous before the interview." 
+        } 
+      },
+      { 
+        spanish: "¡qué lindo gesto!", 
+        english: "what a nice gesture!", 
+        example: { 
+          spanish: "¡Qué lindo gesto! Gracias por el regalo.", 
+          english: "What a nice gesture! Thanks for the gift." 
+        } 
+      },
+      { 
+        spanish: "¿cómo lo llevas?", 
+        english: "how are you holding up?", 
+        example: { 
+          spanish: "¿Cómo lo llevas con tanto trabajo?", 
+          english: "How are you holding up with so much work?" 
+        } 
+      },
+      { 
+        spanish: "es una larga historia", 
+        english: "it’s a long story", 
+        example: { 
+          spanish: "Es una larga historia, pero te la cuento si quieres.", 
+          english: "It’s a long story, but I’ll tell you if you want." 
+        } 
+      },
+      { 
+        spanish: "no me lo esperaba", 
+        english: "I didn’t expect that", 
+        example: { 
+          spanish: "No me lo esperaba, fue una gran sorpresa.", 
+          english: "I didn’t expect that, it was a big surprise." 
+        } 
+      },
+      { 
+        spanish: "¡qué alivio!", 
+        english: "what a relief!", 
+        example: { 
+          spanish: "¡Qué alivio! Pensé que había perdido mi teléfono.", 
+          english: "What a relief! I thought I had lost my phone." 
+        } 
+      },
+      { 
+        spanish: "te apoyo totalmente", 
+        english: "I totally support you", 
+        example: { 
+          spanish: "Te apoyo totalmente en tu decisión.", 
+          english: "I totally support you in your decision." 
+        } 
+      },
+      { 
+        spanish: "¿cómo te sientes?", 
+        english: "how are you feeling?", 
+        example: { 
+          spanish: "¿Cómo te sientes después de la noticia?", 
+          english: "How are you feeling after the news?" 
+        } 
+      },
+      { 
+        spanish: "me dio mucha pena", 
+        english: "I felt really bad", 
+        example: { 
+          spanish: "Me dio mucha pena no poder asistir a tu fiesta.", 
+          english: "I felt really bad for not being able to attend your party." 
+        } 
+      },
+      { 
+        spanish: "¡qué envidia!", 
+        english: "I’m so jealous!", 
+        example: { 
+          spanish: "¡Qué envidia! Tus vacaciones parecen increíbles.", 
+          english: "I’m so jealous! Your vacation looks amazing." 
+        } 
+      },
+      { 
+        spanish: "estoy de buen humor", 
+        english: "I’m in a good mood", 
+        example: { 
+          spanish: "Estoy de buen humor, hoy todo salió bien.", 
+          english: "I’m in a good mood, everything went well today." 
+        } 
+      },
+      { 
+        spanish: "no te preocupes", 
+        english: "don’t worry", 
+        example: { 
+          spanish: "No te preocupes, todo va a salir bien.", 
+          english: "Don’t worry, everything will turn out fine." 
+        } 
+      },
+      { 
+        spanish: "¡venga, anímate!", 
+        english: "come on, cheer up!", 
+        example: { 
+          spanish: "¡Venga, anímate! Vamos a divertirnos.", 
+          english: "Come on, cheer up! Let’s have some fun." 
+        } 
+      },
+      { 
+        spanish: "me encantó conocerte", 
+        english: "I loved meeting you", 
+        example: { 
+          spanish: "Me encantó conocerte, eres muy amable.", 
+          english: "I loved meeting you, you’re very kind." 
+        } 
+      },
+      { 
+        spanish: "espero verte pronto", 
+        english: "I hope to see you soon", 
+        example: { 
+          spanish: "Espero verte pronto, fue un placer charlar.", 
+          english: "I hope to see you soon, it was a pleasure to chat." 
+        } 
+      },
+      { 
+        spanish: "¿qué tal si...?", 
+        english: "how about...?", 
+        example: { 
+          spanish: "¿Qué tal si vamos al cine esta tarde?", 
+          english: "How about we go to the movies this afternoon?" 
+        } 
+      },
+      { 
+        spanish: "tienes toda la razón", 
+        english: "you’re absolutely right", 
+        example: { 
+          spanish: "Tienes toda la razón, no lo había pensado.", 
+          english: "You’re absolutely right, I hadn’t thought of that." 
+        } 
+      },
+      { 
+        spanish: "me parece justo", 
+        english: "that seems fair", 
+        example: { 
+          spanish: "Me parece justo dividir los gastos a la mitad.", 
+          english: "That seems fair to split the expenses in half." 
+        } 
+      },
+      { 
+        spanish: "¡qué exagerado/a!", 
+        english: "how exaggerated!", 
+        example: { 
+          spanish: "¡Qué exagerado! No fue para tanto.", 
+          english: "How exaggerated! It wasn’t that big of a deal." 
+        } 
+      },
+      { 
+        spanish: "me estás tomando el pelo", 
+        english: "you’re pulling my leg", 
+        example: { 
+          spanish: "Me estás tomando el pelo, ¿verdad? No puede ser.", 
+          english: "You’re pulling my leg, right? That can’t be true." 
+        } 
+      },
+      { 
+        spanish: "no me convence", 
+        english: "I’m not convinced", 
+        example: { 
+          spanish: "No me convence esa idea, creo que hay riesgos.", 
+          english: "I’m not convinced by that idea, I think there are risks." 
+        } 
+      },
+      { 
+        spanish: "es una pasada", 
+        english: "it’s awesome", 
+        example: { 
+          spanish: "Este lugar es una pasada, me encanta.", 
+          english: "This place is awesome, I love it." 
+        } 
+      },
+      { 
+        spanish: "¿y tú qué dices?", 
+        english: "and what do you say?", 
+        example: { 
+          spanish: "Yo pienso que sí, ¿y tú qué dices?", 
+          english: "I think yes, and what do you say?" 
+        } 
+      },
+      { 
+        spanish: "me da curiosidad", 
+        english: "I’m curious", 
+        example: { 
+          spanish: "Me da curiosidad saber cómo lo hiciste.", 
+          english: "I’m curious to know how you did it." 
+        } 
+      },
+      { 
+        spanish: "¡qué emoción!", 
+        english: "how exciting!", 
+        example: { 
+          spanish: "¡Qué emoción! Vamos a viajar juntos.", 
+          english: "How exciting! We’re going to travel together." 
+        } 
+      },
+      { 
+        spanish: "estoy flipando", 
+        english: "I’m freaking out", 
+        example: { 
+          spanish: "Estoy flipando con las noticias, no lo creo.", 
+          english: "I’m freaking out with the news, I can’t believe it." 
+        } 
+      },
+  
+      // Dining and Restaurants
+      { 
+        spanish: "¿tienen menú del día?", 
+        english: "do you have a daily menu?", 
+        example: { 
+          spanish: "¿Tienen menú del día? Quiero algo económico.", 
+          english: "Do you have a daily menu? I want something affordable." 
+        } 
+      },
+      { 
+        spanish: "¿qué lleva este plato?", 
+        english: "what’s in this dish?", 
+        example: { 
+          spanish: "¿Qué lleva este plato? Soy alérgico al marisco.", 
+          english: "What’s in this dish? I’m allergic to seafood." 
+        } 
+      },
+      { 
+        spanish: "soy alérgico/a a...", 
+        english: "I’m allergic to...", 
+        example: { 
+          spanish: "Soy alérgico a los cacahuates, ¿este plato los tiene?", 
+          english: "I’m allergic to peanuts, does this dish have them?" 
+        } 
+      },
+      { 
+        spanish: "¿pueden hacerlo rápido?", 
+        english: "can you make it quick?", 
+        example: { 
+          spanish: "¿Pueden hacerlo rápido? Tengo prisa.", 
+          english: "Can you make it quick? I’m in a hurry." 
+        } 
+      },
+      { 
+        spanish: "está delicioso", 
+        english: "it’s delicious", 
+        example: { 
+          spanish: "Este postre está delicioso, gracias por la recomendación.", 
+          english: "This dessert is delicious, thanks for the recommendation." 
+        } 
+      },
+      { 
+        spanish: "¿tienen opciones vegetarianas?", 
+        english: "do you have vegetarian options?", 
+        example: { 
+          spanish: "¿Tienen opciones vegetarianas en el menú?", 
+          english: "Do you have vegetarian options on the menu?" 
+        } 
+      },
+      { 
+        spanish: "sin gluten, por favor", 
+        english: "gluten-free, please", 
+        example: { 
+          spanish: "Sin gluten, por favor, tengo intolerancia.", 
+          english: "Gluten-free, please, I have an intolerance." 
+        } 
+      },
+      { 
+        spanish: "¿pueden separar la cuenta?", 
+        english: "can you split the bill?", 
+        example: { 
+          spanish: "¿Pueden separar la cuenta? Somos tres personas.", 
+          english: "Can you split the bill? There are three of us." 
+        } 
+      },
+      { 
+        spanish: "está un poco frío", 
+        english: "it’s a bit cold", 
+        example: { 
+          spanish: "La sopa está un poco fría, ¿pueden calentarla?", 
+          english: "The soup is a bit cold, can you heat it up?" 
+        } 
+      },
+      { 
+        spanish: "¿me traes más agua?", 
+        english: "can you bring more water?", 
+        example: { 
+          spanish: "¿Me traes más agua? Este plato está picante.", 
+          english: "Can you bring more water? This dish is spicy." 
+        } 
+      },
+      { 
+        spanish: "no quiero cebolla", 
+        english: "I don’t want onion", 
+        example: { 
+          spanish: "No quiero cebolla en mi ensalada, por favor.", 
+          english: "I don’t want onion in my salad, please." 
+        } 
+      },
+      { 
+        spanish: "¿tienen postres caseros?", 
+        english: "do you have homemade desserts?", 
+        example: { 
+          spanish: "¿Tienen postres caseros? Me gustaría probar algo especial.", 
+          english: "Do you have homemade desserts? I’d like to try something special." 
+        } 
+      },
+      { 
+        spanish: "está muy salado", 
+        english: "it’s too salty", 
+        example: { 
+          spanish: "Este plato está muy salado, ¿pueden ajustarlo?", 
+          english: "This dish is too salty, can you adjust it?" 
+        } 
+      },
+      { 
+        spanish: "¿me das un tenedor, por favor?", 
+        english: "can I have a fork, please?", 
+        example: { 
+          spanish: "¿Me das un tenedor, por favor? Se me cayó el mío.", 
+          english: "Can I have a fork, please? I dropped mine." 
+        } 
+      },
+      { 
+        spanish: "quiero hacer una reserva", 
+        english: "I want to make a reservation", 
+        example: { 
+          spanish: "Quiero hacer una reserva para esta noche a las ocho.", 
+          english: "I want to make a reservation for tonight at eight." 
+        } 
+      },
+      { 
+        spanish: "¿tienen terraza?", 
+        english: "do you have an outdoor area?", 
+        example: { 
+          spanish: "¿Tienen terraza? Me gustaría comer afuera.", 
+          english: "Do you have an outdoor area? I’d like to eat outside." 
+        } 
+      },
+      { 
+        spanish: "para dos personas", 
+        english: "for two people", 
+        example: { 
+          spanish: "Una mesa para dos personas, por favor.", 
+          english: "A table for two people, please." 
+        } 
+      },
+      { 
+        spanish: "¿cuál es el plato estrella?", 
+        english: "what’s the signature dish?", 
+        example: { 
+          spanish: "¿Cuál es el plato estrella de este restaurante?", 
+          english: "What’s the signature dish of this restaurant?" 
+        } 
+      },
+      { 
+        spanish: "está todo perfecto", 
+        english: "everything’s perfect", 
+        example: { 
+          spanish: "Está todo perfecto, gracias por la atención.", 
+          english: "Everything’s perfect, thanks for the service." 
+        } 
+      },
+      { 
+        spanish: "¿me lo envuelves para llevar?", 
+        english: "can you wrap it to go?", 
+        example: { 
+          spanish: "¿Me lo envuelves para llevar? No terminé mi comida.", 
+          english: "Can you wrap it to go? I didn’t finish my food." 
+        } 
+      },
+      { 
+        spanish: "no me gustó mucho", 
+        english: "I didn’t like it much", 
+        example: { 
+          spanish: "No me gustó mucho el postre, estaba muy dulce.", 
+          english: "I didn’t like the dessert much, it was too sweet." 
+        } 
+      },
+      { 
+        spanish: "¿tienen vino de la casa?", 
+        english: "do you have house wine?", 
+        example: { 
+          spanish: "¿Tienen vino de la casa? Quiero probar algo local.", 
+          english: "Do you have house wine? I want to try something local." 
+        } 
+      },
+      { 
+        spanish: "una mesa cerca de la ventana", 
+        english: "a table by the window", 
+        example: { 
+          spanish: "Quiero una mesa cerca de la ventana, por favor.", 
+          english: "I want a table by the window, please." 
+        } 
+      },
+      { 
+        spanish: "¿cuánto tiempo de espera?", 
+        english: "how long is the wait?", 
+        example: { 
+          spanish: "¿Cuánto tiempo de espera hay para una mesa?", 
+          english: "How long is the wait for a table?" 
+        } 
+      },
+      { 
+        spanish: "esto no es lo que pedí", 
+        english: "this isn’t what I ordered", 
+        example: { 
+          spanish: "Esto no es lo que pedí, yo quería pollo.", 
+          english: "This isn’t what I ordered, I wanted chicken." 
+        } 
+      },
+  
+      // Shopping
+      { 
+        spanish: "¿dónde están los probadores?", 
+        english: "where are the fitting rooms?", 
+        example: { 
+          spanish: "¿Dónde están los probadores? Quiero probarme esta chaqueta.", 
+          english: "Where are the fitting rooms? I want to try on this jacket." 
+        } 
+      },
+      { 
+        spanish: "¿tienen esta talla?", 
+        english: "do you have this size?", 
+        example: { 
+          spanish: "¿Tienen esta talla en azul? Me gusta este vestido.", 
+          english: "Do you have this size in blue? I like this dress." 
+        } 
+      },
+      { 
+        spanish: "¿puedo devolverlo?", 
+        english: "can I return it?", 
+        example: { 
+          spanish: "¿Puedo devolverlo si no me queda bien?", 
+          english: "Can I return it if it doesn’t fit me?" 
+        } 
+      },
+      { 
+        spanish: "¿hay descuento?", 
+        english: "is there a discount?", 
+        example: { 
+          spanish: "¿Hay descuento en estos zapatos? Me gustan mucho.", 
+          english: "Is there a discount on these shoes? I really like them." 
+        } 
+      },
+      { 
+        spanish: "me lo llevo", 
+        english: "I’ll take it", 
+        example: { 
+          spanish: "Me lo llevo, este suéter es perfecto.", 
+          english: "I’ll take it, this sweater is perfect." 
+        } 
+      },
+      { 
+        spanish: "¿en qué pasillo está...?", 
+        english: "in which aisle is...?", 
+        example: { 
+          spanish: "¿En qué pasillo está el arroz? No lo encuentro.", 
+          english: "In which aisle is the rice? I can’t find it." 
+        } 
+      },
+      { 
+        spanish: "¿tienen algo más barato?", 
+        english: "do you have something cheaper?", 
+        example: { 
+          spanish: "¿Tienen algo más barato? Esto está fuera de mi presupuesto.", 
+          english: "Do you have something cheaper? This is out of my budget." 
+        } 
+      },
+      { 
+        spanish: "está en oferta", 
+        english: "it’s on sale", 
+        example: { 
+          spanish: "Este bolso está en oferta, ¿lo quieres?", 
+          english: "This bag is on sale, do you want it?" 
+        } 
+      },
+      { 
+        spanish: "¿me das una bolsa?", 
+        english: "can you give me a bag?", 
+        example: { 
+          spanish: "¿Me das una bolsa? Compré varias cosas.", 
+          english: "Can you give me a bag? I bought several things." 
+        } 
+      },
+      { 
+        spanish: "¿aceptan efectivo?", 
+        english: "do you accept cash?", 
+        example: { 
+          spanish: "¿Aceptan efectivo o solo tarjeta?", 
+          english: "Do you accept cash or only card?" 
+        } 
+      },
+      { 
+        spanish: "no me queda bien", 
+        english: "it doesn’t fit me", 
+        example: { 
+          spanish: "No me queda bien, creo que necesito una talla más grande.", 
+          english: "It doesn’t fit me, I think I need a larger size." 
+        } 
+      },
+      { 
+        spanish: "¿tienen garantía?", 
+        english: "does it come with a warranty?", 
+        example: { 
+          spanish: "¿Tienen garantía estos audífonos?", 
+          english: "Does it come with a warranty for these headphones?" 
+        } 
+      },
+      { 
+        spanish: "quiero cambiarlo", 
+        english: "I want to exchange it", 
+        example: { 
+          spanish: "Quiero cambiarlo, este color no me gusta.", 
+          english: "I want to exchange it, I don’t like this color." 
+        } 
+      },
+      { 
+        spanish: "¿cuál es el precio final?", 
+        english: "what’s the final price?", 
+        example: { 
+          spanish: "¿Cuál es el precio final con impuestos incluidos?", 
+          english: "What’s the final price with taxes included?" 
+        } 
+      },
+      { 
+        spanish: "está un poco caro", 
+        english: "it’s a bit expensive", 
+        example: { 
+          spanish: "Está un poco caro, ¿pueden hacerme un descuento?", 
+          english: "It’s a bit expensive, can you give me a discount?" 
+        } 
+      },
+      { 
+        spanish: "¿pueden envolverlo para regalo?", 
+        english: "can you gift-wrap it?", 
+        example: { 
+          spanish: "¿Pueden envolverlo para regalo? Es para un cumpleaños.", 
+          english: "Can you gift-wrap it? It’s for a birthday." 
+        } 
+      },
+      { 
+        spanish: "¿tienen stock?", 
+        english: "do you have it in stock?", 
+        example: { 
+          spanish: "¿Tienen stock de este modelo de teléfono?", 
+          english: "Do you have this phone model in stock?" 
+        } 
+      },
+      { 
+        spanish: "lo vi más barato en otro lado", 
+        english: "I saw it cheaper elsewhere", 
+        example: { 
+          spanish: "Lo vi más barato en otro lado, ¿pueden igualar el precio?", 
+          english: "I saw it cheaper elsewhere, can you match the price?" 
+        } 
+      },
+      { 
+        spanish: "¿cuándo llega?", 
+        english: "when will it arrive?", 
+        example: { 
+          spanish: "¿Cuándo llega mi pedido si lo compro hoy?", 
+          english: "When will my order arrive if I buy it today?" 
+        } 
+      },
+      { 
+        spanish: "quiero hacer un reclamo", 
+        english: "I want to make a complaint", 
+        example: { 
+          spanish: "Quiero hacer un reclamo, este producto está defectuoso.", 
+          english: "I want to make a complaint, this product is defective." 
+        } 
+      },
+  
+      // Travel and Directions
+      { 
+        spanish: "¿cómo llego a...?", 
+        english: "how do I get to...?", 
+        example: { 
+          spanish: "¿Cómo llego a la plaza principal?", 
+          english: "How do I get to the main square?" 
+        } 
+      },
+      { 
+        spanish: "¿es lejos de aquí?", 
+        english: "is it far from here?", 
+        example: { 
+          spanish: "¿Es lejos de aquí el museo?", 
+          english: "Is the museum far from here?" 
+        } 
+      },
+      { 
+        spanish: "gira a la derecha", 
+        english: "turn right", 
+        example: { 
+          spanish: "Gira a la derecha en la próxima esquina.", 
+          english: "Turn right at the next corner." 
+        } 
+      },
+      { 
+        spanish: "gira a la izquierda", 
+        english: "turn left", 
+        example: { 
+          spanish: "Gira a la izquierda después del semáforo.", 
+          english: "Turn left after the traffic light." 
+        } 
+      },
+      { 
+        spanish: "sigue recto", 
+        english: "go straight", 
+        example: { 
+          spanish: "Sigue recto por dos calles y lo verás.", 
+          english: "Go straight for two streets, and you’ll see it." 
+        } 
+      },
+      { 
+        spanish: "¿dónde está la estación?", 
+        english: "where’s the station?", 
+        example: { 
+          spanish: "¿Dónde está la estación de tren más cercana?", 
+          english: "Where’s the nearest train station?" 
+        } 
+      },
+      { 
+        spanish: "un billete de ida", 
+        english: "a one-way ticket", 
+        example: { 
+          spanish: "Quiero un billete de ida a Barcelona.", 
+          english: "I want a one-way ticket to Barcelona." 
+        } 
+      },
+      { 
+        spanish: "un billete de ida y vuelta", 
+        english: "a round-trip ticket", 
+        example: { 
+          spanish: "Un billete de ida y vuelta a Madrid, por favor.", 
+          english: "A round-trip ticket to Madrid, please." 
+        } 
+      },
+      { 
+        spanish: "¿a qué hora sale el tren?", 
+        english: "what time does the train leave?", 
+        example: { 
+          spanish: "¿A qué hora sale el tren a Valencia?", 
+          english: "What time does the train to Valencia leave?" 
+        } 
+      },
+      { 
+        spanish: "¿cuál es el próximo autobús?", 
+        english: "when’s the next bus?", 
+        example: { 
+          spanish: "¿Cuál es el próximo autobús al centro?", 
+          english: "When’s the next bus to the city center?" 
+        } 
+      },
+      { 
+        spanish: "me bajé en la parada equivocada", 
+        english: "I got off at the wrong stop", 
+        example: { 
+          spanish: "Me bajé en la parada equivocada, ¿cómo regreso?", 
+          english: "I got off at the wrong stop, how do I get back?" 
+        } 
+      },
+      { 
+        spanish: "¿dónde está la salida?", 
+        english: "where’s the exit?", 
+        example: { 
+          spanish: "¿Dónde está la salida? Estoy un poco perdido.", 
+          english: "Where’s the exit? I’m a bit lost." 
+        } 
+      },
+      { 
+        spanish: "necesito un taxi", 
+        english: "I need a taxi", 
+        example: { 
+          spanish: "Necesito un taxi para ir al aeropuerto.", 
+          english: "I need a taxi to go to the airport." 
+        } 
+      },
+      { 
+        spanish: "¿cuánto es hasta el aeropuerto?", 
+        english: "how much to the airport?", 
+        example: { 
+          spanish: "¿Cuánto es hasta el aeropuerto en taxi?", 
+          english: "How much to the airport by taxi?" 
+        } 
+      },
+      { 
+        spanish: "¿pueden llevar mi equipaje?", 
+        english: "can you take my luggage?", 
+        example: { 
+          spanish: "¿Pueden llevar mi equipaje? Es un poco pesado.", 
+          english: "Can you take my luggage? It’s a bit heavy." 
+        } 
+      },
+      { 
+        spanish: "perdí mi maleta", 
+        english: "I lost my suitcase", 
+        example: { 
+          spanish: "Perdí mi maleta en el aeropuerto, ¿dónde reporto?", 
+          english: "I lost my suitcase at the airport, where do I report it?" 
+        } 
+      },
+      { 
+        spanish: "¿dónde está la oficina de turismo?", 
+        english: "where’s the tourist office?", 
+        example: { 
+          spanish: "¿Dónde está la oficina de turismo? Necesito información.", 
+          english: "Where’s the tourist office? I need information." 
+        } 
+      },
+      { 
+        spanish: "¿tienen un mapa?", 
+        english: "do you have a map?", 
+        example: { 
+          spanish: "¿Tienen un mapa de la ciudad?", 
+          english: "Do you have a map of the city?" 
+        } 
+      },
+      { 
+        spanish: "quiero alquilar un coche", 
+        english: "I want to rent a car", 
+        example: { 
+          spanish: "Quiero alquilar un coche por tres días.", 
+          english: "I want to rent a car for three days." 
+        } 
+      },
+      { 
+        spanish: "¿cuál es el límite de velocidad?", 
+        english: "what’s the speed limit?", 
+        example: { 
+          spanish: "¿Cuál es el límite de velocidad en esta carretera?", 
+          english: "What’s the speed limit on this road?" 
+        } 
+      },
+      { 
+        spanish: "¿es seguro caminar por aquí?", 
+        english: "is it safe to walk here?", 
+        example: { 
+          spanish: "¿Es seguro caminar por aquí de noche?", 
+          english: "Is it safe to walk here at night?" 
+        } 
+      },
+      { 
+        spanish: "¿dónde puedo cambiar dinero?", 
+        english: "where can I exchange money?", 
+        example: { 
+          spanish: "¿Dónde puedo cambiar dinero? Necesito euros.", 
+          english: "Where can I exchange money? I need euros." 
+        } 
+      },
+      { 
+        spanish: "¿cuál es la mejor ruta?", 
+        english: "what’s the best route?", 
+        example: { 
+          spanish: "¿Cuál es la mejor ruta para llegar al castillo?", 
+          english: "What’s the best route to get to the castle?" 
+        } 
+      },
+      { 
+        spanish: "estoy buscando un hotel", 
+        english: "I’m looking for a hotel", 
+        example: { 
+          spanish: "Estoy buscando un hotel cerca del centro.", 
+          english: "I’m looking for a hotel near the city center." 
+        } 
+      },
+      { 
+        spanish: "¿tienen habitaciones disponibles?", 
+        english: "do you have any rooms available?", 
+        example: { 
+          spanish: "¿Tienen habitaciones disponibles para esta noche?", 
+          english: "Do you have any rooms available for tonight?" 
+        } 
+      },
+      { 
+        spanish: "quiero una habitación individual", 
+        english: "I want a single room", 
+        example: { 
+          spanish: "Quiero una habitación individual con vista al mar.", 
+          english: "I want a single room with a sea view." 
+        } 
+      },
+      { 
+        spanish: "¿incluye desayuno?", 
+        english: "does it include breakfast?", 
+        example: { 
+          spanish: "¿El precio incluye desayuno o es aparte?", 
+          english: "Does the price include breakfast, or is it separate?" 
+        } 
+      },
+      { 
+        spanish: "la llave de mi habitación", 
+        english: "the key to my room", 
+        example: { 
+          spanish: "Se me olvidó la llave de mi habitación, ¿me das otra?", 
+          english: "I forgot the key to my room, can you give me another one?" 
+        } 
+      },
+      { 
+        spanish: "¿dónde está el ascensor?", 
+        english: "where’s the elevator?", 
+        example: { 
+          spanish: "¿Dónde está el ascensor? Mi habitación está en el piso 5.", 
+          english: "Where’s the elevator? My room is on the 5th floor." 
+        } 
+      },
+      { 
+        spanish: "no funciona el aire acondicionado", 
+        english: "the air conditioning isn’t working", 
+        example: { 
+          spanish: "No funciona el aire acondicionado, hace mucho calor.", 
+          english: "The air conditioning isn’t working, it’s very hot." 
+        } 
+      },
+      { 
+        spanish: "¿pueden limpiar mi habitación?", 
+        english: "can you clean my room?", 
+        example: { 
+          spanish: "¿Pueden limpiar mi habitación mientras estoy fuera?", 
+          english: "Can you clean my room while I’m out?" 
+        } 
+      },
+      { 
+        spanish: "¿a qué hora es el check-out?", 
+        english: "what time is check-out?", 
+        example: { 
+          spanish: "¿A qué hora es el check-out? Tengo un vuelo temprano.", 
+          english: "What time is check-out? I have an early flight." 
+        } 
+      },
+      { 
+        spanish: "quiero extender mi estancia", 
+        english: "I want to extend my stay", 
+        example: { 
+          spanish: "Quiero extender mi estancia por dos días más.", 
+          english: "I want to extend my stay for two more days." 
+        } 
+      },
+      { 
+        spanish: "¿dónde está el parking?", 
+        english: "where’s the parking?", 
+        example: { 
+          spanish: "¿Dónde está el parking? Alquilé un coche.", 
+          english: "Where’s the parking? I rented a car." 
+        } 
+      },
+      { 
+        spanish: "¿es una zona turística?", 
+        english: "is it a tourist area?", 
+        example: { 
+          spanish: "¿Es una zona turística? Quiero explorar un poco.", 
+          english: "Is it a tourist area? I want to explore a bit." 
+        } 
+      },
+      { 
+        spanish: "¿qué lugares recomiendas visitar?", 
+        english: "what places do you recommend visiting?", 
+        example: { 
+          spanish: "¿Qué lugares recomiendas visitar en esta ciudad?", 
+          english: "What places do you recommend visiting in this city?" 
+        } 
+      },
+      { 
+        spanish: "necesito un guía", 
+        english: "I need a guide", 
+        example: { 
+          spanish: "Necesito un guía para recorrer las ruinas.", 
+          english: "I need a guide to tour the ruins." 
+        } 
+      },
+      { 
+        spanish: "¿hay wifi gratis?", 
+        english: "is there free wifi?", 
+        example: { 
+          spanish: "¿Hay wifi gratis en el hotel?", 
+          english: "Is there free wifi in the hotel?" 
+        } 
+      },
+      { 
+        spanish: "¿cuál es la contraseña del wifi?", 
+        english: "what’s the wifi password?", 
+        example: { 
+          spanish: "¿Cuál es la contraseña del wifi? Quiero conectarme.", 
+          english: "What’s the wifi password? I want to connect." 
+        } 
+      },
+      { 
+        spanish: "perdí mi pasaporte", 
+        english: "I lost my passport", 
+        example: { 
+          spanish: "Perdí mi pasaporte, ¿qué debo hacer?", 
+          english: "I lost my passport, what should I do?" 
+        } 
+      },
+      { 
+        spanish: "¿dónde está la embajada?", 
+        english: "where’s the embassy?", 
+        example: { 
+          spanish: "¿Dónde está la embajada de mi país?", 
+          english: "Where’s the embassy of my country?" 
+        } 
+      },
+      { 
+        spanish: "necesito un adaptador de enchufe", 
+        english: "I need a plug adapter", 
+        example: { 
+          spanish: "Necesito un adaptador de enchufe para mi cargador.", 
+          english: "I need a plug adapter for my charger." 
+        } 
+      },
+  
+      // Work and Professional Settings
+      { 
+        spanish: "¿cuándo es la reunión?", 
+        english: "when’s the meeting?", 
+        example: { 
+          spanish: "¿Cuándo es la reunión con el cliente?", 
+          english: "When’s the meeting with the client?" 
+        } 
+      },
+      { 
+        spanish: "necesito enviar un correo", 
+        english: "I need to send an email", 
+        example: { 
+          spanish: "Necesito enviar un correo al equipo ahora.", 
+          english: "I need to send an email to the team now." 
+        } 
+      },
+      { 
+        spanish: "¿puedes revisarlo?", 
+        english: "can you review it?", 
+        example: { 
+          spanish: "¿Puedes revisarlo antes de enviarlo?", 
+          english: "Can you review it before sending it?" 
+        } 
+      },
+      { 
+        spanish: "estoy trabajando en ello", 
+        english: "I’m working on it", 
+        example: { 
+          spanish: "Estoy trabajando en ello, lo tendré listo pronto.", 
+          english: "I’m working on it, I’ll have it ready soon." 
+        }
+      }
+    ],
             
-adjectives: [
-  { spanish: "accesible", english: "accessible" },
-  { spanish: "acogedor", english: "cozy" },
-  { spanish: "actual", english: "current" },
-  { spanish: "adecuado", english: "appropriate" },
-  { spanish: "agradable", english: "pleasant" },
-  { spanish: "ahorrador", english: "thrifty" },
-  { spanish: "alegre", english: "cheerful" },
-  { spanish: "alentador", english: "encouraging" },
-  { spanish: "alto", english: "tall/high" },
-  { spanish: "amable", english: "kind" },
-  { spanish: "ambicioso", english: "ambitious" },
-  { spanish: "amplio", english: "spacious" },
-  { spanish: "antiguo", english: "old/ancient" },
-  { spanish: "anunciado", english: "advertised" },
-  { spanish: "apasionado", english: "passionate" },
-  { spanish: "apropiado", english: "suitable" },
-  { spanish: "arriesgado", english: "risky" },
-  { spanish: "arrogante", english: "arrogant" },
-  { spanish: "asequible", english: "affordable" },
-  { spanish: "atractivo", english: "attractive" },
-  { spanish: "auténtico", english: "authentic" },
-  { spanish: "avanzado", english: "advanced" },
-  { spanish: "aventurero", english: "adventurous" },
-  { spanish: "bajo", english: "short/low" },
-  { spanish: "barato", english: "cheap" },
-  { spanish: "bello", english: "beautiful" },
-  { spanish: "beneficioso", english: "beneficial" },
-  { spanish: "brillante", english: "bright/brilliant" },
-  { spanish: "bullicioso", english: "bustling" },
-  { spanish: "caliente", english: "hot" },
-  { spanish: "cálido", english: "warm" },
-  { spanish: "calmado", english: "calm" },
-  { spanish: "capaz", english: "capable" },
-  { spanish: "carismático", english: "charismatic" },
-  { spanish: "caro", english: "expensive" },
-  { spanish: "caótico", english: "chaotic" },
-  { spanish: "cercano", english: "nearby" },
-  { spanish: "cómodo", english: "comfortable" },
-  { spanish: "complicado", english: "complicated" },
-  { spanish: "comprensivo", english: "understanding" },
-  { spanish: "confiable", english: "reliable" },
-  { spanish: "confuso", english: "confusing" },
-  { spanish: "conocido", english: "well-known" },
-  { spanish: "considerado", english: "considerate" },
-  { spanish: "constante", english: "consistent" },
-  { spanish: "contagioso", english: "contagious" },
-  { spanish: "contento", english: "happy" },
-  { spanish: "conveniente", english: "convenient" },
-  { spanish: "cooperativo", english: "cooperative" },
-  { spanish: "corriente", english: "ordinary" },
-  { spanish: "costoso", english: "costly" },
-  { spanish: "creativo", english: "creative" },
-  { spanish: "crítico", english: "critical" },
-  { spanish: "crucial", english: "crucial" },
-  { spanish: "cuidadoso", english: "careful" },
-  { spanish: "culto", english: "cultured" },
-  { spanish: "curioso", english: "curious" },
-  { spanish: "decepcionante", english: "disappointing" },
-  { spanish: "decidido", english: "determined" },
-  { spanish: "dedicado", english: "dedicated" },
-  { spanish: "definitivo", english: "definitive" },
-  { spanish: "delicado", english: "delicate" },
-  { spanish: "delicioso", english: "delicious" },
-  { spanish: "dependiente", english: "dependent" },
-  { spanish: "deprimente", english: "depressing" },
-  { spanish: "desafiante", english: "challenging" },
-  { spanish: "desagradable", english: "unpleasant" },
-  { spanish: "desastroso", english: "disastrous" },
-  { spanish: "desconfiado", english: "distrustful" },
-  { spanish: "desconsiderado", english: "inconsiderate" },
-  { spanish: "desorganizado", english: "disorganized" },
-  { spanish: "detallado", english: "detailed" },
-  { spanish: "diferente", english: "different" },
-  { spanish: "difícil", english: "difficult" },
-  { spanish: "dinámico", english: "dynamic" },
-  { spanish: "directo", english: "direct" },
-  { spanish: "discreto", english: "discreet" },
-  { spanish: "divertido", english: "fun" },
-  { spanish: "dramático", english: "dramatic" },
-  { spanish: "duradero", english: "lasting" },
-  { spanish: "económico", english: "economical" },
-  { spanish: "educado", english: "polite" },
-  { spanish: "eficaz", english: "effective" },
-  { spanish: "eficiente", english: "efficient" },
-  { spanish: "elegante", english: "elegant" },
-  { spanish: "emocionado", english: "excited" },
-  { spanish: "emocionante", english: "exciting" },
-  { spanish: "encantador", english: "charming" },
-  { spanish: "enérgico", english: "energetic" },
-  { spanish: "enfadado", english: "angry" },
-  { spanish: "enfermo", english: "sick" },
-  { spanish: "enorme", english: "enormous" },
-  { spanish: "entretenido", english: "entertaining" },
-  { spanish: "entusiasta", english: "enthusiastic" },
-  { spanish: "escalofriante", english: "creepy" },
-  { spanish: "escandaloso", english: "scandalous" },
-  { spanish: "especial", english: "special" },
-  { spanish: "espectacular", english: "spectacular" },
-  { spanish: "espontáneo", english: "spontaneous" },
-  { spanish: "estable", english: "stable" },
-  { spanish: "estiloso", english: "stylish" },
-  { spanish: "estresado", english: "stressed" },
-  { spanish: "estricto", english: "strict" },
-  { spanish: "estúpido", english: "stupid" },
-  { spanish: "exagerado", english: "exaggerated" },
-  { spanish: "excelente", english: "excellent" },
-  { spanish: "exigente", english: "demanding" },
-  { spanish: "exótico", english: "exotic" },
-  { spanish: "experimentado", english: "experienced" },
-  { spanish: "extraordinario", english: "extraordinary" },
-  { spanish: "extravagante", english: "extravagant" },
-  { spanish: "fácil", english: "easy" },
-  { spanish: "falso", english: "false" },
-  { spanish: "famoso", english: "famous" },
-  { spanish: "fantástico", english: "fantastic" },
-  { spanish: "fascinante", english: "fascinating" },
-  { spanish: "favorable", english: "favorable" },
-  { spanish: "feliz", english: "happy" },
-  { spanish: "fiable", english: "trustworthy" },
-  { spanish: "fiel", english: "faithful" },
-  { spanish: "firme", english: "firm" },
-  { spanish: "flexible", english: "flexible" },
-  { spanish: "flojo", english: "lazy" },
-  { spanish: "formal", english: "formal" },
-  { spanish: "frágil", english: "fragile" },
-  { spanish: "franco", english: "frank" },
-  { spanish: "frecuente", english: "frequent" },
-  { spanish: "frío", english: "cold" },
-  { spanish: "frustrado", english: "frustrated" },
-  { spanish: "fuerte", english: "strong" },
-  { spanish: "funcional", english: "functional" },
-  { spanish: "generoso", english: "generous" },
-  { spanish: "genial", english: "great" },
-  { spanish: "grave", english: "serious" },
-  { spanish: "grueso", english: "thick" },
-  { spanish: "habilidoso", english: "skillful" },
-  { spanish: "hábil", english: "able" },
-  { spanish: "hermoso", english: "beautiful" },
-  { spanish: "histórico", english: "historic" },
-  { spanish: "honesto", english: "honest" },
-  { spanish: "horrible", english: "horrible" },
-  { spanish: "húmedo", english: "humid" },
-  { spanish: "humilde", english: "humble" },
-  { spanish: "ideal", english: "ideal" },
-  { spanish: "idóneo", english: "suitable" },
-  { spanish: "ignorante", english: "ignorant" },
-  { spanish: "imparcial", english: "impartial" },
-  { spanish: "impaciente", english: "impatient" },
-  { spanish: "impecable", english: "impeccable" },
-  { spanish: "importante", english: "important" },
-  { spanish: "imposible", english: "impossible" },
-  { spanish: "impresionante", english: "impressive" },
-  { spanish: "imprevisible", english: "unpredictable" },
-  { spanish: "inapropiado", english: "inappropriate" },
-  { spanish: "increíble", english: "incredible" },
-  { spanish: "independiente", english: "independent" },
-  { spanish: "indiferente", english: "indifferent" },
-  { spanish: "indirecto", english: "indirect" },
-  { spanish: "inesperado", english: "unexpected" },
-  { spanish: "inestable", english: "unstable" },
-  { spanish: "inferior", english: "inferior" },
-  { spanish: "influyente", english: "influential" },
-  { spanish: "informal", english: "informal" },
-  { spanish: "ingenioso", english: "ingenious" },
-  { spanish: "injusto", english: "unfair" },
-  { spanish: "inmenso", english: "immense" },
-  { spanish: "inocente", english: "innocent" },
-  { spanish: "inquieto", english: "restless" },
-  { spanish: "insatisfecho", english: "dissatisfied" },
-  { spanish: "inseguro", english: "insecure" },
-  { spanish: "insoportable", english: "unbearable" },
-  { spanish: "inspirador", english: "inspiring" },
-  { spanish: "inteligente", english: "intelligent" },
-  { spanish: "intenso", english: "intense" },
-  { spanish: "interesante", english: "interesting" },
-  { spanish: "internacional", english: "international" },
-  { spanish: "inútil", english: "useless" },
-  { spanish: "invaluable", english: "invaluable" },
-  { spanish: "irritante", english: "irritating" },
-  { spanish: "joven", english: "young" },
-  { spanish: "jubilado", english: "retired" },
-  { spanish: "justo", english: "fair" },
-  { spanish: "largo", english: "long" },
-  { spanish: "leal", english: "loyal" },
-  { spanish: "lento", english: "slow" },
-  { spanish: "ligero", english: "light" },
-  { spanish: "limpio", english: "clean" },
-  { spanish: "lindo", english: "cute" },
-  { spanish: "lógico", english: "logical" },
-  { spanish: "lujoso", english: "luxurious" },
-  { spanish: "maduro", english: "mature" },
-  { spanish: "maleducado", english: "rude" },
-  { spanish: "maravilloso", english: "wonderful" },
-  { spanish: "mediocre", english: "mediocre" },
-  { spanish: "mejor", english: "better" },
-  { spanish: "memorable", english: "memorable" },
-  { spanish: "misterioso", english: "mysterious" },
-  { spanish: "moderno", english: "modern" },
-  { spanish: "molesto", english: "annoying" },
-  { spanish: "motivado", english: "motivated" },
-  { spanish: "nervioso", english: "nervous" },
-  { spanish: "nítido", english: "clear" },
-  { spanish: "novedoso", english: "innovative" },
-  { spanish: "nuevo", english: "new" },
-  { spanish: "numeroso", english: "numerous" },
-  { spanish: "obvio", english: "obvious" },
-  { spanish: "ocupado", english: "busy" },
-  { spanish: "odioso", english: "hateful" },
-  { spanish: "ofensivo", english: "offensive" },
-  { spanish: "oportuno", english: "timely" },
-  { spanish: "optimista", english: "optimistic" },
-  { spanish: "organizado", english: "organized" },
-  { spanish: "original", english: "original" },
-  { spanish: "paciente", english: "patient" },
-  { spanish: "peligroso", english: "dangerous" },
-  { spanish: "pequeño", english: "small" },
-  { spanish: "perfecto", english: "perfect" },
-  { spanish: "permanente", english: "permanent" },
-  { spanish: "pesado", english: "heavy" },
-  { spanish: "pesimista", english: "pessimistic" },
-  { spanish: "pobre", english: "poor" },
-  { spanish: "poderoso", english: "powerful" },
-  { spanish: "popular", english: "popular" },
-  { spanish: "positivo", english: "positive" },
-  { spanish: "posible", english: "possible" },
-  { spanish: "práctico", english: "practical" },
-  { spanish: "preciso", english: "precise" },
-  { spanish: "preferible", english: "preferable" },
-  { spanish: "preocupado", english: "worried" },
-  { spanish: "prestigioso", english: "prestigious" },
-  { spanish: "productivo", english: "productive" },
-  { spanish: "profesional", english: "professional" },
-  { spanish: "profundo", english: "deep" },
-  { spanish: "prometedor", english: "promising" },
-  { spanish: "pronto", english: "prompt" },
-  { spanish: "próximo", english: "next" },
-  { spanish: "público", english: "public" },
-  { spanish: "puro", english: "pure" },
-  { spanish: "rápido", english: "fast" },
-  { spanish: "raro", english: "strange" },
-  { spanish: "razonable", english: "reasonable" },
-  { spanish: "reciente", english: "recent" },
-  { spanish: "reconfortante", english: "comforting" },
-  { spanish: "recto", english: "straight" },
-  { spanish: "recuperado", english: "recovered" },
-  { spanish: "refrescante", english: "refreshing" },
-  { spanish: "regular", english: "average" },
-  { spanish: "relajado", english: "relaxed" },
-  { spanish: "relevante", english: "relevant" },
-  { spanish: "rentable", english: "profitable" },
-  { spanish: "reservado", english: "reserved" },
-  { spanish: "resistente", english: "resistant" },
-  { spanish: "respetuoso", english: "respectful" },
-  { spanish: "responsable", english: "responsible" },
-  { spanish: "rico", english: "rich" },
-  { spanish: "ridículo", english: "ridiculous" },
-  { spanish: "robusto", english: "robust" },
-  { spanish: "romántico", english: "romantic" },
-  { spanish: "ruidoso", english: "noisy" },
-  { spanish: "sano", english: "healthy" },
-  { spanish: "satisfactorio", english: "satisfactory" },
-  { spanish: "seguro", english: "safe" },
-  { spanish: "sencillo", english: "simple" },
-  { spanish: "sensato", english: "sensible" },
-  { spanish: "sensible", english: "sensitive" },
-  { spanish: "serio", english: "serious" },
-  { spanish: "silencioso", english: "quiet" },
-  { spanish: "simpático", english: "friendly" },
-  { spanish: "sincero", english: "sincere" },
-  { spanish: "singular", english: "unique" },
-  { spanish: "situado", english: "located" },
-  { spanish: "sofisticado", english: "sophisticated" },
-  { spanish: "sólido", english: "solid" },
-  { spanish: "soltero", english: "single" },
-  { spanish: "sorprendente", english: "surprising" },
-  { spanish: "suave", english: "soft" },
-  { spanish: "subestimado", english: "underestimated" },
-  { spanish: "sucio", english: "dirty" },
-  { spanish: "superior", english: "superior" },
-  { spanish: "suspicaz", english: "suspicious" },
-  { spanish: "talentoso", english: "talented" },
-  { spanish: "técnico", english: "technical" },
-  { spanish: "temeroso", english: "fearful" },
-  { spanish: "tenso", english: "tense" },
-  { spanish: "terrible", english: "terrible" },
-  { spanish: "tímido", english: "shy" },
-  { spanish: "típico", english: "typical" },
-  { spanish: "tolerante", english: "tolerant" },
-  { spanish: "tóxico", english: "toxic" },
-  { spanish: "tranquilo", english: "calm" },
-  { spanish: "triste", english: "sad" },
-  { spanish: "unido", english: "united" },
-  { spanish: "útil", english: "useful" },
-  { spanish: "valiente", english: "brave" },
-  { spanish: "valioso", english: "valuable" },
-  { spanish: "variado", english: "varied" },
-  { spanish: "verdadero", english: "true" },
-  { spanish: "versátil", english: "versatile" },
-  { spanish: "viejo", english: "old" },
-  { spanish: "violento", english: "violent" },
-  { spanish: "visible", english: "visible" },
-  { spanish: "vivo", english: "lively" },
-  { spanish: "vulnerable", english: "vulnerable" }
+        adjectives: [
+  { spanish: "accesible", english: "accessible", example: { spanish: "Este edificio es muy accesible para personas con discapacidad.", english: "This building is very accessible for people with disabilities." } },
+  { spanish: "acogedor", english: "cozy", example: { spanish: "Su casa es muy acogedora en invierno.", english: "Her house is very cozy in winter." } },
+  { spanish: "actual", english: "current", example: { spanish: "El actual presidente es muy popular.", english: "The current president is very popular." } },
+  { spanish: "adecuado", english: "appropriate", example: { spanish: "Ese vestido no es adecuado para la boda.", english: "That dress is not appropriate for the wedding." } },
+  { spanish: "agradable", english: "pleasant", example: { spanish: "Fue un día muy agradable en el parque.", english: "It was a very pleasant day at the park." } },
+  { spanish: "ahorrador", english: "thrifty", example: { spanish: "Mi padre es muy ahorrador con el dinero.", english: "My father is very thrifty with money." } },
+  { spanish: "alegre", english: "cheerful", example: { spanish: "Ella siempre está alegre por las mañanas.", english: "She is always cheerful in the mornings." } },
+  { spanish: "alentador", english: "encouraging", example: { spanish: "Su discurso fue muy alentador para el equipo.", english: "His speech was very encouraging for the team." } },
+  { spanish: "alto", english: "tall/high", example: { spanish: "Ese edificio es muy alto.", english: "That building is very tall." } },
+  { spanish: "amable", english: "kind", example: { spanish: "La vecina es muy amable con todos.", english: "The neighbor is very kind to everyone." } },
+  { spanish: "ambicioso", english: "ambitious", example: { spanish: "Es un hombre muy ambicioso en su carrera.", english: "He is a very ambitious man in his career." } },
+  { spanish: "amplio", english: "spacious", example: { spanish: "El apartamento es muy amplio para una familia.", english: "The apartment is very spacious for a family." } },
+  { spanish: "antiguo", english: "old/ancient", example: { spanish: "Este castillo es muy antiguo.", english: "This castle is very ancient." } },
+  { spanish: "anunciado", english: "advertised", example: { spanish: "El producto anunciado no es tan bueno.", english: "The advertised product isn’t that good." } },
+  { spanish: "apasionado", english: "passionate", example: { spanish: "Es un músico muy apasionado.", english: "He is a very passionate musician." } },
+  { spanish: "apropiado", english: "suitable", example: { spanish: "Este lugar es apropiado para la reunión.", english: "This place is suitable for the meeting." } },
+  { spanish: "arriesgado", english: "risky", example: { spanish: "Ese plan es muy arriesgado.", english: "That plan is very risky." } },
+  { spanish: "arrogante", english: "arrogant", example: { spanish: "No me gusta su actitud arrogante.", english: "I don’t like his arrogant attitude." } },
+  { spanish: "asequible", english: "affordable", example: { spanish: "Este coche es muy asequible para mi presupuesto.", english: "This car is very affordable for my budget." } },
+  { spanish: "atractivo", english: "attractive", example: { spanish: "Ella es muy atractiva y simpática.", english: "She is very attractive and friendly." } },
+  { spanish: "auténtico", english: "authentic", example: { spanish: "Este restaurante sirve comida auténtica.", english: "This restaurant serves authentic food." } },
+  { spanish: "avanzado", english: "advanced", example: { spanish: "Este curso es muy avanzado para principiantes.", english: "This course is very advanced for beginners." } },
+  { spanish: "aventurero", english: "adventurous", example: { spanish: "Mi hermano es muy aventurero y le gusta viajar.", english: "My brother is very adventurous and loves to travel." } },
+  { spanish: "bajo", english: "short/low", example: { spanish: "Ese árbol es muy bajo.", english: "That tree is very short." } },
+  { spanish: "barato", english: "cheap", example: { spanish: "Este mercado tiene productos muy baratos.", english: "This market has very cheap products." } },
+  { spanish: "bello", english: "beautiful", example: { spanish: "El paisaje es muy bello al atardecer.", english: "The landscape is very beautiful at sunset." } },
+  { spanish: "beneficioso", english: "beneficial", example: { spanish: "Hacer ejercicio es muy beneficioso para la salud.", english: "Exercising is very beneficial for health." } },
+  { spanish: "brillante", english: "bright/brilliant", example: { spanish: "El sol está muy brillante hoy.", english: "The sun is very bright today." } },
+  { spanish: "bullicioso", english: "bustling", example: { spanish: "El mercado es muy bullicioso los fines de semana.", english: "The market is very bustling on weekends." } },
+  { spanish: "caliente", english: "hot", example: { spanish: "El café está muy caliente, ten cuidado.", english: "The coffee is very hot, be careful." } },
+  { spanish: "cálido", english: "warm", example: { spanish: "El clima es cálido en primavera.", english: "The weather is warm in spring." } },
+  { spanish: "calmado", english: "calm", example: { spanish: "Él siempre está calmado en situaciones difíciles.", english: "He is always calm in difficult situations." } },
+  { spanish: "capaz", english: "capable", example: { spanish: "Ella es muy capaz de liderar el equipo.", english: "She is very capable of leading the team." } },
+  { spanish: "carismático", english: "charismatic", example: { spanish: "El profesor es muy carismático y divertido.", english: "The teacher is very charismatic and fun." } },
+  { spanish: "caro", english: "expensive", example: { spanish: "Este reloj es muy caro para mi presupuesto.", english: "This watch is very expensive for my budget." } },
+  { spanish: "caótico", english: "chaotic", example: { spanish: "El tráfico está muy caótico hoy.", english: "The traffic is very chaotic today." } },
+  { spanish: "cercano", english: "nearby", example: { spanish: "Hay un supermercado cercano a mi casa.", english: "There is a nearby supermarket to my house." } },
+  { spanish: "cómodo", english: "comfortable", example: { spanish: "Este sofá es muy cómodo para descansar.", english: "This sofa is very comfortable for resting." } },
+  { spanish: "complicado", english: "complicated", example: { spanish: "Este problema es muy complicado de resolver.", english: "This problem is very complicated to solve." } },
+  { spanish: "comprensivo", english: "understanding", example: { spanish: "Mi jefe es muy comprensivo con los empleados.", english: "My boss is very understanding with the employees." } },
+  { spanish: "confiable", english: "reliable", example: { spanish: "Este coche es muy confiable para viajes largos.", english: "This car is very reliable for long trips." } },
+  { spanish: "confuso", english: "confusing", example: { spanish: "El mapa es muy confuso, no entiendo nada.", english: "The map is very confusing, I don’t understand anything." } },
+  { spanish: "conocido", english: "well-known", example: { spanish: "Es un actor muy conocido en España.", english: "He is a very well-known actor in Spain." } },
+  { spanish: "considerado", english: "considerate", example: { spanish: "Es muy considerado con sus amigos.", english: "He is very considerate with his friends." } },
+  { spanish: "constante", english: "consistent", example: { spanish: "Su esfuerzo es muy constante, siempre trabaja duro.", english: "Her effort is very consistent, she always works hard." } },
+  { spanish: "contagioso", english: "contagious", example: { spanish: "Su risa es muy contagiosa.", english: "Her laughter is very contagious." } },
+  { spanish: "contento", english: "happy", example: { spanish: "Estoy muy contento con mi nuevo trabajo.", english: "I am very happy with my new job." } },
+  { spanish: "conveniente", english: "convenient", example: { spanish: "Es muy conveniente vivir cerca del trabajo.", english: "It’s very convenient to live near work." } },
+  { spanish: "cooperativo", english: "cooperative", example: { spanish: "El equipo es muy cooperativo en los proyectos.", english: "The team is very cooperative in projects." } },
+  { spanish: "corriente", english: "ordinary", example: { spanish: "Es un día corriente, nada especial.", english: "It’s an ordinary day, nothing special." } },
+  { spanish: "costoso", english: "costly", example: { spanish: "Reparar el coche fue muy costoso.", english: "Repairing the car was very costly." } },
+  { spanish: "creativo", english: "creative", example: { spanish: "Ella es muy creativa con sus diseños.", english: "She is very creative with her designs." } },
+  { spanish: "crítico", english: "critical", example: { spanish: "Su opinión es muy crítica sobre el proyecto.", english: "His opinion is very critical about the project." } },
+  { spanish: "crucial", english: "crucial", example: { spanish: "Es un momento crucial para la empresa.", english: "It’s a crucial moment for the company." } },
+  { spanish: "cuidadoso", english: "careful", example: { spanish: "Es muy cuidadoso al manejar.", english: "He is very careful when driving." } },
+  { spanish: "culto", english: "cultured", example: { spanish: "Mi profesor es muy culto y sabe mucho.", english: "My teacher is very cultured and knows a lot." } },
+  { spanish: "curioso", english: "curious", example: { spanish: "El niño es muy curioso y hace muchas preguntas.", english: "The child is very curious and asks a lot of questions." } },
+  { spanish: "decepcionante", english: "disappointing", example: { spanish: "El resultado fue muy decepcionante.", english: "The result was very disappointing." } },
+  { spanish: "decidido", english: "determined", example: { spanish: "Está muy decidido a terminar el proyecto.", english: "He is very determined to finish the project." } },
+  { spanish: "dedicado", english: "dedicated", example: { spanish: "Es un trabajador muy dedicado.", english: "He is a very dedicated worker." } },
+  { spanish: "definitivo", english: "definitive", example: { spanish: "Esta es la decisión definitiva.", english: "This is the definitive decision." } },
+  { spanish: "delicado", english: "delicate", example: { spanish: "Este tejido es muy delicado, ten cuidado.", english: "This fabric is very delicate, be careful." } },
+  { spanish: "delicioso", english: "delicious", example: { spanish: "La comida está muy deliciosa hoy.", english: "The food is very delicious today." } },
+  { spanish: "dependiente", english: "dependent", example: { spanish: "Es muy dependiente de sus padres.", english: "He is very dependent on his parents." } },
+  { spanish: "deprimente", english: "depressing", example: { spanish: "El clima está muy deprimente hoy.", english: "The weather is very depressing today." } },
+  { spanish: "desafiante", english: "challenging", example: { spanish: "Este examen es muy desafiante.", english: "This exam is very challenging." } },
+  { spanish: "desagradable", english: "unpleasant", example: { spanish: "Fue una experiencia muy desagradable.", english: "It was a very unpleasant experience." } },
+  { spanish: "desastroso", english: "disastrous", example: { spanish: "El evento fue muy desastroso.", english: "The event was very disastrous." } },
+  { spanish: "desconfiado", english: "distrustful", example: { spanish: "Es muy desconfiado con los desconocidos.", english: "He is very distrustful of strangers." } },
+  { spanish: "desconsiderado", english: "inconsiderate", example: { spanish: "Fue muy desconsiderado de su parte.", english: "That was very inconsiderate of him." } },
+  { spanish: "desorganizado", english: "disorganized", example: { spanish: "Mi escritorio está muy desorganizado.", english: "My desk is very disorganized." } },
+  { spanish: "detallado", english: "detailed", example: { spanish: "El informe es muy detallado.", english: "The report is very detailed." } },
+  { spanish: "diferente", english: "different", example: { spanish: "Este libro es muy diferente al otro.", english: "This book is very different from the other one." } },
+  { spanish: "difícil", english: "difficult", example: { spanish: "El examen fue muy difícil.", english: "The exam was very difficult." } },
+  { spanish: "dinámico", english: "dynamic", example: { spanish: "El equipo es muy dinámico y creativo.", english: "The team is very dynamic and creative." } },
+  { spanish: "directo", english: "direct", example: { spanish: "Prefiero un enfoque más directo.", english: "I prefer a more direct approach." } },
+  { spanish: "discreto", english: "discreet", example: { spanish: "Es muy discreto con sus problemas personales.", english: "He is very discreet about his personal problems." } },
+  { spanish: "divertido", english: "fun", example: { spanish: "La fiesta fue muy divertida.", english: "The party was very fun." } },
+  { spanish: "dramático", english: "dramatic", example: { spanish: "Su reacción fue muy dramática.", english: "Her reaction was very dramatic." } },
+  { spanish: "duradero", english: "lasting", example: { spanish: "Este material es muy duradero.", english: "This material is very lasting." } },
+  { spanish: "económico", english: "economical", example: { spanish: "Este coche es muy económico en combustible.", english: "This car is very economical on fuel." } },
+  { spanish: "educado", english: "polite", example: { spanish: "El niño es muy educado con los mayores.", english: "The child is very polite with elders." } },
+  { spanish: "eficaz", english: "effective", example: { spanish: "Este método es muy eficaz para aprender.", english: "This method is very effective for learning." } },
+  { spanish: "eficiente", english: "efficient", example: { spanish: "El sistema es muy eficiente y rápido.", english: "The system is very efficient and fast." } },
+  { spanish: "elegante", english: "elegant", example: { spanish: "Ella lleva un vestido muy elegante.", english: "She is wearing a very elegant dress." } },
+  { spanish: "emocionado", english: "excited", example: { spanish: "Estoy muy emocionado por el viaje.", english: "I am very excited about the trip." } },
+  { spanish: "emocionante", english: "exciting", example: { spanish: "Fue una aventura muy emocionante.", english: "It was a very exciting adventure." } },
+  { spanish: "encantador", english: "charming", example: { spanish: "El pueblo es muy encantador y tranquilo.", english: "The village is very charming and peaceful." } },
+  { spanish: "enérgico", english: "energetic", example: { spanish: "El entrenador es muy enérgico durante los partidos.", english: "The coach is very energetic during matches." } },
+  { spanish: "enfadado", english: "angry", example: { spanish: "Está muy enfadado por lo que pasó.", english: "He is very angry about what happened." } },
+  { spanish: "enfermo", english: "sick", example: { spanish: "Me siento muy enfermo hoy.", english: "I feel very sick today." } },
+  { spanish: "enorme", english: "enormous", example: { spanish: "El elefante es un animal enorme.", english: "The elephant is an enormous animal." } },
+  { spanish: "entretenido", english: "entertaining", example: { spanish: "La película fue muy entretenida.", english: "The movie was very entertaining." } },
+  { spanish: "entusiasta", english: "enthusiastic", example: { spanish: "Es muy entusiasta con su nuevo proyecto.", english: "She is very enthusiastic about her new project." } },
+  { spanish: "escalofriante", english: "creepy", example: { spanish: "Esa casa abandonada es muy escalofriante.", english: "That abandoned house is very creepy." } },
+  { spanish: "escandaloso", english: "scandalous", example: { spanish: "Su comportamiento fue muy escandaloso.", english: "His behavior was very scandalous." } },
+  { spanish: "especial", english: "special", example: { spanish: "Hoy es un día muy especial para mí.", english: "Today is a very special day for me." } },
+  { spanish: "espectacular", english: "spectacular", example: { spanish: "El concierto fue muy espectacular.", english: "The concert was very spectacular." } },
+  { spanish: "espontáneo", english: "spontaneous", example: { spanish: "Me gusta su carácter espontáneo.", english: "I like her spontaneous personality." } },
+  { spanish: "estable", english: "stable", example: { spanish: "La economía está muy estable este año.", english: "The economy is very stable this year." } },
+  { spanish: "estiloso", english: "stylish", example: { spanish: "Ese abrigo es muy estiloso.", english: "That coat is very stylish." } },
+  { spanish: "estresado", english: "stressed", example: { spanish: "Estoy muy estresado por el trabajo.", english: "I am very stressed about work." } },
+  { spanish: "estricto", english: "strict", example: { spanish: "El profesor es muy estricto con las reglas.", english: "The teacher is very strict with the rules." } },
+  { spanish: "estúpido", english: "stupid", example: { spanish: "Fue un comentario muy estúpido.", english: "That was a very stupid comment." } },
+  { spanish: "exagerado", english: "exaggerated", example: { spanish: "Su reacción fue muy exagerada.", english: "Her reaction was very exaggerated." } },
+  { spanish: "excelente", english: "excellent", example: { spanish: "El servicio fue muy excelente.", english: "The service was very excellent." } },
+  { spanish: "exigente", english: "demanding", example: { spanish: "Mi jefe es muy exigente con los plazos.", english: "My boss is very demanding with deadlines." } },
+  { spanish: "exótico", english: "exotic", example: { spanish: "Probamos un plato muy exótico en el restaurante.", english: "We tried a very exotic dish at the restaurant." } },
+  { spanish: "experimentado", english: "experienced", example: { spanish: "Es un ingeniero muy experimentado.", english: "He is a very experienced engineer." } },
+  { spanish: "extraordinario", english: "extraordinary", example: { spanish: "Fue un logro muy extraordinario.", english: "It was a very extraordinary achievement." } },
+  { spanish: "extravagante", english: "extravagant", example: { spanish: "Su estilo es muy extravagante.", english: "Her style is very extravagant." } },
+  { spanish: "fácil", english: "easy", example: { spanish: "Este ejercicio es muy fácil.", english: "This exercise is very easy." } },
+  { spanish: "falso", english: "false", example: { spanish: "Esa noticia es muy falsa.", english: "That news is very false." } },
+  { spanish: "famoso", english: "famous", example: { spanish: "Es un cantante muy famoso en todo el mundo.", english: "He is a very famous singer worldwide." } },
+  { spanish: "fantástico", english: "fantastic", example: { spanish: "El viaje fue muy fantástico.", english: "The trip was very fantastic." } },
+  { spanish: "fascinante", english: "fascinating", example: { spanish: "La historia es muy fascinante.", english: "The story is very fascinating." } },
+  { spanish: "favorable", english: "favorable", example: { spanish: "Las condiciones son muy favorables para el negocio.", english: "The conditions are very favorable for the business." } },
+  { spanish: "feliz", english: "happy", example: { spanish: "Estoy muy feliz con mi nueva casa.", english: "I am very happy with my new house." } },
+  { spanish: "fiable", english: "trustworthy", example: { spanish: "Es un amigo muy fiable.", english: "He is a very trustworthy friend." } },
+  { spanish: "fiel", english: "faithful", example: { spanish: "Mi perro es muy fiel y siempre me sigue.", english: "My dog is very faithful and always follows me." } },
+  { spanish: "firme", english: "firm", example: { spanish: "Su decisión es muy firme, no cambiará.", english: "His decision is very firm, he won’t change it." } },
+  { spanish: "flexible", english: "flexible", example: { spanish: "El horario es muy flexible en este trabajo.", english: "The schedule is very flexible in this job." } },
+  { spanish: "flojo", english: "lazy", example: { spanish: "Es muy flojo y nunca termina sus tareas.", english: "He is very lazy and never finishes his tasks." } },
+  { spanish: "formal", english: "formal", example: { spanish: "La reunión fue muy formal.", english: "The meeting was very formal." } },
+  { spanish: "frágil", english: "fragile", example: { spanish: "Este vaso es muy frágil, ten cuidado.", english: "This glass is very fragile, be careful." } },
+  { spanish: "franco", english: "frank", example: { spanish: "Es muy franco y siempre dice la verdad.", english: "He is very frank and always tells the truth." } },
+  { spanish: "frecuente", english: "frequent", example: { spanish: "Es muy frecuente verlo por aquí.", english: "It’s very frequent to see him around here." } },
+  { spanish: "frío", english: "cold", example: { spanish: "El agua está muy fría hoy.", english: "The water is very cold today." } },
+  { spanish: "frustrado", english: "frustrated", example: { spanish: "Estoy muy frustrado con este problema.", english: "I am very frustrated with this problem." } },
+  { spanish: "fuerte", english: "strong", example: { spanish: "El viento es muy fuerte esta tarde.", english: "The wind is very strong this afternoon." } },
+  { spanish: "funcional", english: "functional", example: { spanish: "Este diseño es muy funcional para la oficina.", english: "This design is very functional for the office." } },
+  { spanish: "generoso", english: "generous", example: { spanish: "Es muy generoso con su tiempo y dinero.", english: "He is very generous with his time and money." } },
+  { spanish: "genial", english: "great", example: { spanish: "La idea es muy genial, me encanta.", english: "The idea is very great, I love it." } },
+  { spanish: "grave", english: "serious", example: { spanish: "Es un problema muy grave.", english: "It’s a very serious problem." } },
+  { spanish: "grueso", english: "thick", example: { spanish: "Este libro es muy grueso.", english: "This book is very thick." } },
+  { spanish: "habilidoso", english: "skillful", example: { spanish: "Es muy habilidoso con las manos.", english: "He is very skillful with his hands." } },
+  { spanish: "hábil", english: "able", example: { spanish: "Es muy hábil para resolver problemas.", english: "She is very able at solving problems." } },
+  { spanish: "hermoso", english: "beautiful", example: { spanish: "El atardecer es muy hermoso hoy.", english: "The sunset is very beautiful today." } },
+  { spanish: "histórico", english: "historic", example: { spanish: "Este edificio es muy histórico.", english: "This building is very historic." } },
+  { spanish: "honesto", english: "honest", example: { spanish: "Es muy honesto y nunca miente.", english: "He is very honest and never lies." } },
+  { spanish: "horrible", english: "horrible", example: { spanish: "El accidente fue muy horrible.", english: "The accident was very horrible." } },
+  { spanish: "húmedo", english: "humid", example: { spanish: "El clima está muy húmedo hoy.", english: "The weather is very humid today." } },
+  { spanish: "humilde", english: "humble", example: { spanish: "Es una persona muy humilde a pesar de su éxito.", english: "He is a very humble person despite his success." } },
+  { spanish: "ideal", english: "ideal", example: { spanish: "Este lugar es ideal para las vacaciones.", english: "This place is ideal for vacations." } },
+  { spanish: "idóneo", english: "suitable", example: { spanish: "Es un candidato idóneo para el puesto.", english: "He is a suitable candidate for the position." } },
+  { spanish: "ignorante", english: "ignorant", example: { spanish: "Es muy ignorante sobre este tema.", english: "He is very ignorant about this topic." } },
+  { spanish: "imparcial", english: "impartial", example: { spanish: "El juez debe ser muy imparcial.", english: "The judge must be very impartial." } },
+  { spanish: "impaciente", english: "impatient", example: { spanish: "Es muy impaciente y no puede esperar.", english: "She is very impatient and can’t wait." } },
+  { spanish: "impecable", english: "impeccable", example: { spanish: "Su trabajo es siempre impecable.", english: "Her work is always impeccable." } },
+  { spanish: "importante", english: "important", example: { spanish: "Es muy importante llegar a tiempo.", english: "It’s very important to arrive on time." } },
+  { spanish: "imposible", english: "impossible", example: { spanish: "Es muy imposible terminar esto hoy.", english: "It’s very impossible to finish this today." } },
+  { spanish: "impresionante", english: "impressive", example: { spanish: "El espectáculo fue muy impresionante.", english: "The show was very impressive." } },
+  { spanish: "imprevisible", english: "unpredictable", example: { spanish: "El clima es muy imprevisible en esta región.", english: "The weather is very unpredictable in this region." } },
+  { spanish: "inapropiado", english: "inappropriate", example: { spanish: "Su comentario fue muy inapropiado.", english: "His comment was very inappropriate." } },
+  { spanish: "increíble", english: "incredible", example: { spanish: "La vista desde aquí es muy increíble.", english: "The view from here is very incredible." } },
+  { spanish: "independiente", english: "independent", example: { spanish: "Ella es muy independiente y vive sola.", english: "She is very independent and lives alone." } },
+  { spanish: "indiferente", english: "indifferent", example: { spanish: "Es muy indiferente a los problemas de los demás.", english: "He is very indifferent to others’ problems." } },
+  { spanish: "indirecto", english: "indirect", example: { spanish: "Prefiero un enfoque más indirecto.", english: "I prefer a more indirect approach." } },
+  { spanish: "inesperado", english: "unexpected", example: { spanish: "Fue un cambio muy inesperado.", english: "It was a very unexpected change." } },
+  { spanish: "inestable", english: "unstable", example: { spanish: "La situación es muy inestable ahora.", english: "The situation is very unstable now." } },
+  { spanish: "inferior", english: "inferior", example: { spanish: "Este producto es muy inferior al otro.", english: "This product is very inferior to the other one." } },
+  { spanish: "influyente", english: "influential", example: { spanish: "Es una persona muy influyente en la industria.", english: "She is a very influential person in the industry." } },
+  { spanish: "informal", english: "informal", example: { spanish: "La reunión fue muy informal y relajada.", english: "The meeting was very informal and relaxed." } },
+  { spanish: "ingenioso", english: "ingenious", example: { spanish: "Su solución fue muy ingeniosa.", english: "His solution was very ingenious." } },
+  { spanish: "injusto", english: "unfair", example: { spanish: "Es muy injusto que no te paguen por tu trabajo.", english: "It’s very unfair that they don’t pay you for your work." } },
+  { spanish: "inmenso", english: "immense", example: { spanish: "El océano es muy inmenso.", english: "The ocean is very immense." } },
+  { spanish: "inocente", english: "innocent", example: { spanish: "El niño parece muy inocente.", english: "The child seems very innocent." } },
+  { spanish: "inquieto", english: "restless", example: { spanish: "Está muy inquieto porque no puede dormir.", english: "He is very restless because he can’t sleep." } },
+  { spanish: "insatisfecho", english: "dissatisfied", example: { spanish: "Estoy muy insatisfecho con el servicio.", english: "I am very dissatisfied with the service." } },
+  { spanish: "inseguro", english: "insecure", example: { spanish: "Se siente muy inseguro en su nuevo trabajo.", english: "He feels very insecure in his new job." } },
+  { spanish: "insoportable", english: "unbearable", example: { spanish: "El calor es muy insoportable hoy.", english: "The heat is very unbearable today." } },
+  { spanish: "inspirador", english: "inspiring", example: { spanish: "Su discurso fue muy inspirador.", english: "Her speech was very inspiring." } },
+  { spanish: "inteligente", english: "intelligent", example: { spanish: "Es una estudiante muy inteligente.", english: "She is a very intelligent student." } },
+  { spanish: "intenso", english: "intense", example: { spanish: "El partido fue muy intenso.", english: "The match was very intense." } },
+  { spanish: "interesante", english: "interesting", example: { spanish: "El libro es muy interesante.", english: "The book is very interesting." } },
+  { spanish: "internacional", english: "international", example: { spanish: "Es una empresa muy internacional.", english: "It’s a very international company." } },
+  { spanish: "inútil", english: "useless", example: { spanish: "Este aparato es muy inútil.", english: "This device is very useless." } },
+  { spanish: "invaluable", english: "invaluable", example: { spanish: "Su ayuda fue muy invaluable.", english: "His help was very invaluable." } },
+  { spanish: "irritante", english: "irritating", example: { spanish: "Ese ruido es muy irritante.", english: "That noise is very irritating." } },
+  { spanish: "joven", english: "young", example: { spanish: "Es un hombre muy joven para ese puesto.", english: "He is a very young man for that position." } },
+  { spanish: "jubilado", english: "retired", example: { spanish: "Mi abuelo está jubilado y disfruta su tiempo libre.", english: "My grandfather is retired and enjoys his free time." } },
+  { spanish: "justo", english: "fair", example: { spanish: "Es un jefe muy justo con todos.", english: "He is a very fair boss with everyone." } },
+  { spanish: "largo", english: "long", example: { spanish: "El camino es muy largo.", english: "The road is very long." } },
+  { spanish: "leal", english: "loyal", example: { spanish: "Es muy leal a su familia.", english: "She is very loyal to her family." } },
+  { spanish: "lento", english: "slow", example: { spanish: "El tren es muy lento hoy.", english: "The train is very slow today." } },
+  { spanish: "ligero", english: "light", example: { spanish: "Este bolso es muy ligero.", english: "This bag is very light." } },
+  { spanish: "limpio", english: "clean", example: { spanish: "La casa está muy limpia después de la limpieza.", english: "The house is very clean after the cleaning." } },
+  { spanish: "lindo", english: "cute", example: { spanish: "Ese bebé es muy lindo.", english: "That baby is very cute." } },
+  { spanish: "lógico", english: "logical", example: { spanish: "Su explicación es muy lógica.", english: "His explanation is very logical." } },
+  { spanish: "lujoso", english: "luxurious", example: { spanish: "El hotel es muy lujoso.", english: "The hotel is very luxurious." } },
+  { spanish: "maduro", english: "mature", example: { spanish: "Es muy maduro para su edad.", english: "He is very mature for his age." } },
+  { spanish: "maleducado", english: "rude", example: { spanish: "Fue muy maleducado con el camarero.", english: "He was very rude to the waiter." } },
+  { spanish: "maravilloso", english: "wonderful", example: { spanish: "El día fue muy maravilloso.", english: "The day was very wonderful." } },
+  { spanish: "mediocre", english: "mediocre", example: { spanish: "El rendimiento fue muy mediocre.", english: "The performance was very mediocre." } },
+  { spanish: "mejor", english: "better", example: { spanish: "Este libro es mucho mejor que el otro.", english: "This book is much better than the other one." } },
+  { spanish: "memorable", english: "memorable", example: { spanish: "Fue un viaje muy memorable.", english: "It was a very memorable trip." } },
+  { spanish: "misterioso", english: "mysterious", example: { spanish: "El bosque es muy misterioso por la noche.", english: "The forest is very mysterious at night." } },
+  { spanish: "moderno", english: "modern", example: { spanish: "El diseño es muy moderno y elegante.", english: "The design is very modern and elegant." } },
+  { spanish: "molesto", english: "annoying", example: { spanish: "Ese sonido es muy molesto.", english: "That sound is very annoying." } },
+  { spanish: "motivado", english: "motivated", example: { spanish: "Está muy motivado para aprender español.", english: "He is very motivated to learn Spanish." } },
+  { spanish: "nervioso", english: "nervous", example: { spanish: "Estoy muy nervioso por el examen.", english: "I am very nervous about the exam." } },
+  { spanish: "nítido", english: "clear", example: { spanish: "El sonido es muy nítido en este altavoz.", english: "The sound is very clear in this speaker." } },
+  { spanish: "novedoso", english: "innovative", example: { spanish: "El producto es muy novedoso y útil.", english: "The product is very innovative and useful." } },
+  { spanish: "nuevo", english: "new", example: { spanish: "Tengo un coche nuevo.", english: "I have a new car." } },
+  { spanish: "numeroso", english: "numerous", example: { spanish: "Hay numerosos libros en la biblioteca.", english: "There are numerous books in the library." } },
+  { spanish: "obvio", english: "obvious", example: { spanish: "Es muy obvio que no quiere venir.", english: "It’s very obvious that he doesn’t want to come." } },
+  { spanish: "ocupado", english: "busy", example: { spanish: "Estoy muy ocupado con el trabajo.", english: "I am very busy with work." } },
+  { spanish: "odioso", english: "hateful", example: { spanish: "Su comentario fue muy odioso.", english: "His comment was very hateful." } },
+  { spanish: "ofensivo", english: "offensive", example: { spanish: "Ese chiste fue muy ofensivo.", english: "That joke was very offensive." } },
+  { spanish: "oportuno", english: "timely", example: { spanish: "Su llegada fue muy oportuna.", english: "His arrival was very timely." } },
+  { spanish: "optimista", english: "optimistic", example: { spanish: "Es muy optimista sobre el futuro.", english: "She is very optimistic about the future." } },
+  { spanish: "organizado", english: "organized", example: { spanish: "Mi hermano es muy organizado con sus cosas.", english: "My brother is very organized with his things." } },
+  { spanish: "original", english: "original", example: { spanish: "La idea es muy original y creativa.", english: "The idea is very original and creative." } },
+  { spanish: "paciente", english: "patient", example: { spanish: "Es muy paciente con los niños.", english: "She is very patient with children." } },
+  { spanish: "peligroso", english: "dangerous", example: { spanish: "Es muy peligroso caminar por aquí de noche.", english: "It’s very dangerous to walk here at night." } },
+  { spanish: "pequeño", english: "small", example: { spanish: "El perro es muy pequeño y adorable.", english: "The dog is very small and adorable." } },
+  { spanish: "perfecto", english: "perfect", example: { spanish: "El plan es muy perfecto para nosotros.", english: "The plan is very perfect for us." } },
+  { spanish: "permanente", english: "permanent", example: { spanish: "Es un cambio muy permanente.", english: "It’s a very permanent change." } },
+  { spanish: "pesado", english: "heavy", example: { spanish: "Esta caja es muy pesada.", english: "This box is very heavy." } },
+  { spanish: "pesimista", english: "pessimistic", example: { spanish: "Es muy pesimista sobre el proyecto.", english: "He is very pessimistic about the project." } },
+  { spanish: "pobre", english: "poor", example: { spanish: "Es una familia muy pobre, pero feliz.", english: "It’s a very poor but happy family." } },
+  { spanish: "poderoso", english: "powerful", example: { spanish: "El motor es muy poderoso.", english: "The engine is very powerful." } },
+  { spanish: "popular", english: "popular", example: { spanish: "Es una canción muy popular este año.", english: "It’s a very popular song this year." } },
+  { spanish: "positivo", english: "positive", example: { spanish: "Tiene una actitud muy positiva.", english: "He has a very positive attitude." } },
+  { spanish: "posible", english: "possible", example: { spanish: "Es muy posible que llueva esta tarde.", english: "It’s very possible that it will rain this afternoon." } },
+  { spanish: "práctico", english: "practical", example: { spanish: "Este bolso es muy práctico para viajar.", english: "This bag is very practical for traveling." } },
+  { spanish: "preciso", english: "precise", example: { spanish: "Necesito una respuesta muy precisa.", english: "I need a very precise answer." } },
+  { spanish: "preferible", english: "preferable", example: { spanish: "Es muy preferible llegar temprano.", english: "It’s very preferable to arrive early." } },
+  { spanish: "preocupado", english: "worried", example: { spanish: "Estoy muy preocupado por mi amigo.", english: "I am very worried about my friend." } },
+  { spanish: "prestigioso", english: "prestigious", example: { spanish: "Es una universidad muy prestigiosa.", english: "It’s a very prestigious university." } },
+  { spanish: "productivo", english: "productive", example: { spanish: "Hoy fue un día muy productivo.", english: "Today was a very productive day." } },
+  { spanish: "profesional", english: "professional", example: { spanish: "Su trabajo es muy profesional.", english: "Her work is very professional." } },
+  { spanish: "profundo", english: "deep", example: { spanish: "El lago es muy profundo.", english: "The lake is very deep." } },
+  { spanish: "prometedor", english: "promising", example: { spanish: "Es un proyecto muy prometedor.", english: "It’s a very promising project." } },
+  { spanish: "pronto", english: "prompt", example: { spanish: "Su respuesta fue muy pronta.", english: "His response was very prompt." } },
+  { spanish: "próximo", english: "next", example: { spanish: "El próximo tren llega en diez minutos.", english: "The next train arrives in ten minutes." } },
+  { spanish: "público", english: "public", example: { spanish: "Es un evento muy público.", english: "It’s a very public event." } },
+  { spanish: "puro", english: "pure", example: { spanish: "El agua es muy pura en esta región.", english: "The water is very pure in this region." } },
+  { spanish: "rápido", english: "fast", example: { spanish: "El coche es muy rápido.", english: "The car is very fast." } },
+  { spanish: "raro", english: "strange", example: { spanish: "Es un comportamiento muy raro.", english: "It’s a very strange behavior." } },
+  { spanish: "razonable", english: "reasonable", example: { spanish: "El precio es muy razonable.", english: "The price is very reasonable." } },
+  { spanish: "reciente", english: "recent", example: { spanish: "Es una noticia muy reciente.", english: "It’s a very recent news." } },
+  { spanish: "reconfortante", english: "comforting", example: { spanish: "Su abrazo fue muy reconfortante.", english: "Her hug was very comforting." } },
+  { spanish: "recto", english: "straight", example: { spanish: "El camino es muy recto.", english: "The road is very straight." } },
+  { spanish: "recuperado", english: "recovered", example: { spanish: "Ya estoy muy recuperado de la gripe.", english: "I am very recovered from the flu." } },
+  { spanish: "refrescante", english: "refreshing", example: { spanish: "El jugo es muy refrescante.", english: "The juice is very refreshing." } },
+  { spanish: "regular", english: "average", example: { spanish: "Su desempeño fue muy regular.", english: "His performance was very average." } },
+  { spanish: "relajado", english: "relaxed", example: { spanish: "Me siento muy relajado después del masaje.", english: "I feel very relaxed after the massage." } },
+  { spanish: "relevante", english: "relevant", example: { spanish: "La información es muy relevante para el caso.", english: "The information is very relevant to the case." } },
+  { spanish: "rentable", english: "profitable", example: { spanish: "El negocio es muy rentable este año.", english: "The business is very profitable this year." } },
+  { spanish: "reservado", english: "reserved", example: { spanish: "Es muy reservado con sus sentimientos.", english: "He is very reserved with his feelings." } },
+  { spanish: "resistente", english: "resistant", example: { spanish: "Este material es muy resistente al agua.", english: "This material is very resistant to water." } },
+  { spanish: "respetuoso", english: "respectful", example: { spanish: "Es muy respetuoso con sus mayores.", english: "He is very respectful to his elders." } },
+  { spanish: "responsable", english: "responsible", example: { spanish: "Es muy responsable con sus tareas.", english: "She is very responsible with her tasks." } },
+  { spanish: "rico", english: "rich", example: { spanish: "Es una familia muy rica.", english: "It’s a very rich family." } },
+  { spanish: "ridículo", english: "ridiculous", example: { spanish: "Ese precio es muy ridículo.", english: "That price is very ridiculous." } },
+  { spanish: "robusto", english: "robust", example: { spanish: "El sistema es muy robusto y confiable.", english: "The system is very robust and reliable." } },
+  { spanish: "romántico", english: "romantic", example: { spanish: "La cena fue muy romántica.", english: "The dinner was very romantic." } },
+  { spanish: "ruidoso", english: "noisy", example: { spanish: "El vecino es muy ruidoso por las noches.", english: "The neighbor is very noisy at night." } },
+  { spanish: "sano", english: "healthy", example: { spanish: "Es muy sano comer frutas y verduras.", english: "It’s very healthy to eat fruits and vegetables." } },
+  { spanish: "satisfactorio", english: "satisfactory", example: { spanish: "El resultado fue muy satisfactorio.", english: "The result was very satisfactory." } },
+  { spanish: "seguro", english: "safe", example: { spanish: "Este barrio es muy seguro para vivir.", english: "This neighborhood is very safe to live in." } },
+  { spanish: "sencillo", english: "simple", example: { spanish: "El diseño es muy sencillo y elegante.", english: "The design is very simple and elegant." } },
+  { spanish: "sensato", english: "sensible", example: { spanish: "Es una decisión muy sensata.", english: "It’s a very sensible decision." } },
+  { spanish: "sensible", english: "sensitive", example: { spanish: "Es muy sensible a las críticas.", english: "She is very sensitive to criticism." } },
+  { spanish: "serio", english: "serious", example: { spanish: "Es un hombre muy serio en el trabajo.", english: "He is a very serious man at work." } },
+  { spanish: "silencioso", english: "quiet", example: { spanish: "El bosque es muy silencioso por la noche.", english: "The forest is very quiet at night." } },
+  { spanish: "simpático", english: "friendly", example: { spanish: "El camarero es muy simpático.", english: "The waiter is very friendly." } },
+  { spanish: "sincero", english: "sincere", example: { spanish: "Es muy sincero con sus opiniones.", english: "He is very sincere with his opinions." } },
+  { spanish: "singular", english: "unique", example: { spanish: "Tiene un estilo muy singular.", english: "She has a very unique style." } },
+  { spanish: "situado", english: "located", example: { spanish: "El hotel está muy bien situado.", english: "The hotel is very well located." } },
+  { spanish: "sofisticado", english: "sophisticated", example: { spanish: "El sistema es muy sofisticado.", english: "The system is very sophisticated." } },
+  { spanish: "sólido", english: "solid", example: { spanish: "El mueble es muy sólido y resistente.", english: "The furniture is very solid and resistant." } },
+  { spanish: "soltero", english: "single", example: { spanish: "Mi hermano está soltero y feliz.", english: "My brother is single and happy." } },
+  { spanish: "sorprendente", english: "surprising", example: { spanish: "Fue un resultado muy sorprendente.", english: "It was a very surprising result." } },
+  { spanish: "suave", english: "soft", example: { spanish: "La tela es muy suave al tacto.", english: "The fabric is very soft to the touch." } },
+  { spanish: "subestimado", english: "underestimated", example: { spanish: "Su talento está muy subestimado.", english: "Her talent is very underestimated." } },
+  { spanish: "sucio", english: "dirty", example: { spanish: "El suelo está muy sucio después de la fiesta.", english: "The floor is very dirty after the party." } },
+  { spanish: "superior", english: "superior", example: { spanish: "Este modelo es muy superior al anterior.", english: "This model is very superior to the previous one." } },
+  { spanish: "suspicaz", english: "suspicious", example: { spanish: "Es muy suspicaz con los desconocidos.", english: "He is very suspicious of strangers." } },
+  { spanish: "talentoso", english: "talented", example: { spanish: "Es un artista muy talentoso.", english: "He is a very talented artist." } },
+  { spanish: "técnico", english: "technical", example: { spanish: "Es un problema muy técnico.", english: "It’s a very technical problem." } },
+  { spanish: "temeroso", english: "fearful", example: { spanish: "El perro está muy temeroso después del ruido.", english: "The dog is very fearful after the noise." } },
+  { spanish: "tenso", english: "tense", example: { spanish: "La situación está muy tensa.", english: "The situation is very tense." } },
+  { spanish: "terrible", english: "terrible", example: { spanish: "Fue un día muy terrible.", english: "It was a very terrible day." } },
+  { spanish: "tímido", english: "shy", example: { spanish: "Es muy tímido con las personas nuevas.", english: "He is very shy with new people." } },
+  { spanish: "típico", english: "typical", example: { spanish: "Es un plato muy típico de España.", english: "It’s a very typical dish from Spain." } },
+  { spanish: "tolerante", english: "tolerant", example: { spanish: "Es muy tolerante con las opiniones de otros.", english: "She is very tolerant of others’ opinions." } },
+  { spanish: "tóxico", english: "toxic", example: { spanish: "Esa relación es muy tóxica.", english: "That relationship is very toxic." } },
+  { spanish: "tranquilo", english: "calm", example: { spanish: "El lugar es muy tranquilo para descansar.", english: "The place is very calm for resting." } },
+  { spanish: "triste", english: "sad", example: { spanish: "Estoy muy triste por la noticia.", english: "I am very sad about the news." } },
+  { spanish: "unido", english: "united", example: { spanish: "El equipo está muy unido.", english: "The team is very united." } },
+  { spanish: "útil", english: "useful", example: { spanish: "Este libro es muy útil para aprender.", english: "This book is very useful for learning." } },
+  { spanish: "valiente", english: "brave", example: { spanish: "Es muy valiente al enfrentar sus miedos.", english: "She is very brave in facing her fears." } },
+  { spanish: "valioso", english: "valuable", example: { spanish: "Este collar es muy valioso para mí.", english: "This necklace is very valuable to me." } },
+  { spanish: "variado", english: "varied", example: { spanish: "El menú es muy variado y delicioso.", english: "The menu is very varied and delicious." } },
+  { spanish: "verdadero", english: "true", example: { spanish: "Es un amigo muy verdadero.", english: "He is a very true friend." } },
+  { spanish: "versátil", english: "versatile", example: { spanish: "Es un actor muy versátil.", english: "He is a very versatile actor." } },
+  { spanish: "viejo", english: "old", example: { spanish: "Mi coche es muy viejo y necesita reparaciones.", english: "My car is very old and needs repairs." } },
+  { spanish: "violento", english: "violent", example: { spanish: "La película es muy violenta.", english: "The movie is very violent." } },
+  { spanish: "visible", english: "visible", example: { spanish: "La luna es muy visible esta noche.", english: "The moon is very visible tonight." } },
+  { spanish: "vivo", english: "lively", example: { spanish: "El mercado es muy vivo los fines de semana.", english: "The market is very lively on weekends." } },
+  { spanish: "vulnerable", english: "vulnerable", example: { spanish: "Se siente muy vulnerable después de la discusión.", english: "She feels very vulnerable after the argument." } }
 ]
         };
