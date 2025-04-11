@@ -6,141 +6,178 @@
     <title>Spanish Flashcard Game</title>
     <style>
         * {
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
-        body {
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-        }
-        .app-container {
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 500px;
-            padding: 20px;
-        }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        .progress-container {
-            flex-grow: 1;
-            margin-right: 10px;
-        }
-        .progress-bar {
-            background-color: #e0e0e0;
-            border-radius: 10px;
-            height: 10px;
-            width: 100%;
-        }
-        .progress-fill {
-            background-color: #4CAF50;
-            height: 100%;
-            border-radius: 10px;
-            width: 0%;
-            transition: width 0.3s ease;
-        }
-        .counter {
-            font-size: 14px;
-            color: #666;
-        }
-        .word-display {
-            font-size: 32px;
-            font-weight: bold;
-            text-align: center;
-            margin: 30px 0;
-            color: #333;
-        }
-        .options-container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        .option-button {
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: white;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-align: left;
-        }
-        .option-button:hover {
-            background-color: #f9f9f9;
-        }
-        .option-button.correct {
-            background-color: #4CAF50;
-            color: white;
-            border-color: #4CAF50;
-        }
-        .option-button.incorrect {
-            background-color: #F44336;
-            color: white;
-            border-color: #F44336;
-        }
-        .next-button {
-            width: 100%;
-            padding: 12px;
-            background-color: #2196F3;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-            display: none;
-        }
-        .next-button:hover {
-            background-color: #0b7dda;
-        }
-        .feedback {
-            text-align: center;
-            margin: 10px 0;
-            font-weight: bold;
-            height: 20px;
-        }
-        .feedback.correct {
-            color: #4CAF50;
-        }
-        .feedback.incorrect {
-            color: #F44336;
-        }
-        .category-selector {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        .category-button {
-            padding: 8px 16px;
-            border: 1px solid #ddd;
-            border-radius: 20px;
-            background-color: white;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        .category-button:hover {
-            background-color: #f0f0f0;
-        }
-        .category-button.active {
-            background-color: #2196F3;
-            color: white;
-            border-color: #2196F3;
-        }
-        .score-icons {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.app-container {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.progress-container {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    height: 10px;
+    width: 100%;
+}
+
+.progress-fill {
+    background-color: #4CAF50;
+    height: 100%;
+    border-radius: 10px;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.counter {
+    font-size: 14px;
+    color: #666;
+}
+
+.word-display {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin: 30px 0;
+    color: #333;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.option-button {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+}
+
+.option-button:hover {
+    background-color: #f9f9f9;
+}
+
+.option-button.correct {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+}
+
+.option-button.incorrect {
+    background-color: #F44336;
+    color: white;
+    border-color: #F44336;
+}
+
+.next-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: none;
+}
+
+.next-button:hover {
+    background-color: #0b7dda;
+}
+
+.feedback {
+    text-align: center;
+    margin: 10px 0;
+    font-weight: bold;
+    height: 20px;
+}
+
+.feedback.correct {
+    color: #4CAF50;
+}
+
+.feedback.incorrect {
+    color: #F44336;
+}
+
+.category-selector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Allow buttons to wrap to the next line */
+}
+
+.category-button {
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    background-color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap; /* Prevent text from wrapping inside the button */
+}
+
+.category-button:hover {
+    background-color: #f0f0f0;
+}
+
+.category-button.active {
+    background-color: #2196F3;
+    color: white;
+    border-color: #2196F3;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 400px) {
+    .category-button {
+        padding: 6px 12px; /* Reduce padding on smaller screens */
+        font-size: 12px; /* Reduce font size */
+    }
+
+    .category-selector {
+        gap: 8px; /* Reduce gap between buttons */
+    }
+}
+
+.score-icons {
     display: flex;
     gap: 10px;
     align-items: center;
