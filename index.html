@@ -435,6 +435,21 @@
 .engineer-button.active {
     background-color: #4CAF50; 
 }
+.example-sentence {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #e8f5e9; /* Light green background to indicate a positive outcome */
+    border-radius: 8px;
+    font-size: 14px;
+    color: #2e7d32; /* Dark green text */
+    display: none; /* Hidden by default */
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.example-sentence p {
+    margin: 5px 0;
+}
     </style>
 </head>
 <body>
@@ -470,6 +485,7 @@
         <div class="options-container" id="optionsContainer"></div>
         
         <div class="feedback" id="feedback"></div>
+        <div class="example-sentence" id="exampleSentence"></div>
         
         <button class="next-button" id="nextButton">Next</button>
 
@@ -745,35 +761,42 @@
     }
 
     function handleOptionClick(index) {
-        if (selectedAnswer !== null) return;
+    if (selectedAnswer !== null) return;
 
-        selectedAnswer = index;
-        const isCorrect = index === correctAnswerIndex;
-        const currentWord = currentOptions[correctAnswerIndex];
+    selectedAnswer = index;
+    const isCorrect = index === correctAnswerIndex;
+    const currentWord = currentOptions[correctAnswerIndex];
+    const exampleSentence = document.getElementById('exampleSentence'); // Add this to reference the example-sentence div
 
-        const buttons = optionsContainer.querySelectorAll('.option-button');
-        buttons[index].classList.add(isCorrect ? 'correct' : 'incorrect');
+    const buttons = optionsContainer.querySelectorAll('.option-button');
+    buttons[index].classList.add(isCorrect ? 'correct' : 'incorrect');
 
-        if (!isCorrect) {
-            buttons[correctAnswerIndex].classList.add('correct');
-            if (!incorrectWords.some(word => word.english === currentWord.english)) {
-                incorrectWords.push(currentWord);
-            }
-            reviewQueue.push(currentWord);
-            feedback.textContent = "Incorrect";
-            feedback.className = 'feedback incorrect';
-        } else {
-            if (!correctWords.some(word => word.english === currentWord.english)) {
-                correctWords.push(currentWord);
-            }
-            feedback.textContent = "Correct!";
-            feedback.className = 'feedback correct';
+    if (!isCorrect) {
+        buttons[correctAnswerIndex].classList.add('correct');
+        if (!incorrectWords.some(word => word.english === currentWord.english)) {
+            incorrectWords.push(currentWord);
         }
-
-        updateScoreIcons();
-        nextButton.style.display = 'block';
+        reviewQueue.push(currentWord);
+        feedback.textContent = "Incorrect";
+        feedback.className = 'feedback incorrect';
+        exampleSentence.style.display = 'none'; 
+    } else {
+        if (!correctWords.some(word => word.english === currentWord.english)) {
+            correctWords.push(currentWord);
+        }
+        feedback.textContent = "Correct!";
+        feedback.className = 'feedback correct';
+        
+        exampleSentence.innerHTML = `
+            <p><strong>Example:</strong> ${currentWord.example.spanish}</p>
+            <p><em>${currentWord.example.english}</em></p>
+        `;
+        exampleSentence.style.display = 'block';
     }
 
+    updateScoreIcons();
+    nextButton.style.display = 'block';
+}
     function handleNextButtonClick() {
         showNextWord();
     }
@@ -838,7 +861,7 @@
         }
     }
 
-    // Initialize Sections and Lessons
+  
     function initializeSections() {
         const sectionButtons = document.querySelectorAll('.section-button');
         sectionButtons.forEach(button => {
