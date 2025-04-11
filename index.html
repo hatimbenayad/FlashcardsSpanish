@@ -6,282 +6,372 @@
     <title>Spanish Flashcard Game</title>
     <style>
         * {
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-}
-
-body {
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-}
-
-.app-container {
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 500px;
-    padding: 20px;
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.progress-container {
-    flex-grow: 1;
-    margin-right: 10px;
-}
-
-.progress-bar {
-    background-color: #e0e0e0;
-    border-radius: 10px;
-    height: 10px;
-    width: 100%;
-}
-
-.progress-fill {
-    background-color: #4CAF50;
-    height: 100%;
-    border-radius: 10px;
-    width: 0%;
-    transition: width 0.3s ease;
-}
-
-.counter {
-    font-size: 14px;
-    color: #666;
-}
-
-.word-display {
-    font-size: 32px;
-    font-weight: bold;
-    text-align: center;
-    margin: 30px 0;
-    color: #333;
-}
-
-.options-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.option-button {
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-align: left;
-}
-
-.option-button:hover {
-    background-color: #f9f9f9;
-}
-
-.option-button.correct {
-    background-color: #4CAF50;
-    color: white;
-    border-color: #4CAF50;
-}
-
-.option-button.incorrect {
-    background-color: #F44336;
-    color: white;
-    border-color: #F44336;
-}
-
-.next-button {
-    width: 100%;
-    padding: 12px;
-    background-color: #2196F3;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    display: none;
-}
-
-.next-button:hover {
-    background-color: #0b7dda;
-}
-
-.feedback {
-    text-align: center;
-    margin: 10px 0;
-    font-weight: bold;
-    height: 20px;
-}
-
-.feedback.correct {
-    color: #4CAF50;
-}
-
-.feedback.incorrect {
-    color: #F44336;
-}
-
-.category-selector {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-    flex-wrap: wrap; /* Allow buttons to wrap to the next line */
-}
-
-.category-button {
-    padding: 8px 16px;
-    border: 1px solid #ddd;
-    border-radius: 20px;
-    background-color: white;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    white-space: nowrap; /* Prevent text from wrapping inside the button */
-}
-
-.category-button:hover {
-    background-color: #f0f0f0;
-}
-
-.category-button.active {
-    background-color: #2196F3;
-    color: white;
-    border-color: #2196F3;
-}
-
-/* Media query for smaller screens */
-@media (max-width: 400px) {
-    .category-button {
-        padding: 6px 12px; /* Reduce padding on smaller screens */
-        font-size: 12px; /* Reduce font size */
-    }
-
-    .category-selector {
-        gap: 8px; /* Reduce gap between buttons */
-    }
-}
-
-.score-icons {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-
-.score-icon {
-    cursor: pointer;
-    font-size: 14px;
-    padding: 5px;
-    border-radius: 5px;
-    transition: background-color 0.2s ease;
-}
-
-.score-icon.correct {
-    color: #4CAF50;
-}
-
-.score-icon.incorrect {
-    color: #F44336;
-}
-
-.score-icon:hover {
-    background-color: #f0f0f0;
-}
-
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.modal-content {
-    background-color: white;
-    border-radius: 12px;
-    padding: 20px;
-    max-width: 400px;
-    width: 90%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
-.modal-button {
-    padding: 10px 20px;
-    margin: 10px;
-    border: none;
-    border-radius: 8px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-.modal-button#retryButton {
-    background-color: #2196F3;
-    color: white;
-}
-
-.modal-button#retryButton:hover {
-    background-color: #0b7dda;
-}
-
-.modal-button#reviewButton {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.modal-button#reviewButton:hover {
-    background-color: #388E3C;
-}
-
-.modal-button.close-button {
-    background-color: #F44336;
-    color: white;
-}
-
-.modal-button.close-button:hover {
-    background-color: #D32F2F;
-}
-
-#wordList {
-    max-height: 200px;
-    overflow-y: auto;
-    margin-top: 10px;
-    text-align: left;
-}
-
-.word-item {
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-    font-size: 14px;
-}
-
-.word-item:last-child {
-    border-bottom: none;
-}
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+    
+        body {
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            gap: 20px; /* Add space between quiz box and sections */
+        }
+    
+        .app-container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+        }
+    
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+    
+        .progress-container {
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+    
+        .progress-bar {
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            height: 10px;
+            width: 100%;
+        }
+    
+        .progress-fill {
+            background-color: #4CAF50;
+            height: 100%;
+            border-radius: 10px;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+    
+        .counter {
+            font-size: 14px;
+            color: #666;
+        }
+    
+        .word-display {
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            margin: 30px 0;
+            color: #333;
+        }
+    
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+    
+        .option-button {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+    
+        .option-button:hover {
+            background-color: #f9f9f9;
+        }
+    
+        .option-button.correct {
+            background-color: #4CAF50;
+            color: white;
+            border-color: #4CAF50;
+        }
+    
+        .option-button.incorrect {
+            background-color: #F44336;
+            color: white;
+            border-color: #F44336;
+        }
+    
+        .next-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            display: none;
+        }
+    
+        .next-button:hover {
+            background-color: #0b7dda;
+        }
+    
+        .feedback {
+            text-align: center;
+            margin: 10px 0;
+            font-weight: bold;
+            height: 20px;
+        }
+    
+        .feedback.correct {
+            color: #4CAF50;
+        }
+    
+        .feedback.incorrect {
+            color: #F44336;
+        }
+    
+        .category-selector {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap; /* Allow buttons to wrap to the next line */
+        }
+    
+        .category-button {
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            background-color: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap; /* Prevent text from wrapping inside the button */
+        }
+    
+        .category-button:hover {
+            background-color: #f0f0f0;
+        }
+    
+        .category-button.active {
+            background-color: #2196F3;
+            color: white;
+            border-color: #2196F3;
+        }
+    
+        /* Media query for smaller screens */
+        @media (max-width: 400px) {
+            .category-button {
+                padding: 6px 12px; /* Reduce padding on smaller screens */
+                font-size: 12px; /* Reduce font size */
+            }
+    
+            .category-selector {
+                gap: 8px; /* Reduce gap between buttons */
+            }
+        }
+    
+        .score-icons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+    
+        .score-icon {
+            cursor: pointer;
+            font-size: 14px;
+            padding: 5px;
+            border-radius: 5px;
+            transition: background-color 0.2s ease;
+        }
+    
+        .score-icon.correct {
+            color: #4CAF50;
+        }
+    
+        .score-icon.incorrect {
+            color: #F44336;
+        }
+    
+        .score-icon:hover {
+            background-color: #f0f0f0;
+        }
+    
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+    
+        .modal-content {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+    
+        .modal-button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+    
+        .modal-button#retryButton {
+            background-color: #2196F3;
+            color: white;
+        }
+    
+        .modal-button#retryButton:hover {
+            background-color: #0b7dda;
+        }
+    
+        .modal-button#reviewButton {
+            background-color: #4CAF50;
+            color: white;
+        }
+    
+        .modal-button#reviewButton:hover {
+            background-color: #388E3C;
+        }
+    
+        .modal-button.close-button {
+            background-color: #F44336;
+            color: white;
+        }
+    
+        .modal-button.close-button:hover {
+            background-color: #D32F2F;
+        }
+    
+        #wordList {
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 10px;
+            text-align: left;
+        }
+    
+        .word-item {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            font-size: 14px;
+        }
+    
+        .word-item:last-child {
+            border-bottom: none;
+        }
+    
+        .sections-container {
+            width: 100%;
+            max-width: 500px;
+            background-color: #f9f9f9; /* Distinct background for sections */
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow to make it stand out */
+            padding: 20px;
+        }
+    
+        .section {
+            margin-bottom: 15px;
+        }
+    
+        .section-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+    
+        .section-button:hover {
+            background-color: #0b7dda;
+        }
+    
+        .section-button.active {
+            background-color: #4CAF50;
+        }
+    
+        .lessons-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+    
+        .lesson-button {
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            background-color: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+    
+        .lesson-button:hover {
+            background-color: #f0f0f0;
+        }
+    
+        #lessonModalOptions .modal-button {
+            background-color: #2196F3;
+            color: white;
+        }
+    
+        #lessonModalOptions .modal-button:hover {
+            background-color: #0b7dda;
+        }
+    
+        #grammarContent {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 10px;
+            text-align: left;
+            font-size: 14px;
+            line-height: 1.5;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+    
+        #grammarContent p, #grammarContent ul, #grammarContent h3 {
+            margin: 10px 0;
+        }
+    
+        #grammarContent ul {
+            padding-left: 20px;
+        }
     </style>
 </head>
 <body>
+    <!-- Quiz Box (Existing) -->
     <div class="app-container">
         <div class="category-selector" id="categorySelector">
             <button class="category-button active" data-category="nouns">Nouns</button>
@@ -310,15 +400,12 @@ body {
         
         <div class="word-display" id="wordDisplay">Select a category</div>
         
-        <div class="options-container" id="optionsContainer">
-            
-        </div>
+        <div class="options-container" id="optionsContainer"></div>
         
         <div class="feedback" id="feedback"></div>
         
         <button class="next-button" id="nextButton">Next</button>
 
-        
         <div class="modal" id="reviewModal" style="display: none;">
             <div class="modal-content">
                 <h2 id="modalTitle"></h2>
@@ -329,6 +416,39 @@ body {
                 <div id="wordList" style="display: none;"></div>
                 <button class="modal-button close-button" id="closeModal">Close</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Grammar Sections (Separate) -->
+    <div class="sections-container">
+        <div class="section">
+            <button class="section-button" data-section="b1">B1 Level</button>
+            <div class="lessons-list" id="b1-lessons" style="display: none;">
+                <button class="lesson-button" data-lesson="b1-lesson1">B1 Lesson 1: Present Tense Verbs</button>
+                <button class="lesson-button" data-lesson="b1-lesson2">B1 Lesson 2: Ser vs. Estar</button>
+                <button class="lesson-button" data-lesson="b1-lesson3">B1 Lesson 3: Direct Object Pronouns</button>
+            </div>
+        </div>
+        <div class="section">
+            <button class="section-button" data-section="b2">B2 Level</button>
+            <div class="lessons-list" id="b2-lessons" style="display: none;">
+                <button class="lesson-button" data-lesson="b2-lesson1">B2 Lesson 1: Subjunctive Mood Basics</button>
+                <button class="lesson-button" data-lesson="b2-lesson2">B2 Lesson 2: Past Perfect Tense</button>
+                <button class="lesson-button" data-lesson="b2-lesson3">B2 Lesson 3: Indirect Object Pronouns</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Lesson Options -->
+    <div class="modal" id="lessonModal" style="display: none;">
+        <div class="modal-content">
+            <h2 id="lessonModalTitle"></h2>
+            <div id="lessonModalOptions">
+                <button class="modal-button" id="exerciseButton">Exercise</button>
+                <button class="modal-button" id="lessonViewButton">Lesson</button>
+            </div>
+            <div id="grammarContent" style="display: none;"></div>
+            <button class="modal-button close-button" id="closeLessonModal">Close</button>
         </div>
     </div>
 </body>
@@ -1341,266 +1461,522 @@ adjectives: [
   { spanish: "vulnerable", english: "vulnerable" }
 ]
         };
-            
-        let currentCategory = 'nouns';
-let currentIndex = 0;
-let totalWords = 0;
-let words = [];
-let incorrectWords = [];
-let correctWords = []; // NEW: Track correct answers
-let currentOptions = [];
-let selectedAnswer = null;
-let correctAnswerIndex = null;
-let reviewQueue = [];
+        const grammarLessons = {
+        'b1-lesson1': {
+            description: `
+                <h3>Present Tense Verbs</h3>
+                <p>In Spanish, regular verbs in the present tense are conjugated by adding specific endings to the verb stem. The endings depend on the verb type:</p>
+                <ul>
+                    <li><strong>-ar verbs</strong> (e.g., hablar): -o, -as, -a, -amos, -áis, -an</li>
+                    <li><strong>-er verbs</strong> (e.g., comer): -o, -es, -e, -emos, -éis, -en</li>
+                    <li><strong>-ir verbs</strong> (e.g., vivir): -o, -es, -e, -imos, -ís, -en</li>
+                </ul>
+                <p>Example: <em>hablar</em> (to speak)</p>
+                <ul>
+                    <li>yo hablo (I speak)</li>
+                    <li>tú hablas (you speak)</li>
+                    <li>él/ella habla (he/she speaks)</li>
+                    <li>nosotros hablamos (we speak)</li>
+                    <li>vosotros habláis (you all speak)</li>
+                    <li>ellos/ellas hablan (they speak)</li>
+                </ul>
+            `,
+            exercises: [
+                { question: "Conjugate 'comer' for 'yo' in the present tense.", options: ["como", "comes", "come", "comemos"], correct: "como" },
+                { question: "Conjugate 'vivir' for 'tú' in the present tense.", options: ["vivo", "vives", "vive", "vivimos"], correct: "vives" },
+                { question: "Conjugate 'hablar' for 'nosotros' in the present tense.", options: ["hablo", "hablas", "hablamos", "hablan"], correct: "hablamos" }
+            ]
+        },
+        'b1-lesson2': {
+            description: `
+                <h3>Ser vs. Estar</h3>
+                <p>Spanish has two verbs for 'to be': <em>ser</em> and <em>estar</em>. They are used in different contexts:</p>
+                <ul>
+                    <li><strong>Ser</strong>: Used for permanent characteristics, identity, origin, time, and dates.</li>
+                    <li><strong>Estar</strong>: Used for temporary states, emotions, and locations.</li>
+                </ul>
+                <p>Examples:</p>
+                <ul>
+                    <li>Ser: <em>Soy de España</em> (I am from Spain) - origin</li>
+                    <li>Estar: <em>Estoy cansado</em> (I am tired) - temporary state</li>
+                </ul>
+            `,
+            exercises: [
+                { question: "Choose the correct verb: 'Ella ___ muy alta.'", options: ["es", "está"], correct: "es" },
+                { question: "Choose the correct verb: 'Yo ___ en la escuela.'", options: ["es", "está"], correct: "está" },
+                { question: "Choose the correct verb: 'Nosotros ___ contentos hoy.'", options: ["somos", "estamos"], correct: "estamos" }
+            ]
+        },
+        'b1-lesson3': {
+            description: `
+                <h3>Direct Object Pronouns</h3>
+                <p>Direct object pronouns replace the noun that receives the action of the verb. In Spanish, they are:</p>
+                <ul>
+                    <li>me (me)</li>
+                    <li>te (you)</li>
+                    <li>lo/la (him/her/it)</li>
+                    <li>nos (us)</li>
+                    <li>os (you all)</li>
+                    <li>los/las (them)</li>
+                </ul>
+                <p>They are usually placed before the conjugated verb.</p>
+                <p>Example: <em>Veo el libro</em> → <em>Lo veo</em> (I see it).</p>
+            `,
+            exercises: [
+                { question: "Replace the noun with a pronoun: 'Veo a María.'", options: ["la veo", "lo veo", "me veo", "te veo"], correct: "la veo" },
+                { question: "Replace the noun with a pronoun: 'Escuchamos a los niños.'", options: ["los escuchamos", "las escuchamos", "nos escuchamos", "te escuchamos"], correct: "los escuchamos" },
+                { question: "Replace the noun with a pronoun: 'Ella compra el coche.'", options: ["lo compra", "la compra", "me compra", "te compra"], correct: "lo compra" }
+            ]
+        },
+        'b2-lesson1': {
+            description: `
+                <h3>Subjunctive Mood Basics</h3>
+                <p>The subjunctive mood is used to express desires, doubts, wishes, or hypothetical situations. It often follows expressions like <em>espero que</em> (I hope that) or <em>quiero que</em> (I want that).</p>
+                <p>Present subjunctive endings for regular verbs:</p>
+                <ul>
+                    <li><strong>-ar verbs</strong>: -e, -es, -e, -emos, -éis, -en</li>
+                    <li><strong>-er/-ir verbs</strong>: -a, -as, -a, -amos, -áis, -an</li>
+                </ul>
+                <p>Example: <em>Espero que tú hagas la tarea</em> (I hope you do the homework).</p>
+            `,
+            exercises: [
+                { question: "Conjugate 'hablar' in the present subjunctive for 'tú'.", options: ["hablas", "hables", "habla", "hablamos"], correct: "hables" },
+                { question: "Conjugate 'comer' in the present subjunctive for 'él'.", options: ["come", "coma", "comes", "comamos"], correct: "coma" },
+                { question: "Complete: 'Quiero que nosotros ___ (vivir) en paz.'", options: ["vivimos", "vivamos", "vivan", "vives"], correct: "vivamos" }
+            ]
+        },
+        'b2-lesson2': {
+            description: `
+                <h3>Past Perfect Tense</h3>
+                <p>The past perfect tense (pluscuamperfecto) is used to describe actions that happened before another past action. It’s formed with the imperfect tense of <em>haber</em> + past participle.</p>
+                <p><em>haber</em> in the imperfect: había, habías, había, habíamos, habíais, habían</p>
+                <p>Past participle: -ar verbs → -ado, -er/-ir verbs → -ido</p>
+                <p>Example: <em>Había comido antes de llegar</em> (I had eaten before arriving).</p>
+            `,
+            exercises: [
+                { question: "Conjugate 'hablar' in the past perfect for 'yo'.", options: ["había hablado", "habías hablado", "había hablada", "habíamos hablado"], correct: "había hablado" },
+                { question: "Conjugate 'vivir' in the past perfect for 'nosotros'.", options: ["había vivido", "habíamos vivido", "habíais vivido", "habían vivido"], correct: "habíamos vivido" },
+                { question: "Complete: 'Ella ___ (comer) antes de la fiesta.'", options: ["había comido", "habías comido", "había comiendo", "habíamos comido"], correct: "había comido" }
+            ]
+        },
+        'b2-lesson3': {
+            description: `
+                <h3>Indirect Object Pronouns</h3>
+                <p>Indirect object pronouns indicate to whom or for whom the action is done. In Spanish, they are:</p>
+                <ul>
+                    <li>me (to/for me)</li>
+                    <li>te (to/for you)</li>
+                    <li>le (to/for him/her)</li>
+                    <li>nos (to/for us)</li>
+                    <li>os (to/for you all)</li>
+                    <li>les (to/for them)</li>
+                </ul>
+                <p>They are usually placed before the conjugated verb.</p>
+                <p>Example: <em>Le doy un regalo a María</em> (I give a gift to María).</p>
+            `,
+            exercises: [
+                { question: "Replace the noun with a pronoun: 'Doy un libro a Juan.'", options: ["le doy", "lo doy", "me doy", "te doy"], correct: "le doy" },
+                { question: "Replace the noun with a pronoun: 'Ella escribe una carta a sus padres.'", options: ["les escribe", "los escribe", "le escribe", "nos escribe"], correct: "les escribe" },
+                { question: "Complete: 'Nosotros ___ (dar) consejos a los estudiantes.'", options: ["les damos", "los damos", "le damos", "te damos"], correct: "les damos" }
+            ]
+        }
+    };
 
-const wordDisplay = document.getElementById('wordDisplay');
-const optionsContainer = document.getElementById('optionsContainer');
-const nextButton = document.getElementById('nextButton');
-const feedback = document.getElementById('feedback');
-const counter = document.getElementById('counter');
-const progressFill = document.getElementById('progressFill');
-const categorySelector = document.getElementById('categorySelector');
-const correctIcon = document.getElementById('correctIcon'); // NEW
-const incorrectIcon = document.getElementById('incorrectIcon'); // NEW
-const correctCount = document.getElementById('correctCount'); // NEW
-const incorrectCount = document.getElementById('incorrectCount'); // NEW
-const reviewModal = document.getElementById('reviewModal'); // NEW
-const modalTitle = document.getElementById('modalTitle'); // NEW
-const modalOptions = document.getElementById('modalOptions'); // NEW
-const wordList = document.getElementById('wordList'); // NEW
-const retryButton = document.getElementById('retryButton'); // NEW
-const reviewButton = document.getElementById('reviewButton'); // NEW
-const closeModal = document.getElementById('closeModal'); // NEW
+    let currentCategory = 'nouns';
+    let currentIndex = 0;
+    let totalWords = 0;
+    let words = [];
+    let incorrectWords = [];
+    let correctWords = [];
+    let currentOptions = [];
+    let selectedAnswer = null;
+    let correctAnswerIndex = null;
+    let reviewQueue = [];
 
-function initializeApp() {
-    // Set up category selection
-    const categoryButtons = document.querySelectorAll('.category-button');
-    categoryButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const category = button.dataset.category;
-            selectCategory(category);
-            categoryButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
+    const wordDisplay = document.getElementById('wordDisplay');
+    const optionsContainer = document.getElementById('optionsContainer');
+    const nextButton = document.getElementById('nextButton');
+    const feedback = document.getElementById('feedback');
+    const counter = document.getElementById('counter');
+    const progressFill = document.getElementById('progressFill');
+    const categorySelector = document.getElementById('categorySelector');
+    const correctIcon = document.getElementById('correctIcon');
+    const incorrectIcon = document.getElementById('incorrectIcon');
+    const correctCount = document.getElementById('correctCount');
+    const incorrectCount = document.getElementById('incorrectCount');
+    const reviewModal = document.getElementById('reviewModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalOptions = document.getElementById('modalOptions');
+    const wordList = document.getElementById('wordList');
+    const retryButton = document.getElementById('retryButton');
+    const reviewButton = document.getElementById('reviewButton');
+    const closeModal = document.getElementById('closeModal');
+
+    // Lesson Modal Elements
+    const lessonModal = document.getElementById('lessonModal');
+    const lessonModalTitle = document.getElementById('lessonModalTitle');
+    const lessonModalOptions = document.getElementById('lessonModalOptions');
+    const exerciseButton = document.getElementById('exerciseButton');
+    const lessonViewButton = document.getElementById('lessonViewButton');
+    const closeLessonModal = document.getElementById('closeLessonModal');
+    const grammarContent = document.getElementById('grammarContent');
+
+    let currentLesson = null;
+    let currentExerciseIndex = 0;
+    let currentExercises = [];
+
+    function initializeApp() {
+        const categoryButtons = document.querySelectorAll('.category-button');
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const category = button.dataset.category;
+                selectCategory(category);
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+            });
         });
-    });
 
-    // Set up score icons
-    correctIcon.addEventListener('click', () => showReviewModal('correct'));
-    incorrectIcon.addEventListener('click', () => showReviewModal('incorrect'));
+        correctIcon.addEventListener('click', () => showReviewModal('correct'));
+        incorrectIcon.addEventListener('click', () => showReviewModal('incorrect'));
 
-    // Set up modal buttons
-    retryButton.addEventListener('click', handleRetry);
-    reviewButton.addEventListener('click', handleReview);
-    closeModal.addEventListener('click', () => {
-        reviewModal.style.display = 'none';
-        modalOptions.style.display = 'block';
-        wordList.style.display = 'none';
-    });
+        retryButton.addEventListener('click', handleRetry);
+        reviewButton.addEventListener('click', handleReview);
+        closeModal.addEventListener('click', () => {
+            reviewModal.style.display = 'none';
+            modalOptions.style.display = 'block';
+            wordList.style.display = 'none';
+        });
 
-    // Initialize with default category
-    selectCategory('nouns');
+        selectCategory('nouns');
+        nextButton.addEventListener('click', handleNextButtonClick);
 
-    // Set up next button
-    nextButton.addEventListener('click', handleNextButtonClick);
-}
-
-function selectCategory(category, wordList = null) {
-    currentCategory = category;
-    words = wordList ? [...wordList] : [...vocabularyByCategory[category]];
-    totalWords = words.length;
-    currentIndex = 0;
-    incorrectWords = [];
-    correctWords = []; // Reset correct words
-    reviewQueue = [];
-    updateScoreIcons(); // Update icons
-
-    if (words.length === 0) {
-        wordDisplay.textContent = "No words available in this category";
-        optionsContainer.innerHTML = '';
-        counter.textContent = "0/0";
-        progressFill.style.width = "0%";
-        return;
+        initializeSections();
     }
 
-    shuffleArray(words);
-    showNextWord();
-}
+    function selectCategory(category, wordList = null) {
+        currentCategory = category;
+        words = wordList ? [...wordList] : [...vocabularyByCategory[category]];
+        totalWords = words.length;
+        currentIndex = 0;
+        incorrectWords = [];
+        correctWords = [];
+        reviewQueue = [];
+        updateScoreIcons();
 
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-}
-
-function showNextWord() {
-    optionsContainer.innerHTML = '';
-    feedback.textContent = '';
-    feedback.className = 'feedback';
-    nextButton.style.display = 'none';
-    selectedAnswer = null;
-
-    if (words.length === 0) {
-        wordDisplay.textContent = "No words available in this category";
-        return;
-    }
-
-    let currentWord;
-    if (reviewQueue.length > 0 && currentIndex % 5 === 0 && currentIndex > 0) {
-        currentWord = reviewQueue.shift();
-    } else {
-        if (currentIndex >= words.length) {
-            wordDisplay.textContent = "All words completed!";
-            if (incorrectWords.length > 0) {
-                words = [...incorrectWords];
-                incorrectWords = [];
-                currentIndex = 0;
-                shuffleArray(words);
-                showNextWord();
-            }
+        if (words.length === 0) {
+            wordDisplay.textContent = "No words available in this category";
+            optionsContainer.innerHTML = '';
+            counter.textContent = "0/0";
+            progressFill.style.width = "0%";
             return;
         }
-        currentWord = words[currentIndex];
-        currentIndex++;
+
+        shuffleArray(words);
+        showNextWord();
     }
 
-    wordDisplay.textContent = currentWord.spanish;
-    generateOptions(currentWord);
-
-    updateProgress();
-}
-
-function generateOptions(currentWord) {
-    const optionsPool = vocabularyByCategory[currentCategory].filter(word => word.english !== currentWord.english);
-
-    if (optionsPool.length < 4) {
-        let allWords = [];
-        for (const category in vocabularyByCategory) {
-            allWords = allWords.concat(vocabularyByCategory[category]);
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
         }
-        const additionalOptions = allWords.filter(word => 
-            word.english !== currentWord.english && 
-            !optionsPool.some(option => option.english === word.english)
-        );
-        shuffleArray(additionalOptions);
-        optionsPool.push(...additionalOptions);
     }
 
-    shuffleArray(optionsPool);
-    const incorrectOptions = optionsPool.slice(0, 4);
-    const allOptions = [...incorrectOptions, currentWord];
-    shuffleArray(allOptions);
-    currentOptions = allOptions;
-    correctAnswerIndex = allOptions.findIndex(option => option.english === currentWord.english);
+    function showNextWord() {
+        optionsContainer.innerHTML = '';
+        feedback.textContent = '';
+        feedback.className = 'feedback';
+        nextButton.style.display = 'none';
+        selectedAnswer = null;
 
-    allOptions.forEach((option, index) => {
-        const button = document.createElement('button');
-        button.className = 'option-button';
-        button.textContent = option.english;
-        button.dataset.index = index;
-        button.addEventListener('click', () => handleOptionClick(index));
-        optionsContainer.appendChild(button);
-    });
-}
-
-function handleOptionClick(index) {
-    if (selectedAnswer !== null) return;
-
-    selectedAnswer = index;
-    const isCorrect = index === correctAnswerIndex;
-    const currentWord = currentOptions[correctAnswerIndex];
-
-    const buttons = optionsContainer.querySelectorAll('.option-button');
-    buttons[index].classList.add(isCorrect ? 'correct' : 'incorrect');
-
-    if (!isCorrect) {
-        buttons[correctAnswerIndex].classList.add('correct');
-        // Only add if not already in incorrectWords
-        if (!incorrectWords.some(word => word.english === currentWord.english)) {
-            incorrectWords.push(currentWord);
+        if (words.length === 0) {
+            wordDisplay.textContent = "No words available in this category";
+            return;
         }
-        reviewQueue.push(currentWord);
-        feedback.textContent = "Incorrect";
-        feedback.className = 'feedback incorrect';
-    } else {
-        // Only add if not already in correctWords
-        if (!correctWords.some(word => word.english === currentWord.english)) {
-            correctWords.push(currentWord);
+
+        let currentWord;
+        if (reviewQueue.length > 0 && currentIndex % 5 === 0 && currentIndex > 0) {
+            currentWord = reviewQueue.shift();
+        } else {
+            if (currentIndex >= words.length) {
+                wordDisplay.textContent = "All words completed!";
+                if (incorrectWords.length > 0) {
+                    words = [...incorrectWords];
+                    incorrectWords = [];
+                    currentIndex = 0;
+                    shuffleArray(words);
+                    showNextWord();
+                }
+                return;
+            }
+            currentWord = words[currentIndex];
+            currentIndex++;
         }
-        feedback.textContent = "Correct!";
-        feedback.className = 'feedback correct';
+
+        wordDisplay.textContent = currentWord.spanish;
+        generateOptions(currentWord);
+
+        updateProgress();
     }
 
-    updateScoreIcons(); // Update icon counts
-    nextButton.style.display = 'block';
-}
+    function generateOptions(currentWord) {
+        const optionsPool = vocabularyByCategory[currentCategory].filter(word => word.english !== currentWord.english);
 
-function handleNextButtonClick() {
-    showNextWord();
-}
+        if (optionsPool.length < 4) {
+            let allWords = [];
+            for (const category in vocabularyByCategory) {
+                allWords = allWords.concat(vocabularyByCategory[category]);
+            }
+            const additionalOptions = allWords.filter(word => 
+                word.english !== currentWord.english && 
+                !optionsPool.some(option => option.english === word.english)
+            );
+            shuffleArray(additionalOptions);
+            optionsPool.push(...additionalOptions);
+        }
 
-function updateProgress() {
-    counter.textContent = `${currentIndex}/${totalWords}`;
-    const progressPercent = (currentIndex / totalWords) * 100;
-    progressFill.style.width = `${progressPercent}%`;
-}
+        shuffleArray(optionsPool);
+        const incorrectOptions = optionsPool.slice(0, 4);
+        const allOptions = [...incorrectOptions, currentWord];
+        shuffleArray(allOptions);
+        currentOptions = allOptions;
+        correctAnswerIndex = allOptions.findIndex(option => option.english === currentWord.english);
 
-function updateScoreIcons() {
-    correctCount.textContent = correctWords.length;
-    incorrectCount.textContent = incorrectWords.length;
-}
-
-function showReviewModal(type) {
-    const wordsToShow = type === 'correct' ? correctWords : incorrectWords;
-    if (wordsToShow.length === 0) {
-        alert(`No ${type} answers yet!`);
-        return;
+        allOptions.forEach((option, index) => {
+            const button = document.createElement('button');
+            button.className = 'option-button';
+            button.textContent = option.english;
+            button.dataset.index = index;
+            button.addEventListener('click', () => handleOptionClick(index));
+            optionsContainer.appendChild(button);
+        });
     }
 
-    modalTitle.textContent = `${type.charAt(0).toUpperCase() + type.slice(1)} Answers`;
-    reviewModal.style.display = 'flex';
-    modalOptions.style.display = 'block';
-    wordList.style.display = 'none';
+    function handleOptionClick(index) {
+        if (selectedAnswer !== null) return;
 
-    // Store the type for button handlers
-    retryButton.dataset.type = type;
-    reviewButton.dataset.type = type;
-}
+        selectedAnswer = index;
+        const isCorrect = index === correctAnswerIndex;
+        const currentWord = currentOptions[correctAnswerIndex];
 
-function handleRetry(event) {
-    const type = event.target.dataset.type;
-    const wordsToRetry = type === 'correct' ? correctWords : incorrectWords;
+        const buttons = optionsContainer.querySelectorAll('.option-button');
+        buttons[index].classList.add(isCorrect ? 'correct' : 'incorrect');
 
-    if (wordsToRetry.length === 0) {
+        if (!isCorrect) {
+            buttons[correctAnswerIndex].classList.add('correct');
+            if (!incorrectWords.some(word => word.english === currentWord.english)) {
+                incorrectWords.push(currentWord);
+            }
+            reviewQueue.push(currentWord);
+            feedback.textContent = "Incorrect";
+            feedback.className = 'feedback incorrect';
+        } else {
+            if (!correctWords.some(word => word.english === currentWord.english)) {
+                correctWords.push(currentWord);
+            }
+            feedback.textContent = "Correct!";
+            feedback.className = 'feedback correct';
+        }
+
+        updateScoreIcons();
+        nextButton.style.display = 'block';
+    }
+
+    function handleNextButtonClick() {
+        showNextWord();
+    }
+
+    function updateProgress() {
+        counter.textContent = `${currentIndex}/${totalWords}`;
+        const progressPercent = (currentIndex / totalWords) * 100;
+        progressFill.style.width = `${progressPercent}%`;
+    }
+
+    function updateScoreIcons() {
+        correctCount.textContent = correctWords.length;
+        incorrectCount.textContent = incorrectWords.length;
+    }
+
+    function showReviewModal(type) {
+        const wordsToShow = type === 'correct' ? correctWords : incorrectWords;
+        if (wordsToShow.length === 0) {
+            alert(`No ${type} answers yet!`);
+            return;
+        }
+
+        modalTitle.textContent = `${type.charAt(0).toUpperCase() + type.slice(1)} Answers`;
+        reviewModal.style.display = 'flex';
+        modalOptions.style.display = 'block';
+        wordList.style.display = 'none';
+
+        retryButton.dataset.type = type;
+        reviewButton.dataset.type = type;
+    }
+
+    function handleRetry(event) {
+        const type = event.target.dataset.type;
+        const wordsToRetry = type === 'correct' ? correctWords : incorrectWords;
+
+        if (wordsToRetry.length === 0) {
+            reviewModal.style.display = 'none';
+            return;
+        }
+
+        selectCategory(currentCategory, wordsToRetry);
         reviewModal.style.display = 'none';
-        return;
     }
 
-    selectCategory(currentCategory, wordsToRetry);
-    reviewModal.style.display = 'none';
-}
+    function handleReview(event) {
+        const type = event.target.dataset.type;
+        const wordsToShow = type === 'correct' ? correctWords : incorrectWords;
 
-function handleReview(event) {
-    const type = event.target.dataset.type;
-    const wordsToShow = type === 'correct' ? correctWords : incorrectWords;
+        modalOptions.style.display = 'none';
+        wordList.style.display = 'block';
+        wordList.innerHTML = '';
 
-    modalOptions.style.display = 'none';
-    wordList.style.display = 'block';
-    wordList.innerHTML = '';
+        wordsToShow.forEach(word => {
+            const wordItem = document.createElement('div');
+            wordItem.className = 'word-item';
+            wordItem.textContent = `${word.spanish} - ${word.english}`;
+            wordList.appendChild(wordItem);
+        });
 
-    wordsToShow.forEach(word => {
-        const wordItem = document.createElement('div');
-        wordItem.className = 'word-item';
-        wordItem.textContent = `${word.spanish} - ${word.english}`;
-        wordList.appendChild(wordItem);
-    });
-
-    if (wordsToShow.length === 0) {
-        wordList.textContent = 'No words to show.';
+        if (wordsToShow.length === 0) {
+            wordList.textContent = 'No words to show.';
+        }
     }
-}
 
-window.addEventListener('DOMContentLoaded', initializeApp);
+    // Initialize Sections and Lessons
+    function initializeSections() {
+        const sectionButtons = document.querySelectorAll('.section-button');
+        sectionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const section = button.dataset.section;
+                const lessonsList = document.getElementById(`${section}-lessons`);
+                
+                const isVisible = lessonsList.style.display === 'block';
+                document.querySelectorAll('.lessons-list').forEach(list => {
+                    list.style.display = 'none';
+                });
+                document.querySelectorAll('.section-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                if (!isVisible) {
+                    lessonsList.style.display = 'block';
+                    button.classList.add('active');
+                }
+            });
+        });
+
+        const lessonButtons = document.querySelectorAll('.lesson-button');
+        lessonButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const lesson = button.dataset.lesson;
+                showLessonModal(lesson);
+            });
+        });
+
+        exerciseButton.addEventListener('click', handleExercise);
+        lessonViewButton.addEventListener('click', handleLessonView);
+        closeLessonModal.addEventListener('click', () => {
+            lessonModal.style.display = 'none';
+            lessonModalOptions.style.display = 'block';
+            grammarContent.style.display = 'none';
+            grammarContent.innerHTML = '';
+        });
+    }
+
+    function showLessonModal(lesson) {
+        lessonModalTitle.textContent = `Lesson: ${document.querySelector(`[data-lesson="${lesson}"]`).textContent}`;
+        lessonModal.style.display = 'flex';
+        exerciseButton.dataset.lesson = lesson;
+        lessonViewButton.dataset.lesson = lesson;
+        lessonModalOptions.style.display = 'block';
+        grammarContent.style.display = 'none';
+    }
+
+    function handleExercise(event) {
+        const lesson = event.target.dataset.lesson;
+        currentLesson = lesson;
+        currentExercises = grammarLessons[lesson].exercises;
+        currentExerciseIndex = 0;
+
+        lessonModalOptions.style.display = 'none';
+        grammarContent.style.display = 'block';
+        showNextExercise();
+    }
+
+    function showNextExercise() {
+        grammarContent.innerHTML = '';
+
+        if (currentExerciseIndex >= currentExercises.length) {
+            grammarContent.innerHTML = '<p>All exercises completed! Click "Close" to return.</p>';
+            return;
+        }
+
+        const exercise = currentExercises[currentExerciseIndex];
+        const questionDiv = document.createElement('div');
+        questionDiv.innerHTML = `<p><strong>Question ${currentExerciseIndex + 1}:</strong> ${exercise.question}</p>`;
+        grammarContent.appendChild(questionDiv);
+
+        const optionsDiv = document.createElement('div');
+        optionsDiv.style.display = 'flex';
+        optionsDiv.style.flexDirection = 'column';
+        optionsDiv.style.gap = '10px';
+        optionsDiv.style.marginTop = '10px';
+
+        exercise.options.forEach((option, index) => {
+            const button = document.createElement('button');
+            button.className = 'option-button';
+            button.textContent = option;
+            button.addEventListener('click', () => handleExerciseAnswer(option, exercise.correct));
+            optionsDiv.appendChild(button);
+        });
+
+        grammarContent.appendChild(optionsDiv);
+    }
+
+    function handleExerciseAnswer(selected, correct) {
+        const buttons = grammarContent.querySelectorAll('.option-button');
+        buttons.forEach(button => {
+            button.disabled = true;
+            if (button.textContent === correct) {
+                button.classList.add('correct');
+            }
+            if (button.textContent === selected && selected !== correct) {
+                button.classList.add('incorrect');
+            }
+        });
+
+        const feedbackDiv = document.createElement('div');
+        feedbackDiv.className = 'feedback';
+        feedbackDiv.textContent = selected === correct ? 'Correct!' : `Incorrect. The correct answer is "${correct}".`;
+        feedbackDiv.className += selected === correct ? ' correct' : ' incorrect';
+        grammarContent.appendChild(feedbackDiv);
+
+        const nextButton = document.createElement('button');
+        nextButton.className = 'next-button';
+        nextButton.textContent = 'Next';
+        nextButton.style.marginTop = '10px';
+        nextButton.addEventListener('click', () => {
+            currentExerciseIndex++;
+            showNextExercise();
+        });
+        grammarContent.appendChild(nextButton);
+    }
+
+    function handleLessonView(event) {
+        const lesson = event.target.dataset.lesson;
+        const lessonData = grammarLessons[lesson];
+
+        lessonModalTitle.textContent = `Lesson: ${document.querySelector(`[data-lesson="${lesson}"]`).textContent}`;
+        lessonModalOptions.style.display = 'none';
+        grammarContent.style.display = 'block';
+        grammarContent.innerHTML = lessonData.description;
+    }
+
+    window.addEventListener('DOMContentLoaded', initializeApp);
 </script>
 </body>
 </html>
