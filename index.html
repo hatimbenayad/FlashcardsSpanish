@@ -140,6 +140,108 @@
             color: white;
             border-color: #2196F3;
         }
+        .score-icons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.score-icon {
+    cursor: pointer;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.score-icon.correct {
+    color: #4CAF50;
+}
+
+.score-icon.incorrect {
+    color: #F44336;
+}
+
+.score-icon:hover {
+    background-color: #f0f0f0;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.modal-button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.modal-button#retryButton {
+    background-color: #2196F3;
+    color: white;
+}
+
+.modal-button#retryButton:hover {
+    background-color: #0b7dda;
+}
+
+.modal-button#reviewButton {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.modal-button#reviewButton:hover {
+    background-color: #388E3C;
+}
+
+.modal-button.close-button {
+    background-color: #F44336;
+    color: white;
+}
+
+.modal-button.close-button:hover {
+    background-color: #D32F2F;
+}
+
+#wordList {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.word-item {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.word-item:last-child {
+    border-bottom: none;
+}
     </style>
 </head>
 <body>
@@ -158,6 +260,15 @@
                 </div>
             </div>
             <div class="counter" id="counter">0/0</div>
+           
+            <div class="score-icons">
+                <div class="score-icon correct" id="correctIcon" title="Correct Answers">
+                    ✅ <span id="correctCount">0</span>
+                </div>
+                <div class="score-icon incorrect" id="incorrectIcon" title="Incorrect Answers">
+                    ❌ <span id="incorrectCount">0</span>
+                </div>
+            </div>
         </div>
         
         <div class="word-display" id="wordDisplay">Select a category</div>
@@ -169,7 +280,21 @@
         <div class="feedback" id="feedback"></div>
         
         <button class="next-button" id="nextButton">Next</button>
+
+        
+        <div class="modal" id="reviewModal" style="display: none;">
+            <div class="modal-content">
+                <h2 id="modalTitle"></h2>
+                <div id="modalOptions">
+                    <button class="modal-button" id="retryButton">Try them again</button>
+                    <button class="modal-button" id="reviewButton">Look at what you got</button>
+                </div>
+                <div id="wordList" style="display: none;"></div>
+                <button class="modal-button close-button" id="closeModal">Close</button>
+            </div>
+        </div>
     </div>
+</body>
 
     <script>
         // Vocabulary categorized by type
@@ -1181,181 +1306,264 @@ adjectives: [
         };
             
         let currentCategory = 'nouns';
-        let currentIndex = 0;
-        let totalWords = 0;
-        let words = [];
-        let incorrectWords = [];
-        let currentOptions = [];
-        let selectedAnswer = null;
-        let correctAnswerIndex = null;
-        let reviewQueue = [];
+let currentIndex = 0;
+let totalWords = 0;
+let words = [];
+let incorrectWords = [];
+let correctWords = []; // NEW: Track correct answers
+let currentOptions = [];
+let selectedAnswer = null;
+let correctAnswerIndex = null;
+let reviewQueue = [];
 
-        const wordDisplay = document.getElementById('wordDisplay');
-        const optionsContainer = document.getElementById('optionsContainer');
-        const nextButton = document.getElementById('nextButton');
-        const feedback = document.getElementById('feedback');
-        const counter = document.getElementById('counter');
-        const progressFill = document.getElementById('progressFill');
-        const categorySelector = document.getElementById('categorySelector');
+const wordDisplay = document.getElementById('wordDisplay');
+const optionsContainer = document.getElementById('optionsContainer');
+const nextButton = document.getElementById('nextButton');
+const feedback = document.getElementById('feedback');
+const counter = document.getElementById('counter');
+const progressFill = document.getElementById('progressFill');
+const categorySelector = document.getElementById('categorySelector');
+const correctIcon = document.getElementById('correctIcon'); // NEW
+const incorrectIcon = document.getElementById('incorrectIcon'); // NEW
+const correctCount = document.getElementById('correctCount'); // NEW
+const incorrectCount = document.getElementById('incorrectCount'); // NEW
+const reviewModal = document.getElementById('reviewModal'); // NEW
+const modalTitle = document.getElementById('modalTitle'); // NEW
+const modalOptions = document.getElementById('modalOptions'); // NEW
+const wordList = document.getElementById('wordList'); // NEW
+const retryButton = document.getElementById('retryButton'); // NEW
+const reviewButton = document.getElementById('reviewButton'); // NEW
+const closeModal = document.getElementById('closeModal'); // NEW
 
-        function initializeApp() {
-            // Set up category selection
-            const categoryButtons = document.querySelectorAll('.category-button');
-            categoryButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const category = button.dataset.category;
-                    selectCategory(category);
-                    
-                    // Update active button
-                    categoryButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-                });
-            });
-            
-            // Initialize with default category
-            selectCategory('nouns');
-            
-            // Set up next button
-            nextButton.addEventListener('click', handleNextButtonClick);
-        }
+function initializeApp() {
+    // Set up category selection
+    const categoryButtons = document.querySelectorAll('.category-button');
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const category = button.dataset.category;
+            selectCategory(category);
+            categoryButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+        });
+    });
 
-        function selectCategory(category) {
-            currentCategory = category;
-            words = [...vocabularyByCategory[category]];
-            totalWords = words.length;
-            currentIndex = 0;
-            incorrectWords = [];
-            reviewQueue = [];
-            
-            if (words.length === 0) {
-                wordDisplay.textContent = "No words available in this category";
-                optionsContainer.innerHTML = '';
-                counter.textContent = "0/0";
-                progressFill.style.width = "0%";
-                return;
+    // Set up score icons
+    correctIcon.addEventListener('click', () => showReviewModal('correct'));
+    incorrectIcon.addEventListener('click', () => showReviewModal('incorrect'));
+
+    // Set up modal buttons
+    retryButton.addEventListener('click', handleRetry);
+    reviewButton.addEventListener('click', handleReview);
+    closeModal.addEventListener('click', () => {
+        reviewModal.style.display = 'none';
+        modalOptions.style.display = 'block';
+        wordList.style.display = 'none';
+    });
+
+    // Initialize with default category
+    selectCategory('nouns');
+
+    // Set up next button
+    nextButton.addEventListener('click', handleNextButtonClick);
+}
+
+function selectCategory(category, wordList = null) {
+    currentCategory = category;
+    words = wordList ? [...wordList] : [...vocabularyByCategory[category]];
+    totalWords = words.length;
+    currentIndex = 0;
+    incorrectWords = [];
+    correctWords = []; // Reset correct words
+    reviewQueue = [];
+    updateScoreIcons(); // Update icons
+
+    if (words.length === 0) {
+        wordDisplay.textContent = "No words available in this category";
+        optionsContainer.innerHTML = '';
+        counter.textContent = "0/0";
+        progressFill.style.width = "0%";
+        return;
+    }
+
+    shuffleArray(words);
+    showNextWord();
+}
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+function showNextWord() {
+    optionsContainer.innerHTML = '';
+    feedback.textContent = '';
+    feedback.className = 'feedback';
+    nextButton.style.display = 'none';
+    selectedAnswer = null;
+
+    if (words.length === 0) {
+        wordDisplay.textContent = "No words available in this category";
+        return;
+    }
+
+    let currentWord;
+    if (reviewQueue.length > 0 && currentIndex % 5 === 0 && currentIndex > 0) {
+        currentWord = reviewQueue.shift();
+    } else {
+        if (currentIndex >= words.length) {
+            wordDisplay.textContent = "All words completed!";
+            if (incorrectWords.length > 0) {
+                words = [...incorrectWords];
+                incorrectWords = [];
+                currentIndex = 0;
+                shuffleArray(words);
+                showNextWord();
             }
-            
-            shuffleArray(words);
-            showNextWord();
+            return;
         }
+        currentWord = words[currentIndex];
+        currentIndex++;
+    }
 
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-        }
-        
-        function showNextWord() {
-            optionsContainer.innerHTML = '';
-            feedback.textContent = '';
-            feedback.className = 'feedback';
-            nextButton.style.display = 'none';
-            selectedAnswer = null;
-            
-            if (words.length === 0) {
-                wordDisplay.textContent = "No words available in this category";
-                return;
-            }
-            
-            let currentWord;
-            if (reviewQueue.length > 0 && currentIndex % 5 === 0 && currentIndex > 0) {
-                currentWord = reviewQueue.shift();
-            } else {
-                if (currentIndex >= words.length) {
-                    wordDisplay.textContent = "All words completed!";
-                    if (incorrectWords.length > 0) {
-                        words = [...incorrectWords];
-                        incorrectWords = [];
-                        currentIndex = 0;
-                        shuffleArray(words);
-                        showNextWord();
-                    }
-                    return;
-                }
-                currentWord = words[currentIndex];
-                currentIndex++;
-            }
-            
-            wordDisplay.textContent = currentWord.spanish;
-            generateOptions(currentWord);
+    wordDisplay.textContent = currentWord.spanish;
+    generateOptions(currentWord);
 
-            updateProgress();
-        }
-        
-        function generateOptions(currentWord) {
-            // Create a pool of all words from the current category
-            const optionsPool = vocabularyByCategory[currentCategory].filter(word => word.english !== currentWord.english);
-            
-            if (optionsPool.length < 4) {
-                // If we don't have enough words in this category, pull from all categories
-                let allWords = [];
-                for (const category in vocabularyByCategory) {
-                    allWords = allWords.concat(vocabularyByCategory[category]);
-                }
-                const additionalOptions = allWords.filter(word => 
-                    word.english !== currentWord.english && 
-                    !optionsPool.some(option => option.english === word.english)
-                );
-                shuffleArray(additionalOptions);
-                optionsPool.push(...additionalOptions);
-            }
-            
-            shuffleArray(optionsPool);
-            const incorrectOptions = optionsPool.slice(0, 4);
-            const allOptions = [...incorrectOptions, currentWord];
-            shuffleArray(allOptions);
-            currentOptions = allOptions;
-            correctAnswerIndex = allOptions.findIndex(option => option.english === currentWord.english);
-            
-            allOptions.forEach((option, index) => {
-                const button = document.createElement('button');
-                button.className = 'option-button';
-                button.textContent = option.english;
-                button.dataset.index = index;
-                button.addEventListener('click', () => handleOptionClick(index));
-                optionsContainer.appendChild(button);
-            });
-        }
-        
-        function handleOptionClick(index) {
-            if (selectedAnswer !== null) return;
-            
-            selectedAnswer = index;
-            const isCorrect = index === correctAnswerIndex;
-            
-            const buttons = optionsContainer.querySelectorAll('.option-button');
-            
-            buttons[index].classList.add(isCorrect ? 'correct' : 'incorrect');
-            
-            if (!isCorrect) {
-                buttons[correctAnswerIndex].classList.add('correct');
-                
-                const currentWord = currentOptions[correctAnswerIndex];
-                incorrectWords.push(currentWord);
-                reviewQueue.push(currentWord);
-                
-                feedback.textContent = "Incorrect";
-                feedback.className = 'feedback incorrect';
-            } else {
-                feedback.textContent = "Correct!";
-                feedback.className = 'feedback correct';
-            }
-            
-            nextButton.style.display = 'block';
-        }
+    updateProgress();
+}
 
-        function handleNextButtonClick() {
-            showNextWord();
-        }
+function generateOptions(currentWord) {
+    const optionsPool = vocabularyByCategory[currentCategory].filter(word => word.english !== currentWord.english);
 
-        function updateProgress() {
-            counter.textContent = `${currentIndex}/${totalWords}`;
-            const progressPercent = (currentIndex / totalWords) * 100;
-            progressFill.style.width = `${progressPercent}%`;
+    if (optionsPool.length < 4) {
+        let allWords = [];
+        for (const category in vocabularyByCategory) {
+            allWords = allWords.concat(vocabularyByCategory[category]);
         }
-        
-        window.addEventListener('DOMContentLoaded', initializeApp);
-    </script>
+        const additionalOptions = allWords.filter(word => 
+            word.english !== currentWord.english && 
+            !optionsPool.some(option => option.english === word.english)
+        );
+        shuffleArray(additionalOptions);
+        optionsPool.push(...additionalOptions);
+    }
+
+    shuffleArray(optionsPool);
+    const incorrectOptions = optionsPool.slice(0, 4);
+    const allOptions = [...incorrectOptions, currentWord];
+    shuffleArray(allOptions);
+    currentOptions = allOptions;
+    correctAnswerIndex = allOptions.findIndex(option => option.english === currentWord.english);
+
+    allOptions.forEach((option, index) => {
+        const button = document.createElement('button');
+        button.className = 'option-button';
+        button.textContent = option.english;
+        button.dataset.index = index;
+        button.addEventListener('click', () => handleOptionClick(index));
+        optionsContainer.appendChild(button);
+    });
+}
+
+function handleOptionClick(index) {
+    if (selectedAnswer !== null) return;
+
+    selectedAnswer = index;
+    const isCorrect = index === correctAnswerIndex;
+    const currentWord = currentOptions[correctAnswerIndex];
+
+    const buttons = optionsContainer.querySelectorAll('.option-button');
+    buttons[index].classList.add(isCorrect ? 'correct' : 'incorrect');
+
+    if (!isCorrect) {
+        buttons[correctAnswerIndex].classList.add('correct');
+        // Only add if not already in incorrectWords
+        if (!incorrectWords.some(word => word.english === currentWord.english)) {
+            incorrectWords.push(currentWord);
+        }
+        reviewQueue.push(currentWord);
+        feedback.textContent = "Incorrect";
+        feedback.className = 'feedback incorrect';
+    } else {
+        // Only add if not already in correctWords
+        if (!correctWords.some(word => word.english === currentWord.english)) {
+            correctWords.push(currentWord);
+        }
+        feedback.textContent = "Correct!";
+        feedback.className = 'feedback correct';
+    }
+
+    updateScoreIcons(); // Update icon counts
+    nextButton.style.display = 'block';
+}
+
+function handleNextButtonClick() {
+    showNextWord();
+}
+
+function updateProgress() {
+    counter.textContent = `${currentIndex}/${totalWords}`;
+    const progressPercent = (currentIndex / totalWords) * 100;
+    progressFill.style.width = `${progressPercent}%`;
+}
+
+function updateScoreIcons() {
+    correctCount.textContent = correctWords.length;
+    incorrectCount.textContent = incorrectWords.length;
+}
+
+function showReviewModal(type) {
+    const wordsToShow = type === 'correct' ? correctWords : incorrectWords;
+    if (wordsToShow.length === 0) {
+        alert(`No ${type} answers yet!`);
+        return;
+    }
+
+    modalTitle.textContent = `${type.charAt(0).toUpperCase() + type.slice(1)} Answers`;
+    reviewModal.style.display = 'flex';
+    modalOptions.style.display = 'block';
+    wordList.style.display = 'none';
+
+    // Store the type for button handlers
+    retryButton.dataset.type = type;
+    reviewButton.dataset.type = type;
+}
+
+function handleRetry(event) {
+    const type = event.target.dataset.type;
+    const wordsToRetry = type === 'correct' ? correctWords : incorrectWords;
+
+    if (wordsToRetry.length === 0) {
+        reviewModal.style.display = 'none';
+        return;
+    }
+
+    selectCategory(currentCategory, wordsToRetry);
+    reviewModal.style.display = 'none';
+}
+
+function handleReview(event) {
+    const type = event.target.dataset.type;
+    const wordsToShow = type === 'correct' ? correctWords : incorrectWords;
+
+    modalOptions.style.display = 'none';
+    wordList.style.display = 'block';
+    wordList.innerHTML = '';
+
+    wordsToShow.forEach(word => {
+        const wordItem = document.createElement('div');
+        wordItem.className = 'word-item';
+        wordItem.textContent = `${word.spanish} - ${word.english}`;
+        wordList.appendChild(wordItem);
+    });
+
+    if (wordsToShow.length === 0) {
+        wordList.textContent = 'No words to show.';
+    }
+}
+
+window.addEventListener('DOMContentLoaded', initializeApp);
+</script>
 </body>
 </html>
