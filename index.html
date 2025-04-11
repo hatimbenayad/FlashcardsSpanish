@@ -117,10 +117,40 @@
         .feedback.incorrect {
             color: #F44336;
         }
+        .category-selector {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .category-button {
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            background-color: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .category-button:hover {
+            background-color: #f0f0f0;
+        }
+        .category-button.active {
+            background-color: #2196F3;
+            color: white;
+            border-color: #2196F3;
+        }
     </style>
 </head>
 <body>
     <div class="app-container">
+        <div class="category-selector" id="categorySelector">
+            <button class="category-button active" data-category="nouns">Nouns</button>
+            <button class="category-button" data-category="verbs">Verbs</button>
+            <button class="category-button" data-category="expressions">Expressions</button>
+            <button class="category-button" data-category="adjectives">Adjectives</button>
+        </div>
+        
         <div class="header">
             <div class="progress-container">
                 <div class="progress-bar">
@@ -130,7 +160,7 @@
             <div class="counter" id="counter">0/0</div>
         </div>
         
-        <div class="word-display" id="wordDisplay">Loading...</div>
+        <div class="word-display" id="wordDisplay">Select a category</div>
         
         <div class="options-container" id="optionsContainer">
             
@@ -142,340 +172,1190 @@
     </div>
 
     <script>
-        const vocabulary = [
-            {spanish: "el hombre", english: "man"},
-            {spanish: "la mujer", english: "woman"},
-            {spanish: "el niño", english: "boy"},
-            {spanish: "la niña", english: "girl"},
-            {spanish: "el agua", english: "water"},
-            {spanish: "el fuego", english: "fire"},
-            {spanish: "la tierra", english: "earth"},
-            {spanish: "el aire", english: "air"},
-            {spanish: "el perro", english: "dog"},
-            {spanish: "el gato", english: "cat"},
-            {spanish: "el caballo", english: "horse"},
-            {spanish: "la casa", english: "house"},
-            {spanish: "el coche", english: "car"},
-            {spanish: "el libro", english: "book"},
-            {spanish: "la comida", english: "food"},
-            {spanish: "la bebida", english: "drink"},
-            {spanish: "el sol", english: "sun"},
-            {spanish: "la luna", english: "moon"},
-            {spanish: "la estrella", english: "star"},
-            {spanish: "el cielo", english: "sky"},
-            {spanish: "el mar", english: "sea"},
-            {spanish: "el río", english: "river"},
-            {spanish: "la montaña", english: "mountain"},
-            {spanish: "el árbol", english: "tree"},
-            {spanish: "la flor", english: "flower"},
-            {spanish: "el amor", english: "love"},
-            {spanish: "el odio", english: "hate"},
-            {spanish: "el miedo", english: "fear"},
-            {spanish: "la alegría", english: "joy"},
-            {spanish: "la tristeza", english: "sadness"},
-            {spanish: "el tiempo", english: "time"},
-            {spanish: "el espacio", english: "space"},
-            {spanish: "el dinero", english: "money"},
-            {spanish: "el trabajo", english: "work"},
-            {spanish: "la escuela", english: "school"},
-            {spanish: "el hospital", english: "hospital"},
-            {spanish: "el médico", english: "doctor"},
-            {spanish: "la enfermera", english: "nurse"},
-            {spanish: "el profesor", english: "teacher"},
-            {spanish: "el estudiante", english: "student"},
-            {spanish: "el amigo", english: "friend"},
-            {spanish: "el enemigo", english: "enemy"},
-            {spanish: "la familia", english: "family"},
-            {spanish: "el padre", english: "father"},
-            {spanish: "la madre", english: "mother"},
-            {spanish: "el hermano", english: "brother"},
-            {spanish: "la hermana", english: "sister"},
-            {spanish: "el hijo", english: "son"},
-            {spanish: "la hija", english: "daughter"},
-            {spanish: "el abuelo", english: "grandfather"},
-            {spanish: "la abuela", english: "grandmother"},
-            {spanish: "el tío", english: "uncle"},
-            {spanish: "la tía", english: "aunt"},
-            {spanish: "el primo", english: "cousin (male)"},
-            {spanish: "la prima", english: "cousin (female)"},
-            {spanish: "el sobrino", english: "nephew"},
-            {spanish: "la sobrina", english: "niece"},
-            {spanish: "el esposo", english: "husband"},
-            {spanish: "la esposa", english: "wife"},
-            {spanish: "el color", english: "color"},
-            {spanish: "rojo", english: "red"},
-            {spanish: "azul", english: "blue"},
-            {spanish: "verde", english: "green"},
-            {spanish: "amarillo", english: "yellow"},
-            {spanish: "negro", english: "black"},
-            {spanish: "blanco", english: "white"},
-            {spanish: "gris", english: "gray"},
-            {spanish: "naranja", english: "orange"},
-            {spanish: "púrpura", english: "purple"},
-            {spanish: "rosa", english: "pink"},
-            {spanish: "marrón", english: "brown"},
-            {spanish: "el día", english: "day"},
-            {spanish: "la noche", english: "night"},
-            {spanish: "la mañana", english: "morning"},
-            {spanish: "la tarde", english: "afternoon"},
-            {spanish: "la semana", english: "week"},
-            {spanish: "el mes", english: "month"},
-            {spanish: "el año", english: "year"},
-            {spanish: "lunes", english: "Monday"},
-            {spanish: "martes", english: "Tuesday"},
-            {spanish: "miércoles", english: "Wednesday"},
-            {spanish: "jueves", english: "Thursday"},
-            {spanish: "viernes", english: "Friday"},
-            {spanish: "sábado", english: "Saturday"},
-            {spanish: "domingo", english: "Sunday"},
-            {spanish: "enero", english: "January"},
-            {spanish: "febrero", english: "February"},
-            {spanish: "marzo", english: "March"},
-            {spanish: "abril", english: "April"},
-            {spanish: "mayo", english: "May"},
-            {spanish: "junio", english: "June"},
-            {spanish: "julio", english: "July"},
-            {spanish: "agosto", english: "August"},
-            {spanish: "septiembre", english: "September"},
-            {spanish: "octubre", english: "October"},
-            {spanish: "noviembre", english: "November"},
-            {spanish: "diciembre", english: "December"},
-            {spanish: "el número", english: "number"},
-            {spanish: "uno", english: "one"},
-            {spanish: "dos", english: "two"},
-            {spanish: "tres", english: "three"},
-            {spanish: "cuatro", english: "four"},
-            {spanish: "cinco", english: "five"},
-            {spanish: "seis", english: "six"},
-            {spanish: "siete", english: "seven"},
-            {spanish: "ocho", english: "eight"},
-            {spanish: "nueve", english: "nine"},
-            {spanish: "diez", english: "ten"},
-            {spanish: "la comida", english: "food"},
-            {spanish: "el desayuno", english: "breakfast"},
-            {spanish: "el almuerzo", english: "lunch"},
-            {spanish: "la cena", english: "dinner"},
-            {spanish: "el pan", english: "bread"},
-            {spanish: "el arroz", english: "rice"},
-            {spanish: "la pasta", english: "pasta"},
-            {spanish: "la carne", english: "meat"},
-            {spanish: "el pollo", english: "chicken"},
-            {spanish: "el pescado", english: "fish"},
-            {spanish: "la fruta", english: "fruit"},
-            {spanish: "la verdura", english: "vegetable"},
-            {spanish: "la manzana", english: "apple"},
-            {spanish: "el plátano", english: "banana"},
-            {spanish: "la naranja", english: "orange"},
-            {spanish: "la fresa", english: "strawberry"},
-            {spanish: "el limón", english: "lemon"},
-            {spanish: "la papa", english: "potato"},
-            {spanish: "la zanahoria", english: "carrot"},
-            {spanish: "el tomate", english: "tomato"},
-            {spanish: "la lechuga", english: "lettuce"},
-            {spanish: "la cebolla", english: "onion"},
-            {spanish: "el huevo", english: "egg"},
-            {spanish: "el queso", english: "cheese"},
-            {spanish: "la leche", english: "milk"},
-            {spanish: "el azúcar", english: "sugar"},
-            {spanish: "la sal", english: "salt"},
-            {spanish: "la pimienta", english: "pepper"},
-            {spanish: "el aceite", english: "oil"},
-            {spanish: "el vinagre", english: "vinegar"},
-            {spanish: "el chocolate", english: "chocolate"},
-            {spanish: "el helado", english: "ice cream"},
-            {spanish: "el café", english: "coffee"},
-            {spanish: "el té", english: "tea"},
-            {spanish: "el jugo", english: "juice"},
-            {spanish: "el agua", english: "water"},
-            {spanish: "la cerveza", english: "beer"},
-            {spanish: "el vino", english: "wine"},
-            {spanish: "el cuerpo", english: "body"},
-            {spanish: "la cabeza", english: "head"},
-            {spanish: "el pelo", english: "hair"},
-            {spanish: "la cara", english: "face"},
-            {spanish: "los ojos", english: "eyes"},
-            {spanish: "la nariz", english: "nose"},
-            {spanish: "la boca", english: "mouth"},
-            {spanish: "los dientes", english: "teeth"},
-            {spanish: "las orejas", english: "ears"},
-            {spanish: "el cuello", english: "neck"},
-            {spanish: "los hombros", english: "shoulders"},
-            {spanish: "los brazos", english: "arms"},
-            {spanish: "las manos", english: "hands"},
-            {spanish: "los dedos", english: "fingers"},
-            {spanish: "el pecho", english: "chest"},
-            {spanish: "la espalda", english: "back"},
-            {spanish: "el estómago", english: "stomach"},
-            {spanish: "las piernas", english: "legs"},
-            {spanish: "las rodillas", english: "knees"},
-            {spanish: "los pies", english: "feet"},
-            {spanish: "el corazón", english: "heart"},
-            {spanish: "la perspectiva", english: "perspective"},
-{spanish: "el desafío", english: "challenge"},
-{spanish: "la curiosidad", english: "curiosity"},
-{spanish: "el entorno", english: "environment"},
-{spanish: "la posibilidad", english: "possibility"},
-{spanish: "el recurso", english: "resource"},
-{spanish: "la inquietud", english: "concern/worry"},
-{spanish: "el planteamiento", english: "approach/proposal"},
-{spanish: "la evaluación", english: "evaluation"},
-{spanish: "el ámbito", english: "scope/field"},
-{spanish: "desarrollar", english: "to develop"},
-{spanish: "considerar", english: "to consider"},
-{spanish: "establecer", english: "to establish"},
-{spanish: "destacar", english: "to stand out/highlight"},
-{spanish: "plantear", english: "to propose/set out"},
-{spanish: "reflexionar", english: "to reflect/ponder"},
-{spanish: "gestionar", english: "to manage"},
-{spanish: "fomentar", english: "to promote/encourage"},
-{spanish: "aportar", english: "to contribute"},
-{spanish: "vincular", english: "to link/connect"},
-{spanish: "tener en cuenta", english: "to take into account"},
-{spanish: "darse cuenta de", english: "to realize"},
-{spanish: "estar al tanto de", english: "to be aware of"},
-{spanish: "a largo plazo", english: "long-term"},
-{spanish: "en cierta medida", english: "to some extent"},
-{spanish: "poner en práctica", english: "to put into practice"},
-{spanish: "hacer frente a", english: "to face/confront"},
-{spanish: "llevar a cabo", english: "to carry out"},
-{spanish: "sacar provecho de", english: "to take advantage of"},
-{spanish: "dar por sentado", english: "to take for granted"},
-{spanish: "fundamental", english: "fundamental"},
-{spanish: "relevante", english: "relevant"},
-{spanish: "imprescindible", english: "essential"},
-{spanish: "sostenible", english: "sustainable"},
-{spanish: "viable", english: "viable/feasible"},
-{spanish: "evidente", english: "evident"},
-{spanish: "significativo", english: "significant"},
-{spanish: "determinante", english: "decisive/determining"},
-{spanish: "riguroso", english: "rigorous"},
-{spanish: "eficaz", english: "effective"},
-        ]
+        // Vocabulary categorized by type
+        const vocabularyByCategory = {
+            nouns: [
+    // Basic B1 nouns
+    {spanish: "el hombre", english: "man"},
+    {spanish: "la mujer", english: "woman"},
+    {spanish: "el niño", english: "boy"},
+    {spanish: "la niña", english: "girl"},
+    {spanish: "el perro", english: "dog"},
+    {spanish: "el gato", english: "cat"},
+    
+    // Common B1 nouns
+    {spanish: "la casa", english: "house"},
+    {spanish: "el trabajo", english: "work/job"},
+    {spanish: "la escuela", english: "school"},
+    {spanish: "el libro", english: "book"},
+    {spanish: "la comida", english: "food"},
+    {spanish: "el tiempo", english: "time/weather"},
+    {spanish: "la ciudad", english: "city"},
+    {spanish: "el país", english: "country"},
+    {spanish: "la familia", english: "family"},
+    {spanish: "el amigo", english: "friend"},
+    {spanish: "la vida", english: "life"},
+    {spanish: "el dinero", english: "money"},
+    {spanish: "el coche", english: "car"},
+    {spanish: "la mesa", english: "table"},
+    {spanish: "la silla", english: "chair"},
+    
+    // Natural environment B1-B2
+    {spanish: "el bosque", english: "forest"},
+    {spanish: "la montaña", english: "mountain"},
+    {spanish: "el río", english: "river"},
+    {spanish: "el mar", english: "sea"},
+    {spanish: "el lago", english: "lake"},
+    {spanish: "la playa", english: "beach"},
+    {spanish: "el desierto", english: "desert"},
+    {spanish: "la isla", english: "island"},
+    {spanish: "la costa", english: "coast"},
+    {spanish: "el cielo", english: "sky"},
+    {spanish: "las nubes", english: "clouds"},
+    {spanish: "la lluvia", english: "rain"},
+    {spanish: "la nieve", english: "snow"},
+    {spanish: "el clima", english: "climate"},
+    
+    // B2 level nouns
+    {spanish: "el asunto", english: "matter/issue"},
+    {spanish: "la decisión", english: "decision"},
+    {spanish: "el gobierno", english: "government"},
+    {spanish: "la empresa", english: "company/business"},
+    {spanish: "el sistema", english: "system"},
+    {spanish: "la sociedad", english: "society"},
+    {spanish: "el desarrollo", english: "development"},
+    {spanish: "la necesidad", english: "necessity/need"},
+    {spanish: "el cambio", english: "change"},
+    {spanish: "la situación", english: "situation"},
+    {spanish: "el momento", english: "moment"},
+    {spanish: "la forma", english: "form/shape"},
+    {spanish: "el punto", english: "point"},
+    {spanish: "la posibilidad", english: "possibility"},
+    {spanish: "el caso", english: "case"},
+    {spanish: "la información", english: "information"},
+    {spanish: "el grupo", english: "group"},
+    {spanish: "la experiencia", english: "experience"},
+    {spanish: "el resultado", english: "result"},
+    {spanish: "la actividad", english: "activity"},
+    
+    // Technology B2
+    {spanish: "el ordenador", english: "computer"},
+    {spanish: "la computadora", english: "computer (Latin America)"},
+    {spanish: "el teléfono", english: "telephone"},
+    {spanish: "el móvil", english: "mobile phone"},
+    {spanish: "la red", english: "network"},
+    {spanish: "el internet", english: "internet"},
+    {spanish: "la aplicación", english: "application/app"},
+    {spanish: "el dispositivo", english: "device"},
+    {spanish: "la pantalla", english: "screen"},
+    {spanish: "el teclado", english: "keyboard"},
+    {spanish: "el ratón", english: "mouse (computer)"},
+    {spanish: "la impresora", english: "printer"},
+    {spanish: "la tecnología", english: "technology"},
+    {spanish: "el programa", english: "program/software"},
+    {spanish: "el archivo", english: "file"},
+    {spanish: "la contraseña", english: "password"},
+    
+    // Academic B2-C1
+    {spanish: "el conocimiento", english: "knowledge"},
+    {spanish: "la investigación", english: "research/investigation"},
+    {spanish: "el estudio", english: "study"},
+    {spanish: "la universidad", english: "university"},
+    {spanish: "la carrera", english: "career/degree"},
+    {spanish: "el título", english: "degree/title"},
+    {spanish: "la asignatura", english: "subject (academic)"},
+    {spanish: "el examen", english: "exam"},
+    {spanish: "el ensayo", english: "essay"},
+    {spanish: "la tesis", english: "thesis"},
+    {spanish: "el doctorado", english: "doctorate"},
+    {spanish: "la ciencia", english: "science"},
+    {spanish: "la teoría", english: "theory"},
+    {spanish: "el análisis", english: "analysis"},
+    {spanish: "la hipótesis", english: "hypothesis"},
+    {spanish: "el argumento", english: "argument"},
+    {spanish: "la conclusión", english: "conclusion"},
+    {spanish: "el debate", english: "debate"},
+    
+    // Professional C1
+    {spanish: "el emprendedor", english: "entrepreneur"},
+    {spanish: "el ejecutivo", english: "executive"},
+    {spanish: "la ejecutiva", english: "executive (female)"},
+    {spanish: "el directivo", english: "manager/director"},
+    {spanish: "la directiva", english: "manager/director (female)"},
+    {spanish: "el empleado", english: "employee"},
+    {spanish: "la empleada", english: "employee (female)"},
+    {spanish: "el colega", english: "colleague"},
+    {spanish: "el jefe", english: "boss"},
+    {spanish: "la jefa", english: "boss (female)"},
+    {spanish: "el cliente", english: "client"},
+    {spanish: "la clienta", english: "client (female)"},
+    {spanish: "el proveedor", english: "supplier/provider"},
+    {spanish: "la proveedora", english: "supplier/provider (female)"},
+    {spanish: "el contrato", english: "contract"},
+    {spanish: "la negociación", english: "negotiation"},
+    {spanish: "el acuerdo", english: "agreement"},
+    {spanish: "la reunión", english: "meeting"},
+    {spanish: "el presupuesto", english: "budget"},
+    {spanish: "la inversión", english: "investment"},
+    
+    // Abstract nouns C1
+    {spanish: "la identidad", english: "identity"},
+    {spanish: "la responsabilidad", english: "responsibility"},
+    {spanish: "la libertad", english: "freedom"},
+    {spanish: "la justicia", english: "justice"},
+    {spanish: "el bienestar", english: "well-being"},
+    {spanish: "la igualdad", english: "equality"},
+    {spanish: "la diversidad", english: "diversity"},
+    {spanish: "la sostenibilidad", english: "sustainability"},
+    {spanish: "la innovación", english: "innovation"},
+    {spanish: "la perspectiva", english: "perspective"},
+    {spanish: "el concepto", english: "concept"},
+    {spanish: "la estrategia", english: "strategy"},
+    {spanish: "la influencia", english: "influence"},
+    {spanish: "el impacto", english: "impact"},
+    {spanish: "la consecuencia", english: "consequence"},
+    {spanish: "el equilibrio", english: "balance/equilibrium"},
+    {spanish: "la conciencia", english: "consciousness/awareness"},
+    {spanish: "la mentalidad", english: "mentality/mindset"},
+    {spanish: "el paradigma", english: "paradigm"},
+    {spanish: "la ambigüedad", english: "ambiguity"},
+    
+    // Advanced C1
+    {spanish: "el ámbito", english: "scope/field/area"},
+    {spanish: "el rasgo", english: "trait/feature"},
+    {spanish: "la incertidumbre", english: "uncertainty"},
+    {spanish: "el matiz", english: "nuance/shade"},
+    {spanish: "la coyuntura", english: "situation/conjuncture"},
+    {spanish: "el criterio", english: "criterion/judgment"},
+    {spanish: "la índole", english: "nature/type"},
+    {spanish: "el planteamiento", english: "approach/proposal"},
+    {spanish: "la tesitura", english: "situation/position"},
+    {spanish: "el patrimonio", english: "heritage/patrimony"},
+    {spanish: "la trayectoria", english: "trajectory/career path"},
+    {spanish: "el entorno", english: "environment/surroundings"},
+    {spanish: "el auge", english: "peak/height/rise"},
+    {spanish: "la repercusión", english: "repercussion/impact"},
+    {spanish: "el desempeño", english: "performance/execution"},
+    {spanish: "la envergadura", english: "magnitude/scope"},
+    {spanish: "el eje", english: "axis/central element"},
+    {spanish: "el sello", english: "stamp/seal/hallmark"},
+    {spanish: "la divergencia", english: "divergence/difference"},
+    {spanish: "la controversia", english: "controversy"},
+    {spanish: "el hito", english: "milestone/landmark"},
+    {spanish: "el estigma", english: "stigma"},
+    {spanish: "la cúspide", english: "peak/summit/zenith"},
+    {spanish: "el contraste", english: "contrast"},
+    {spanish: "la premisa", english: "premise"},
+    {spanish: "el escrutinio", english: "scrutiny"},
+    {spanish: "la disyuntiva", english: "dilemma/choice"},
+    {spanish: "el desafío", english: "challenge"},
+    {spanish: "la vertiente", english: "aspect/side/slope"},
+    {spanish: "el respaldo", english: "support/backing"}
+],
             
-let currentIndex = 0;
-let totalWords = 0;
-let words = [];
-let incorrectWords = [];
-let currentOptions = [];
-let selectedAnswer = null;
-let correctAnswerIndex = null;
-let reviewQueue = [];
-
-
-const wordDisplay = document.getElementById('wordDisplay');
-const optionsContainer = document.getElementById('optionsContainer');
-const nextButton = document.getElementById('nextButton');
-const feedback = document.getElementById('feedback');
-const counter = document.getElementById('counter');
-const progressFill = document.getElementById('progressFill');
-
-
-function initializeApp() {
+verbs: [
+    // Common B1 verbs
+    {spanish: "hablar", english: "to speak"},
+    {spanish: "comer", english: "to eat"},
+    {spanish: "beber", english: "to drink"},
+    {spanish: "vivir", english: "to live"},
+    {spanish: "trabajar", english: "to work"},
+    {spanish: "estudiar", english: "to study"},
+    {spanish: "aprender", english: "to learn"},
+    {spanish: "enseñar", english: "to teach"},
+    {spanish: "comprar", english: "to buy"},
+    {spanish: "vender", english: "to sell"},
+    {spanish: "pagar", english: "to pay"},
+    {spanish: "gastar", english: "to spend"},
+    {spanish: "ahorrar", english: "to save (money)"},
+    {spanish: "ganar", english: "to win/earn"},
+    {spanish: "perder", english: "to lose"},
     
-    words = [...vocabulary];
-    totalWords = words.length;
-    shuffleArray(words);
-    showNextWord();
-    nextButton.addEventListener('click', handleNextButtonClick);
-}
+    // Irregular but common B1 verbs
+    {spanish: "ir", english: "to go"},
+    {spanish: "ser", english: "to be (permanent)"},
+    {spanish: "estar", english: "to be (temporary)"},
+    {spanish: "tener", english: "to have"},
+    {spanish: "hacer", english: "to do/make"},
+    {spanish: "decir", english: "to say/tell"},
+    {spanish: "venir", english: "to come"},
+    {spanish: "poner", english: "to put/place"},
+    {spanish: "salir", english: "to leave/go out"},
+    {spanish: "ver", english: "to see"},
+    {spanish: "dar", english: "to give"},
+    {spanish: "saber", english: "to know (facts)"},
+    {spanish: "conocer", english: "to know (people/places)"},
+    {spanish: "poder", english: "to be able to/can"},
+    {spanish: "querer", english: "to want"},
+    
+    // Daily activities B1-B2
+    {spanish: "despertarse", english: "to wake up"},
+    {spanish: "levantarse", english: "to get up"},
+    {spanish: "ducharse", english: "to shower"},
+    {spanish: "vestirse", english: "to get dressed"},
+    {spanish: "desayunar", english: "to have breakfast"},
+    {spanish: "almorzar", english: "to have lunch"},
+    {spanish: "cenar", english: "to have dinner"},
+    {spanish: "dormirse", english: "to fall asleep"},
+    {spanish: "acostarse", english: "to go to bed"},
+    {spanish: "preparar", english: "to prepare"},
+    {spanish: "cocinar", english: "to cook"},
+    {spanish: "limpiar", english: "to clean"},
+    {spanish: "lavar", english: "to wash"},
+    {spanish: "planchar", english: "to iron"},
+    
+    // Communications B1-B2
+    {spanish: "llamar", english: "to call"},
+    {spanish: "contestar", english: "to answer"},
+    {spanish: "preguntar", english: "to ask"},
+    {spanish: "responder", english: "to respond"},
+    {spanish: "explicar", english: "to explain"},
+    {spanish: "describir", english: "to describe"},
+    {spanish: "charlar", english: "to chat"},
+    {spanish: "discutir", english: "to discuss/argue"},
+    {spanish: "negociar", english: "to negotiate"},
+    {spanish: "enviar", english: "to send"},
+    {spanish: "recibir", english: "to receive"},
+    {spanish: "entender", english: "to understand"},
+    {spanish: "malinterpretar", english: "to misunderstand"},
+    {spanish: "confundir", english: "to confuse"},
+    
+    // Action verbs B1-B2
+    {spanish: "correr", english: "to run"},
+    {spanish: "caminar", english: "to walk"},
+    {spanish: "nadar", english: "to swim"},
+    {spanish: "saltar", english: "to jump"},
+    {spanish: "caer", english: "to fall"},
+    {spanish: "subir", english: "to go up/climb"},
+    {spanish: "bajar", english: "to go down/descend"},
+    {spanish: "empujar", english: "to push"},
+    {spanish: "tirar", english: "to pull/throw"},
+    {spanish: "abrir", english: "to open"},
+    {spanish: "cerrar", english: "to close"},
+    {spanish: "entrar", english: "to enter"},
+    {spanish: "salir", english: "to exit/leave"},
+    {spanish: "llegar", english: "to arrive"},
+    {spanish: "partir", english: "to depart"},
+    
+    // B2 level verbs
+    {spanish: "considerar", english: "to consider"},
+    {spanish: "suponer", english: "to suppose/assume"},
+    {spanish: "recordar", english: "to remember"},
+    {spanish: "olvidar", english: "to forget"},
+    {spanish: "convertir", english: "to convert/transform"},
+    {spanish: "desarrollar", english: "to develop"},
+    {spanish: "mejorar", english: "to improve"},
+    {spanish: "empeorar", english: "to worsen"},
+    {spanish: "mantener", english: "to maintain/keep"},
+    {spanish: "cambiar", english: "to change"},
+    {spanish: "crear", english: "to create"},
+    {spanish: "destruir", english: "to destroy"},
+    {spanish: "construir", english: "to build/construct"},
+    {spanish: "establecer", english: "to establish"},
+    {spanish: "permitir", english: "to permit/allow"},
+    {spanish: "prohibir", english: "to prohibit/forbid"},
+    {spanish: "intentar", english: "to try/attempt"},
+    {spanish: "lograr", english: "to achieve"},
+    {spanish: "fallar", english: "to fail"},
+    
+    // Cognitive B2-C1
+    {spanish: "pensar", english: "to think"},
+    {spanish: "creer", english: "to believe"},
+    {spanish: "dudar", english: "to doubt"},
+    {spanish: "reflexionar", english: "to reflect/ponder"},
+    {spanish: "analizar", english: "to analyze"},
+    {spanish: "evaluar", english: "to evaluate"},
+    {spanish: "comparar", english: "to compare"},
+    {spanish: "contrastar", english: "to contrast"},
+    {spanish: "deducir", english: "to deduce"},
+    {spanish: "inferir", english: "to infer"},
+    {spanish: "concluir", english: "to conclude"},
+    {spanish: "percibir", english: "to perceive"},
+    {spanish: "intuir", english: "to intuit"},
+    {spanish: "imaginar", english: "to imagine"},
+    {spanish: "soñar", english: "to dream"},
+    {spanish: "interpretar", english: "to interpret"},
+    
+    // Professional/Business C1
+    {spanish: "gestionar", english: "to manage"},
+    {spanish: "coordinar", english: "to coordinate"},
+    {spanish: "delegar", english: "to delegate"},
+    {spanish: "supervisar", english: "to supervise"},
+    {spanish: "implementar", english: "to implement"},
+    {spanish: "administrar", english: "to administer"},
+    {spanish: "dirigir", english: "to direct/lead"},
+    {spanish: "presidir", english: "to preside over"},
+    {spanish: "representar", english: "to represent"},
+    {spanish: "invertir", english: "to invest"},
+    {spanish: "financiar", english: "to finance"},
+    {spanish: "rentabilizar", english: "to make profitable"},
+    {spanish: "facturar", english: "to bill/invoice"},
+    {spanish: "comercializar", english: "to market"},
+    {spanish: "promocionar", english: "to promote"},
+    
+    // Advanced C1 verbs
+    {spanish: "abarcar", english: "to encompass/cover"},
+    {spanish: "abordar", english: "to address/tackle"},
+    {spanish: "acatar", english: "to comply with/obey"},
+    {spanish: "acentuar", english: "to emphasize/accentuate"},
+    {spanish: "acotar", english: "to limit/define boundaries"},
+    {spanish: "aludir", english: "to allude to/refer to"},
+    {spanish: "atenuar", english: "to mitigate/attenuate"},
+    {spanish: "atribuir", english: "to attribute"},
+    {spanish: "cuestionar", english: "to question"},
+    {spanish: "decrecer", english: "to decrease"},
+    {spanish: "denotar", english: "to denote/indicate"},
+    {spanish: "desempeñar", english: "to perform/carry out"},
+    {spanish: "destacar", english: "to highlight/stand out"},
+    {spanish: "discernir", english: "to discern/distinguish"},
+    {spanish: "discrepar", english: "to disagree"},
+    {spanish: "disuadir", english: "to dissuade"},
+    {spanish: "divulgar", english: "to disseminate/publish"},
+    {spanish: "ejercer", english: "to exercise/practice (profession)"},
+    {spanish: "enfatizar", english: "to emphasize"},
+    {spanish: "enmarcar", english: "to frame/contextualize"},
+    {spanish: "esbozar", english: "to sketch/outline"},
+    {spanish: "estimar", english: "to estimate/consider"},
+    {spanish: "evocar", english: "to evoke"},
+    {spanish: "fomentar", english: "to promote/encourage"},
+    {spanish: "indagar", english: "to investigate/inquire"},
+    {spanish: "incidir", english: "to affect/influence"},
+    {spanish: "inferir", english: "to infer"},
+    {spanish: "matizar", english: "to qualify/nuance"},
+    {spanish: "plasmar", english: "to capture/express"},
+    {spanish: "plantear", english: "to pose/raise (question)"},
+    {spanish: "ponderar", english: "to weigh/consider carefully"},
+    {spanish: "postergar", english: "to postpone/delay"},
+    {spanish: "prescindir", english: "to do without/dispense with"},
+    {spanish: "propugnar", english: "to advocate/defend"},
+    {spanish: "redundar", english: "to result in/redound"},
+    {spanish: "relegar", english: "to relegate/sideline"},
+    {spanish: "soslayar", english: "to avoid/evade"},
+    {spanish: "suscitar", english: "to provoke/raise"},
+    {spanish: "trascender", english: "to transcend"},
+    {spanish: "vislumbrar", english: "to glimpse/envision"}
+],
+            
+            expressions: [
+  { spanish: "buenos días", english: "good morning" },
+  { spanish: "buenas tardes", english: "good afternoon" },
+  { spanish: "buenas noches", english: "good evening/night" },
+  { spanish: "hola", english: "hello" },
+  { spanish: "adiós", english: "goodbye" },
+  { spanish: "por favor", english: "please" },
+  { spanish: "gracias", english: "thank you" },
+  { spanish: "de nada", english: "you're welcome" },
+  { spanish: "¿cómo estás?", english: "how are you?" },
+  { spanish: "estoy bien", english: "I'm fine" },
+  { spanish: "mucho gusto", english: "nice to meet you" },
+  { spanish: "disculpe", english: "excuse me" },
+  { spanish: "lo siento", english: "I'm sorry" },
+  { spanish: "¿qué hora es?", english: "what time is it?" },
+  { spanish: "¿dónde está...?", english: "where is...?" },
+  { spanish: "hasta luego", english: "see you later" },
+  { spanish: "¿cómo te llamas?", english: "what's your name?" },
+  { spanish: "me llamo...", english: "my name is..." },
+  { spanish: "no entiendo", english: "I don't understand" },
+  { spanish: "¿puedes repetir, por favor?", english: "can you repeat, please?" },
+  { spanish: "hablo un poco de español", english: "I speak a little Spanish" },
+  { spanish: "¿cuánto cuesta?", english: "how much does it cost?" },
+  { spanish: "quiero...", english: "I want..." },
+  { spanish: "necesito ayuda", english: "I need help" },
+  { spanish: "¿dónde está el baño?", english: "where is the bathroom?" },
+  { spanish: "estoy perdido/a", english: "I'm lost" },
+  { spanish: "puedes ayudarme", english: "can you help me?" },
+  { spanish: "tengo una pregunta", english: "I have a question" },
+  { spanish: "¿a qué hora abre/cierra?", english: "what time does it open/close?" },
+  { spanish: "está cerca de aquí", english: "is it near here?" },
+  { spanish: "me gustaría...", english: "I would like..." },
+  { spanish: "no hay problema", english: "no problem" },
+  { spanish: "¿qué significa...?", english: "what does... mean?" },
+  { spanish: "un momento, por favor", english: "one moment, please" },
+  { spanish: "feliz cumpleaños", english: "happy birthday" },
+  { spanish: "¡salud!", english: "cheers! / bless you!" },
+  { spanish: "¿cómo se dice... en español?", english: "how do you say... in Spanish?" },
+  { spanish: "tengo hambre", english: "I'm hungry" },
+  { spanish: "tengo sed", english: "I'm thirsty" },
+  { spanish: "¿puedo pagar con tarjeta?", english: "can I pay with a card?" },
+  { spanish: "la cuenta, por favor", english: "the bill, please" },
+  { spanish: "estoy cansado/a", english: "I'm tired" },
+  { spanish: "vivo en...", english: "I live in..." },
+  { spanish: "¿de dónde eres?", english: "where are you from?" },
+  { spanish: "soy de...", english: "I'm from..." },
+  { spanish: "hace buen/mal tiempo", english: "the weather is good/bad" },
+  { spanish: "¿qué recomiendas?", english: "what do you recommend?" },
+  { spanish: "espero que sí", english: "I hope so" },
+  { spanish: "quizás mañana", english: "maybe tomorrow" },
+  { spanish: "no estoy seguro/a", english: "I'm not sure" },
+  // Socializing and Conversations
+  { spanish: "¡qué buena onda!", english: "how cool!" },
+  { spanish: "cuéntame más", english: "tell me more" },
+  { spanish: "¿qué tal tu día?", english: "how’s your day going?" },
+  { spanish: "estoy de acuerdo", english: "I agree" },
+  { spanish: "no estoy de acuerdo", english: "I don’t agree" },
+  { spanish: "¿qué opinas?", english: "what do you think?" },
+  { spanish: "me parece genial", english: "I think that’s great" },
+  { spanish: "¡qué interesante!", english: "how interesting!" },
+  { spanish: "bromeas, ¿verdad?", english: "you’re kidding, right?" },
+  { spanish: "me da igual", english: "I don’t care" },
+  { spanish: "¡qué casualidad!", english: "what a coincidence!" },
+  { spanish: "¿te cae bien?", english: "do you like him/her?" },
+  { spanish: "es un placer charlar contigo", english: "it’s a pleasure talking to you" },
+  { spanish: "mantengamos el contacto", english: "let’s keep in touch" },
+  { spanish: "¡qué divertido!", english: "how fun!" },
+  { spanish: "¿cuándo nos vemos?", english: "when do we meet up?" },
+  { spanish: "estoy emocionado/a", english: "I’m excited" },
+  { spanish: "me haces reír", english: "you make me laugh" },
+  { spanish: "¿qué planes tienes?", english: "what are your plans?" },
+  { spanish: "vamos a salir", english: "let’s go out" },
+  { spanish: "¡qué sorpresa!", english: "what a surprise!" },
+  { spanish: "te entiendo perfectamente", english: "I totally get you" },
+  { spanish: "eso suena increíble", english: "that sounds amazing" },
+  { spanish: "me siento un poco nervioso/a", english: "I feel a bit nervous" },
+  { spanish: "¡qué lindo gesto!", english: "what a nice gesture!" },
+  { spanish: "¿cómo lo llevas?", english: "how are you holding up?" },
+  { spanish: "es una larga historia", english: "it’s a long story" },
+  { spanish: "no me lo esperaba", english: "I didn’t expect that" },
+  { spanish: "¡qué alivio!", english: "what a relief!" },
+  { spanish: "te apoyo totalmente", english: "I totally support you" },
+  { spanish: "¿cómo te sientes?", english: "how are you feeling?" },
+  { spanish: "me dio mucha pena", english: "I felt really bad" },
+  { spanish: "¡qué envidia!", english: "I’m so jealous!" },
+  { spanish: "estoy de buen humor", english: "I’m in a good mood" },
+  { spanish: "no te preocupes", english: "don’t worry" },
+  { spanish: "¡venga, anímate!", english: "come on, cheer up!" },
+  { spanish: "me encantó conocerte", english: "I loved meeting you" },
+  { spanish: "espero verte pronto", english: "I hope to see you soon" },
+  { spanish: "¿qué tal si...?", english: "how about...?" },
+  { spanish: "tienes toda la razón", english: "you’re absolutely right" },
+  { spanish: "me parece justo", english: "that seems fair" },
+  { spanish: "¡qué exagerado/a!", english: "how exaggerated!" },
+  { spanish: "me estás tomando el pelo", english: "you’re pulling my leg" },
+  { spanish: "no me convence", english: "I’m not convinced" },
+  { spanish: "es una pasada", english: "it’s awesome" },
+  { spanish: "¿y tú qué dices?", english: "and what do you say?" },
+  { spanish: "me da curiosidad", english: "I’m curious" },
+  { spanish: "¡qué emoción!", english: "how exciting!" },
+  { spanish: "estoy flipando", english: "I’m freaking out" },
+  // Dining and Restaurants
+  { spanish: "¿tienen menú del día?", english: "do you have a daily menu?" },
+  { spanish: "¿qué lleva este plato?", english: "what’s in this dish?" },
+  { spanish: "soy alérgico/a a...", english: "I’m allergic to..." },
+  { spanish: "¿pueden hacerlo rápido?", english: "can you make it quick?" },
+  { spanish: "está delicioso", english: "it’s delicious" },
+  { spanish: "¿tienen opciones vegetarianas?", english: "do you have vegetarian options?" },
+  { spanish: "sin gluten, por favor", english: "gluten-free, please" },
+  { spanish: "¿pueden separar la cuenta?", english: "can you split the bill?" },
+  { spanish: "está un poco frío", english: "it’s a bit cold" },
+  { spanish: "¿me traes más agua?", english: "can you bring more water?" },
+  { spanish: "no quiero cebolla", english: "I don’t want onion" },
+  { spanish: "¿tienen postres caseros?", english: "do you have homemade desserts?" },
+  { spanish: "está muy salado", english: "it’s too salty" },
+  { spanish: "¿me das un tenedor, por favor?", english: "can I have a fork, please?" },
+  { spanish: "quiero hacer una reserva", english: "I want to make a reservation" },
+  { spanish: "¿tienen terraza?", english: "do you have an outdoor area?" },
+  { spanish: "para dos personas", english: "for two people" },
+  { spanish: "¿cuál es el plato estrella?", english: "what’s the signature dish?" },
+  { spanish: "está todo perfecto", english: "everything’s perfect" },
+  { spanish: "¿me lo envuelves para llevar?", english: "can you wrap it to go?" },
+  { spanish: "no me gustó mucho", english: "I didn’t like it much" },
+  { spanish: "¿tienen vino de la casa?", english: "do you have house wine?" },
+  { spanish: "una mesa cerca de la ventana", english: "a table by the window" },
+  { spanish: "¿cuánto tiempo de espera?", english: "how long is the wait?" },
+  { spanish: "esto no es lo que pedí", english: "this isn’t what I ordered" },
+  // Shopping
+  { spanish: "¿dónde están los probadores?", english: "where are the fitting rooms?" },
+  { spanish: "¿tienen esta talla?", english: "do you have this size?" },
+  { spanish: "¿puedo devolverlo?", english: "can I return it?" },
+  { spanish: "¿hay descuento?", english: "is there a discount?" },
+  { spanish: "me lo llevo", english: "I’ll take it" },
+  { spanish: "¿en qué pasillo está...?", english: "in which aisle is...?" },
+  { spanish: "¿tienen algo más barato?", english: "do you have something cheaper?" },
+  { spanish: "está en oferta", english: "it’s on sale" },
+  { spanish: "¿me das una bolsa?", english: "can you give me a bag?" },
+  { spanish: "¿aceptan efectivo?", english: "do you accept cash?" },
+  { spanish: "no me queda bien", english: "it doesn’t fit me" },
+  { spanish: "¿tienen garantía?", english: "does it come with a warranty?" },
+  { spanish: "quiero cambiarlo", english: "I want to exchange it" },
+  { spanish: "¿cuál es el precio final?", english: "what’s the final price?" },
+  { spanish: "está un poco caro", english: "it’s a bit expensive" },
+  { spanish: "¿pueden envolverlo para regalo?", english: "can you gift-wrap it?" },
+  { spanish: "¿tienen stock?", english: "do you have it in stock?" },
+  { spanish: "lo vi más barato en otro lado", english: "I saw it cheaper elsewhere" },
+  { spanish: "¿cuándo llega?", english: "when will it arrive?" },
+  { spanish: "quiero hacer un reclamo", english: "I want to make a complaint" },
+  // Travel and Directions
+  { spanish: "¿cómo llego a...?", english: "how do I get to...?" },
+  { spanish: "¿es lejos de aquí?", english: "is it far from here?" },
+  { spanish: "gira a la derecha", english: "turn right" },
+  { spanish: "gira a la izquierda", english: "turn left" },
+  { spanish: "sigue recto", english: "go straight" },
+  { spanish: "¿dónde está la estación?", english: "where’s the station?" },
+  { spanish: "un billete de ida", english: "a one-way ticket" },
+  { spanish: "un billete de ida y vuelta", english: "a round-trip ticket" },
+  { spanish: "¿a qué hora sale el tren?", english: "what time does the train leave?" },
+  { spanish: "¿cuál es el próximo autobús?", english: "when’s the next bus?" },
+  { spanish: "me bajé en la parada equivocada", english: "I got off at the wrong stop" },
+  { spanish: "¿dónde está la salida?", english: "where’s the exit?" },
+  { spanish: "necesito un taxi", english: "I need a taxi" },
+  { spanish: "¿cuánto es hasta el aeropuerto?", english: "how much to the airport?" },
+  { spanish: "¿pueden llevar mi equipaje?", english: "can you take my luggage?" },
+  { spanish: "perdí mi maleta", english: "I lost my suitcase" },
+  { spanish: "¿dónde está la oficina de turismo?", english: "where’s the tourist office?" },
+  { spanish: "¿tienen un mapa?", english: "do you have a map?" },
+  { spanish: "quiero alquilar un coche", english: "I want to rent a car" },
+  { spanish: "¿cuál es el límite de velocidad?", english: "what’s the speed limit?" },
+  { spanish: "¿es seguro caminar por aquí?", english: "is it safe to walk here?" },
+  { spanish: "¿dónde puedo cambiar dinero?", english: "where can I exchange money?" },
+  { spanish: "¿cuál es la mejor ruta?", english: "what’s the best route?" },
+  { spanish: "estoy buscando un hotel", english: "I’m looking for a hotel" },
+  { spanish: "¿tienen habitaciones disponibles?", english: "do you have any rooms available?" },
+  { spanish: "quiero una habitación individual", english: "I want a single room" },
+  { spanish: "¿incluye desayuno?", english: "does it include breakfast?" },
+  { spanish: "la llave de mi habitación", english: "the key to my room" },
+  { spanish: "¿dónde está el ascensor?", english: "where’s the elevator?" },
+  { spanish: "no funciona el aire acondicionado", english: "the air conditioning isn’t working" },
+  { spanish: "¿pueden limpiar mi habitación?", english: "can you clean my room?" },
+  { spanish: "¿a qué hora es el check-out?", english: "what time is check-out?" },
+  { spanish: "quiero extender mi estancia", english: "I want to extend my stay" },
+  { spanish: "¿dónde está el parking?", english: "where’s the parking?" },
+  { spanish: "¿es una zona turística?", english: "is it a tourist area?" },
+  { spanish: "¿qué lugares recomiendas visitar?", english: "what places do you recommend visiting?" },
+  { spanish: "necesito un guía", english: "I need a guide" },
+  { spanish: "¿hay wifi gratis?", english: "is there free wifi?" },
+  { spanish: "¿cuál es la contraseña del wifi?", english: "what’s the wifi password?" },
+  { spanish: "perdí mi pasaporte", english: "I lost my passport" },
+  { spanish: "¿dónde está la embajada?", english: "where’s the embassy?" },
+  { spanish: "necesito un adaptador de enchufe", english: "I need a plug adapter" },
+  // Work and Professional Settings
+  { spanish: "¿cuándo es la reunión?", english: "when’s the meeting?" },
+  { spanish: "necesito enviar un correo", english: "I need to send an email" },
+  { spanish: "¿puedes revisarlo?", english: "can you review it?" },
+  { spanish: "estoy trabajando en ello", english: "I’m working on it" },
+  { spanish: "¿cuál es el plazo?", english: "what’s the deadline?" },
+  { spanish: "necesito más tiempo", english: "I need more time" },
+  { spanish: "¿puedes confirmar la cita?", english: "can you confirm the appointment?" },
+  { spanish: "quiero programar una reunión", english: "I want to schedule a meeting" },
+  { spanish: "¿dónde está la sala de conferencias?", english: "where’s the conference room?" },
+  { spanish: "necesito hacer una presentación", english: "I need to give a presentation" },
+  { spanish: "esto es urgente", english: "this is urgent" },
+  { spanish: "¿puedes ayudarme con el informe?", english: "can you help me with the report?" },
+  { spanish: "estoy sobrecargado/a de trabajo", english: "I’m overwhelmed with work" },
+  { spanish: "¿cuál es la política de la empresa?", english: "what’s the company policy?" },
+  { spanish: "necesito hablar con el jefe", english: "I need to talk to the boss" },
+  { spanish: "¿puedo trabajar desde casa?", english: "can I work from home?" },
+  { spanish: "quiero solicitar un día libre", english: "I want to request a day off" },
+  { spanish: "¿cuándo pagan el salario?", english: "when do they pay the salary?" },
+  { spanish: "tengo una entrevista de trabajo", english: "I have a job interview" },
+  { spanish: "¿cuáles son los requisitos?", english: "what are the requirements?" },
+  { spanish: "envíame los detalles, por favor", english: "send me the details, please" },
+  { spanish: "necesito una factura", english: "I need an invoice" },
+  { spanish: "¿puedes firmar aquí?", english: "can you sign here?" },
+  { spanish: "esto no estaba en el contrato", english: "this wasn’t in the contract" },
+  { spanish: "¿cómo funciona el sistema?", english: "how does the system work?" },
+  { spanish: "necesito acceso al servidor", english: "I need access to the server" },
+  { spanish: "hay un error en el documento", english: "there’s an error in the document" },
+  { spanish: "quiero proponer una idea", english: "I want to propose an idea" },
+  { spanish: "¿quién está a cargo?", english: "who’s in charge?" },
+  { spanish: "necesito un intérprete", english: "I need an interpreter" },
+  // Emergencies and Health
+  { spanish: "¡llama a una ambulancia!", english: "call an ambulance!" },
+  { spanish: "necesito un médico", english: "I need a doctor" },
+  { spanish: "me siento mal", english: "I feel sick" },
+  { spanish: "¿dónde está el hospital?", english: "where’s the hospital?" },
+  { spanish: "tengo dolor aquí", english: "I have pain here" },
+  { spanish: "¿tienen una farmacia cerca?", english: "is there a pharmacy nearby?" },
+  { spanish: "necesito una receta", english: "I need a prescription" },
+  { spanish: "me mareé", english: "I feel dizzy" },
+  { spanish: "tengo fiebre", english: "I have a fever" },
+  { spanish: "¿pueden darme algo para el dolor?", english: "can you give me something for the pain?" },
+  { spanish: "me torcí el tobillo", english: "I sprained my ankle" },
+  { spanish: "me corté", english: "I cut myself" },
+  { spanish: "necesito puntos", english: "I need stitches" },
+  { spanish: "estoy teniendo una reacción alérgica", english: "I’m having an allergic reaction" },
+  { spanish: "¿dónde está la comisaría?", english: "where’s the police station?" },
+  { spanish: "me robaron", english: "I was robbed" },
+  { spanish: "perdí mi cartera", english: "I lost my wallet" },
+  { spanish: "necesito reportar un robo", english: "I need to report a theft" },
+  { spanish: "es una emergencia", english: "it’s an emergency" },
+  { spanish: "¿dónde está el extintor?", english: "where’s the fire extinguisher?" },
+  { spanish: "¡cuidado!", english: "watch out!" },
+  { spanish: "necesito un abogado", english: "I need a lawyer" },
+  { spanish: "me siento inseguro/a", english: "I feel unsafe" },
+  { spanish: "¿pueden escoltarme?", english: "can you escort me?" },
+  // Expressing Opinions and Emotions
+  { spanish: "me parece una locura", english: "I think it’s crazy" },
+  { spanish: "estoy harto/a", english: "I’m fed up" },
+  { spanish: "me da mucha rabia", english: "it makes me really angry" },
+  { spanish: "estoy decepcionado/a", english: "I’m disappointed" },
+  { spanish: "me siento frustrado/a", english: "I feel frustrated" },
+  { spanish: "es justo lo que necesitaba", english: "it’s exactly what I needed" },
+  { spanish: "no me parece correcto", english: "I don’t think it’s right" },
+  { spanish: "me da mucha ilusión", english: "I’m really excited about it" },
+  { spanish: "estoy confundido/a", english: "I’m confused" },
+  { spanish: "me preocupa mucho", english: "I’m really worried" },
+  { spanish: "no me lo creo", english: "I can’t believe it" },
+  { spanish: "es una gran oportunidad", english: "it’s a great opportunity" },
+  { spanish: "me siento inspirado/a", english: "I feel inspired" },
+  { spanish: "esto me aburre", english: "this bores me" },
+  { spanish: "es un poco decepcionante", english: "it’s a bit disappointing" },
+  { spanish: "me encanta la idea", english: "I love the idea" },
+  { spanish: "no me gusta para nada", english: "I don’t like it at all" },
+  { spanish: "es una pérdida de tiempo", english: "it’s a waste of time" },
+  { spanish: "me siento aliviado/a", english: "I feel relieved" },
+  { spanish: "es bastante impresionante", english: "it’s pretty impressive" },
+  // Miscellaneous Practical Phrases
+  { spanish: "¿puedes tomar una foto?", english: "can you take a picture?" },
+  { spanish: "necesito cargar mi teléfono", english: "I need to charge my phone" },
+  { spanish: "¿dónde está el enchufe?", english: "where’s the outlet?" },
+  { spanish: "se me acabó la batería", english: "my battery died" },
+  { spanish: "¿puedes prestarme un bolígrafo?", english: "can you lend me a pen?" },
+  { spanish: "tengo una cita a las...", english: "I have an appointment at..." },
+  { spanish: "llegué tarde, lo siento", english: "I’m late, sorry" },
+  { spanish: "¿puedes esperar un segundo?", english: "can you wait a second?" },
+  { spanish: "no tengo cambio", english: "I don’t have change" },
+  { spanish: "¿puedes darme indicaciones?", english: "can you give me directions?" },
+  { spanish: "esto es nuevo para mí", english: "this is new to me" },
+  { spanish: "no estoy acostumbrado/a", english: "I’m not used to it" },
+  { spanish: "¿es obligatorio?", english: "is it mandatory?" },
+  { spanish: "necesito un recibo", english: "I need a receipt" },
+  { spanish: "¿puedes escribirlo?", english: "can you write it down?" },
+  { spanish: "me olvidé de algo", english: "I forgot something" },
+  { spanish: "tengo que cancelar", english: "I have to cancel" },
+  { spanish: "¿puedo entrar?", english: "can I come in?" },
+  { spanish: "¿está permitido fumar?", english: "is smoking allowed?" },
+  { spanish: "necesito un paraguas", english: "I need an umbrella" },
+  { spanish: "está empezando a llover", english: "it’s starting to rain" },
+  { spanish: "¿dónde dejo esto?", english: "where do I leave this?" },
+  { spanish: "no toques eso", english: "don’t touch that" },
+  { spanish: "¿puedo usar tu teléfono?", english: "can I use your phone?" },
+  { spanish: "tengo una duda", english: "I have a doubt" },
+  { spanish: "¿es confiable?", english: "is it reliable?" },
+  { spanish: "parece sospechoso", english: "it seems suspicious" },
+  { spanish: "necesito confirmación", english: "I need confirmation" },
+  { spanish: "¿puedes explicármelo otra vez?", english: "can you explain it again?" },
+  { spanish: "esto me está costando", english: "this is tough for me" },
+  { spanish: "voy a intentarlo", english: "I’m going to try" },
+  { spanish: "me rindo", english: "I give up" },
+  { spanish: "es más complicado de lo que pensaba", english: "it’s more complicated than I thought" },
+  { spanish: "tengo que pensarlo", english: "I need to think about it" },
+  { spanish: "es una decisión difícil", english: "it’s a tough decision" },
+  { spanish: "no quiero meter la pata", english: "I don’t want to mess up" },
+  { spanish: "esto me está volviendo loco/a", english: "this is driving me crazy" },
+  { spanish: "necesito un descanso", english: "I need a break" },
+  { spanish: "vamos paso a paso", english: "let’s take it step by step" },
+  { spanish: "¿puedes darme un ejemplo?", english: "can you give me an example?" },
+  { spanish: "es justo lo que quería", english: "it’s exactly what I wanted" },
+  { spanish: "mejor de lo esperado", english: "better than expected" },
+  { spanish: "no es para tanto", english: "it’s not a big deal" },
+  { spanish: "¿cuál es el plan?", english: "what’s the plan?" },
+  { spanish: "me pillaste desprevenido/a", english: "you caught me off guard" },
+  { spanish: "es un malentendido", english: "it’s a misunderstanding" },
+  { spanish: "¿puedes aclararlo?", english: "can you clarify?" },
+  { spanish: "no es mi estilo", english: "it’s not my style" },
+  { spanish: "me siento fuera de lugar", english: "I feel out of place" },
+  { spanish: "esto no tiene sentido", english: "this doesn’t make sense" },
+  { spanish: "es un poco raro", english: "it’s a bit weird" },
+  { spanish: "mejor dejémoslo ahí", english: "let’s leave it at that" },
+  { spanish: "no quiero discutir", english: "I don’t want to argue" },
+  { spanish: "vamos a cambiar de tema", english: "let’s change the subject" },
+  { spanish: "espero no molestarte", english: "I hope I’m not bothering you" },
+  { spanish: "gracias por la paciencia", english: "thanks for your patience" },
+  { spanish: "esto significa mucho para mí", english: "this means a lot to me" },
+  { spanish: "te lo agradezco de verdad", english: "I really appreciate it" },
+  { spanish: "me salvaste la vida", english: "you saved my life" },
+  { spanish: "sin ti no lo hubiera logrado", english: "I couldn’t have done it without you" },
+  { spanish: "es un detalle muy bonito", english: "it’s a really nice touch" },
+  { spanish: "me hiciste el día", english: "you made my day" },
+  { spanish: "eres un sol", english: "you’re a gem" },
+  { spanish: "¡qué buena vibra!", english: "what great vibes!" },
+  { spanish: "esto es inolvidable", english: "this is unforgettable" },
+  { spanish: "me siento como en casa", english: "I feel at home" }
+],
+            
+adjectives: [
+  { spanish: "accesible", english: "accessible" },
+  { spanish: "acogedor", english: "cozy" },
+  { spanish: "actual", english: "current" },
+  { spanish: "adecuado", english: "appropriate" },
+  { spanish: "agradable", english: "pleasant" },
+  { spanish: "ahorrador", english: "thrifty" },
+  { spanish: "alegre", english: "cheerful" },
+  { spanish: "alentador", english: "encouraging" },
+  { spanish: "alto", english: "tall/high" },
+  { spanish: "amable", english: "kind" },
+  { spanish: "ambicioso", english: "ambitious" },
+  { spanish: "amplio", english: "spacious" },
+  { spanish: "antiguo", english: "old/ancient" },
+  { spanish: "anunciado", english: "advertised" },
+  { spanish: "apasionado", english: "passionate" },
+  { spanish: "apropiado", english: "suitable" },
+  { spanish: "arriesgado", english: "risky" },
+  { spanish: "arrogante", english: "arrogant" },
+  { spanish: "asequible", english: "affordable" },
+  { spanish: "atractivo", english: "attractive" },
+  { spanish: "auténtico", english: "authentic" },
+  { spanish: "avanzado", english: "advanced" },
+  { spanish: "aventurero", english: "adventurous" },
+  { spanish: "bajo", english: "short/low" },
+  { spanish: "barato", english: "cheap" },
+  { spanish: "bello", english: "beautiful" },
+  { spanish: "beneficioso", english: "beneficial" },
+  { spanish: "brillante", english: "bright/brilliant" },
+  { spanish: "bullicioso", english: "bustling" },
+  { spanish: "caliente", english: "hot" },
+  { spanish: "cálido", english: "warm" },
+  { spanish: "calmado", english: "calm" },
+  { spanish: "capaz", english: "capable" },
+  { spanish: "carismático", english: "charismatic" },
+  { spanish: "caro", english: "expensive" },
+  { spanish: "caótico", english: "chaotic" },
+  { spanish: "cercano", english: "nearby" },
+  { spanish: "cómodo", english: "comfortable" },
+  { spanish: "complicado", english: "complicated" },
+  { spanish: "comprensivo", english: "understanding" },
+  { spanish: "confiable", english: "reliable" },
+  { spanish: "confuso", english: "confusing" },
+  { spanish: "conocido", english: "well-known" },
+  { spanish: "considerado", english: "considerate" },
+  { spanish: "constante", english: "consistent" },
+  { spanish: "contagioso", english: "contagious" },
+  { spanish: "contento", english: "happy" },
+  { spanish: "conveniente", english: "convenient" },
+  { spanish: "cooperativo", english: "cooperative" },
+  { spanish: "corriente", english: "ordinary" },
+  { spanish: "costoso", english: "costly" },
+  { spanish: "creativo", english: "creative" },
+  { spanish: "crítico", english: "critical" },
+  { spanish: "crucial", english: "crucial" },
+  { spanish: "cuidadoso", english: "careful" },
+  { spanish: "culto", english: "cultured" },
+  { spanish: "curioso", english: "curious" },
+  { spanish: "decepcionante", english: "disappointing" },
+  { spanish: "decidido", english: "determined" },
+  { spanish: "dedicado", english: "dedicated" },
+  { spanish: "definitivo", english: "definitive" },
+  { spanish: "delicado", english: "delicate" },
+  { spanish: "delicioso", english: "delicious" },
+  { spanish: "dependiente", english: "dependent" },
+  { spanish: "deprimente", english: "depressing" },
+  { spanish: "desafiante", english: "challenging" },
+  { spanish: "desagradable", english: "unpleasant" },
+  { spanish: "desastroso", english: "disastrous" },
+  { spanish: "desconfiado", english: "distrustful" },
+  { spanish: "desconsiderado", english: "inconsiderate" },
+  { spanish: "desorganizado", english: "disorganized" },
+  { spanish: "detallado", english: "detailed" },
+  { spanish: "diferente", english: "different" },
+  { spanish: "difícil", english: "difficult" },
+  { spanish: "dinámico", english: "dynamic" },
+  { spanish: "directo", english: "direct" },
+  { spanish: "discreto", english: "discreet" },
+  { spanish: "divertido", english: "fun" },
+  { spanish: "dramático", english: "dramatic" },
+  { spanish: "duradero", english: "lasting" },
+  { spanish: "económico", english: "economical" },
+  { spanish: "educado", english: "polite" },
+  { spanish: "eficaz", english: "effective" },
+  { spanish: "eficiente", english: "efficient" },
+  { spanish: "elegante", english: "elegant" },
+  { spanish: "emocionado", english: "excited" },
+  { spanish: "emocionante", english: "exciting" },
+  { spanish: "encantador", english: "charming" },
+  { spanish: "enérgico", english: "energetic" },
+  { spanish: "enfadado", english: "angry" },
+  { spanish: "enfermo", english: "sick" },
+  { spanish: "enorme", english: "enormous" },
+  { spanish: "entretenido", english: "entertaining" },
+  { spanish: "entusiasta", english: "enthusiastic" },
+  { spanish: "escalofriante", english: "creepy" },
+  { spanish: "escandaloso", english: "scandalous" },
+  { spanish: "especial", english: "special" },
+  { spanish: "espectacular", english: "spectacular" },
+  { spanish: "espontáneo", english: "spontaneous" },
+  { spanish: "estable", english: "stable" },
+  { spanish: "estiloso", english: "stylish" },
+  { spanish: "estresado", english: "stressed" },
+  { spanish: "estricto", english: "strict" },
+  { spanish: "estúpido", english: "stupid" },
+  { spanish: "exagerado", english: "exaggerated" },
+  { spanish: "excelente", english: "excellent" },
+  { spanish: "exigente", english: "demanding" },
+  { spanish: "exótico", english: "exotic" },
+  { spanish: "experimentado", english: "experienced" },
+  { spanish: "extraordinario", english: "extraordinary" },
+  { spanish: "extravagante", english: "extravagant" },
+  { spanish: "fácil", english: "easy" },
+  { spanish: "falso", english: "false" },
+  { spanish: "famoso", english: "famous" },
+  { spanish: "fantástico", english: "fantastic" },
+  { spanish: "fascinante", english: "fascinating" },
+  { spanish: "favorable", english: "favorable" },
+  { spanish: "feliz", english: "happy" },
+  { spanish: "fiable", english: "trustworthy" },
+  { spanish: "fiel", english: "faithful" },
+  { spanish: "firme", english: "firm" },
+  { spanish: "flexible", english: "flexible" },
+  { spanish: "flojo", english: "lazy" },
+  { spanish: "formal", english: "formal" },
+  { spanish: "frágil", english: "fragile" },
+  { spanish: "franco", english: "frank" },
+  { spanish: "frecuente", english: "frequent" },
+  { spanish: "frío", english: "cold" },
+  { spanish: "frustrado", english: "frustrated" },
+  { spanish: "fuerte", english: "strong" },
+  { spanish: "funcional", english: "functional" },
+  { spanish: "generoso", english: "generous" },
+  { spanish: "genial", english: "great" },
+  { spanish: "grave", english: "serious" },
+  { spanish: "grueso", english: "thick" },
+  { spanish: "habilidoso", english: "skillful" },
+  { spanish: "hábil", english: "able" },
+  { spanish: "hermoso", english: "beautiful" },
+  { spanish: "histórico", english: "historic" },
+  { spanish: "honesto", english: "honest" },
+  { spanish: "horrible", english: "horrible" },
+  { spanish: "húmedo", english: "humid" },
+  { spanish: "humilde", english: "humble" },
+  { spanish: "ideal", english: "ideal" },
+  { spanish: "idóneo", english: "suitable" },
+  { spanish: "ignorante", english: "ignorant" },
+  { spanish: "imparcial", english: "impartial" },
+  { spanish: "impaciente", english: "impatient" },
+  { spanish: "impecable", english: "impeccable" },
+  { spanish: "importante", english: "important" },
+  { spanish: "imposible", english: "impossible" },
+  { spanish: "impresionante", english: "impressive" },
+  { spanish: "imprevisible", english: "unpredictable" },
+  { spanish: "inapropiado", english: "inappropriate" },
+  { spanish: "increíble", english: "incredible" },
+  { spanish: "independiente", english: "independent" },
+  { spanish: "indiferente", english: "indifferent" },
+  { spanish: "indirecto", english: "indirect" },
+  { spanish: "inesperado", english: "unexpected" },
+  { spanish: "inestable", english: "unstable" },
+  { spanish: "inferior", english: "inferior" },
+  { spanish: "influyente", english: "influential" },
+  { spanish: "informal", english: "informal" },
+  { spanish: "ingenioso", english: "ingenious" },
+  { spanish: "injusto", english: "unfair" },
+  { spanish: "inmenso", english: "immense" },
+  { spanish: "inocente", english: "innocent" },
+  { spanish: "inquieto", english: "restless" },
+  { spanish: "insatisfecho", english: "dissatisfied" },
+  { spanish: "inseguro", english: "insecure" },
+  { spanish: "insoportable", english: "unbearable" },
+  { spanish: "inspirador", english: "inspiring" },
+  { spanish: "inteligente", english: "intelligent" },
+  { spanish: "intenso", english: "intense" },
+  { spanish: "interesante", english: "interesting" },
+  { spanish: "internacional", english: "international" },
+  { spanish: "inútil", english: "useless" },
+  { spanish: "invaluable", english: "invaluable" },
+  { spanish: "irritante", english: "irritating" },
+  { spanish: "joven", english: "young" },
+  { spanish: "jubilado", english: "retired" },
+  { spanish: "justo", english: "fair" },
+  { spanish: "largo", english: "long" },
+  { spanish: "leal", english: "loyal" },
+  { spanish: "lento", english: "slow" },
+  { spanish: "ligero", english: "light" },
+  { spanish: "limpio", english: "clean" },
+  { spanish: "lindo", english: "cute" },
+  { spanish: "lógico", english: "logical" },
+  { spanish: "lujoso", english: "luxurious" },
+  { spanish: "maduro", english: "mature" },
+  { spanish: "maleducado", english: "rude" },
+  { spanish: "maravilloso", english: "wonderful" },
+  { spanish: "mediocre", english: "mediocre" },
+  { spanish: "mejor", english: "better" },
+  { spanish: "memorable", english: "memorable" },
+  { spanish: "misterioso", english: "mysterious" },
+  { spanish: "moderno", english: "modern" },
+  { spanish: "molesto", english: "annoying" },
+  { spanish: "motivado", english: "motivated" },
+  { spanish: "nervioso", english: "nervous" },
+  { spanish: "nítido", english: "clear" },
+  { spanish: "novedoso", english: "innovative" },
+  { spanish: "nuevo", english: "new" },
+  { spanish: "numeroso", english: "numerous" },
+  { spanish: "obvio", english: "obvious" },
+  { spanish: "ocupado", english: "busy" },
+  { spanish: "odioso", english: "hateful" },
+  { spanish: "ofensivo", english: "offensive" },
+  { spanish: "oportuno", english: "timely" },
+  { spanish: "optimista", english: "optimistic" },
+  { spanish: "organizado", english: "organized" },
+  { spanish: "original", english: "original" },
+  { spanish: "paciente", english: "patient" },
+  { spanish: "peligroso", english: "dangerous" },
+  { spanish: "pequeño", english: "small" },
+  { spanish: "perfecto", english: "perfect" },
+  { spanish: "permanente", english: "permanent" },
+  { spanish: "pesado", english: "heavy" },
+  { spanish: "pesimista", english: "pessimistic" },
+  { spanish: "pobre", english: "poor" },
+  { spanish: "poderoso", english: "powerful" },
+  { spanish: "popular", english: "popular" },
+  { spanish: "positivo", english: "positive" },
+  { spanish: "posible", english: "possible" },
+  { spanish: "práctico", english: "practical" },
+  { spanish: "preciso", english: "precise" },
+  { spanish: "preferible", english: "preferable" },
+  { spanish: "preocupado", english: "worried" },
+  { spanish: "prestigioso", english: "prestigious" },
+  { spanish: "productivo", english: "productive" },
+  { spanish: "profesional", english: "professional" },
+  { spanish: "profundo", english: "deep" },
+  { spanish: "prometedor", english: "promising" },
+  { spanish: "pronto", english: "prompt" },
+  { spanish: "próximo", english: "next" },
+  { spanish: "público", english: "public" },
+  { spanish: "puro", english: "pure" },
+  { spanish: "rápido", english: "fast" },
+  { spanish: "raro", english: "strange" },
+  { spanish: "razonable", english: "reasonable" },
+  { spanish: "reciente", english: "recent" },
+  { spanish: "reconfortante", english: "comforting" },
+  { spanish: "recto", english: "straight" },
+  { spanish: "recuperado", english: "recovered" },
+  { spanish: "refrescante", english: "refreshing" },
+  { spanish: "regular", english: "average" },
+  { spanish: "relajado", english: "relaxed" },
+  { spanish: "relevante", english: "relevant" },
+  { spanish: "rentable", english: "profitable" },
+  { spanish: "reservado", english: "reserved" },
+  { spanish: "resistente", english: "resistant" },
+  { spanish: "respetuoso", english: "respectful" },
+  { spanish: "responsable", english: "responsible" },
+  { spanish: "rico", english: "rich" },
+  { spanish: "ridículo", english: "ridiculous" },
+  { spanish: "robusto", english: "robust" },
+  { spanish: "romántico", english: "romantic" },
+  { spanish: "ruidoso", english: "noisy" },
+  { spanish: "sano", english: "healthy" },
+  { spanish: "satisfactorio", english: "satisfactory" },
+  { spanish: "seguro", english: "safe" },
+  { spanish: "sencillo", english: "simple" },
+  { spanish: "sensato", english: "sensible" },
+  { spanish: "sensible", english: "sensitive" },
+  { spanish: "serio", english: "serious" },
+  { spanish: "silencioso", english: "quiet" },
+  { spanish: "simpático", english: "friendly" },
+  { spanish: "sincero", english: "sincere" },
+  { spanish: "singular", english: "unique" },
+  { spanish: "situado", english: "located" },
+  { spanish: "sofisticado", english: "sophisticated" },
+  { spanish: "sólido", english: "solid" },
+  { spanish: "soltero", english: "single" },
+  { spanish: "sorprendente", english: "surprising" },
+  { spanish: "suave", english: "soft" },
+  { spanish: "subestimado", english: "underestimated" },
+  { spanish: "sucio", english: "dirty" },
+  { spanish: "superior", english: "superior" },
+  { spanish: "suspicaz", english: "suspicious" },
+  { spanish: "talentoso", english: "talented" },
+  { spanish: "técnico", english: "technical" },
+  { spanish: "temeroso", english: "fearful" },
+  { spanish: "tenso", english: "tense" },
+  { spanish: "terrible", english: "terrible" },
+  { spanish: "tímido", english: "shy" },
+  { spanish: "típico", english: "typical" },
+  { spanish: "tolerante", english: "tolerant" },
+  { spanish: "tóxico", english: "toxic" },
+  { spanish: "tranquilo", english: "calm" },
+  { spanish: "triste", english: "sad" },
+  { spanish: "unido", english: "united" },
+  { spanish: "útil", english: "useful" },
+  { spanish: "valiente", english: "brave" },
+  { spanish: "valioso", english: "valuable" },
+  { spanish: "variado", english: "varied" },
+  { spanish: "verdadero", english: "true" },
+  { spanish: "versátil", english: "versatile" },
+  { spanish: "viejo", english: "old" },
+  { spanish: "violento", english: "violent" },
+  { spanish: "visible", english: "visible" },
+  { spanish: "vivo", english: "lively" },
+  { spanish: "vulnerable", english: "vulnerable" }
+]
+        };
+            
+        let currentCategory = 'nouns';
+        let currentIndex = 0;
+        let totalWords = 0;
+        let words = [];
+        let incorrectWords = [];
+        let currentOptions = [];
+        let selectedAnswer = null;
+        let correctAnswerIndex = null;
+        let reviewQueue = [];
 
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-}
-function showNextWord() {
-    optionsContainer.innerHTML = '';
-    feedback.textContent = '';
-    feedback.className = 'feedback';
-    nextButton.style.display = 'none';
-    selectedAnswer = null;
-    let currentWord;
-    if (reviewQueue.length > 0 && currentIndex % 5 === 0 && currentIndex > 0) {
-        currentWord = reviewQueue.shift();
-    } else {
-        if (currentIndex >= words.length) {
-            wordDisplay.textContent = "All words completed!";
-            if (incorrectWords.length > 0) {
-                words = [...incorrectWords];
-                incorrectWords = [];
-                currentIndex = 0;
-                shuffleArray(words);
-                showNextWord();
-            }
-            return;
+        const wordDisplay = document.getElementById('wordDisplay');
+        const optionsContainer = document.getElementById('optionsContainer');
+        const nextButton = document.getElementById('nextButton');
+        const feedback = document.getElementById('feedback');
+        const counter = document.getElementById('counter');
+        const progressFill = document.getElementById('progressFill');
+        const categorySelector = document.getElementById('categorySelector');
+
+        function initializeApp() {
+            // Set up category selection
+            const categoryButtons = document.querySelectorAll('.category-button');
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const category = button.dataset.category;
+                    selectCategory(category);
+                    
+                    // Update active button
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                });
+            });
+            
+            // Initialize with default category
+            selectCategory('nouns');
+            
+            // Set up next button
+            nextButton.addEventListener('click', handleNextButtonClick);
         }
-        currentWord = words[currentIndex];
-        currentIndex++;
-    }
-    
-    wordDisplay.textContent = currentWord.spanish;
-    generateOptions(currentWord);
 
-    updateProgress();
-}
-function generateOptions(currentWord) {
-    const optionsPool = vocabulary.filter(word => word.english !== currentWord.english);
-    shuffleArray(optionsPool);
-    const incorrectOptions = optionsPool.slice(0, 4);
-    const allOptions = [...incorrectOptions, currentWord];
-    shuffleArray(allOptions);
-    currentOptions = allOptions;
-    correctAnswerIndex = allOptions.findIndex(option => option.english === currentWord.english);
-    allOptions.forEach((option, index) => {
-        const button = document.createElement('button');
-        button.className = 'option-button';
-        button.textContent = option.english;
-        button.dataset.index = index;
-        button.addEventListener('click', () => handleOptionClick(index));
-        optionsContainer.appendChild(button);
-    });
-}
-function handleOptionClick(index) {
-    
-    if (selectedAnswer !== null) return;
-    
-    selectedAnswer = index;
-    const isCorrect = index === correctAnswerIndex;
-    
-    
-    const buttons = optionsContainer.querySelectorAll('.option-button');
-    
-    
-    buttons[index].classList.add(isCorrect ? 'correct' : 'incorrect');
-    
-   
-    if (!isCorrect) {
-        buttons[correctAnswerIndex].classList.add('correct');
+        function selectCategory(category) {
+            currentCategory = category;
+            words = [...vocabularyByCategory[category]];
+            totalWords = words.length;
+            currentIndex = 0;
+            incorrectWords = [];
+            reviewQueue = [];
+            
+            if (words.length === 0) {
+                wordDisplay.textContent = "No words available in this category";
+                optionsContainer.innerHTML = '';
+                counter.textContent = "0/0";
+                progressFill.style.width = "0%";
+                return;
+            }
+            
+            shuffleArray(words);
+            showNextWord();
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
         
-        const currentWord = currentOptions[correctAnswerIndex];
-        incorrectWords.push(currentWord);
-        reviewQueue.push(currentWord);
+        function showNextWord() {
+            optionsContainer.innerHTML = '';
+            feedback.textContent = '';
+            feedback.className = 'feedback';
+            nextButton.style.display = 'none';
+            selectedAnswer = null;
+            
+            if (words.length === 0) {
+                wordDisplay.textContent = "No words available in this category";
+                return;
+            }
+            
+            let currentWord;
+            if (reviewQueue.length > 0 && currentIndex % 5 === 0 && currentIndex > 0) {
+                currentWord = reviewQueue.shift();
+            } else {
+                if (currentIndex >= words.length) {
+                    wordDisplay.textContent = "All words completed!";
+                    if (incorrectWords.length > 0) {
+                        words = [...incorrectWords];
+                        incorrectWords = [];
+                        currentIndex = 0;
+                        shuffleArray(words);
+                        showNextWord();
+                    }
+                    return;
+                }
+                currentWord = words[currentIndex];
+                currentIndex++;
+            }
+            
+            wordDisplay.textContent = currentWord.spanish;
+            generateOptions(currentWord);
+
+            updateProgress();
+        }
         
+        function generateOptions(currentWord) {
+            // Create a pool of all words from the current category
+            const optionsPool = vocabularyByCategory[currentCategory].filter(word => word.english !== currentWord.english);
+            
+            if (optionsPool.length < 4) {
+                // If we don't have enough words in this category, pull from all categories
+                let allWords = [];
+                for (const category in vocabularyByCategory) {
+                    allWords = allWords.concat(vocabularyByCategory[category]);
+                }
+                const additionalOptions = allWords.filter(word => 
+                    word.english !== currentWord.english && 
+                    !optionsPool.some(option => option.english === word.english)
+                );
+                shuffleArray(additionalOptions);
+                optionsPool.push(...additionalOptions);
+            }
+            
+            shuffleArray(optionsPool);
+            const incorrectOptions = optionsPool.slice(0, 4);
+            const allOptions = [...incorrectOptions, currentWord];
+            shuffleArray(allOptions);
+            currentOptions = allOptions;
+            correctAnswerIndex = allOptions.findIndex(option => option.english === currentWord.english);
+            
+            allOptions.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = 'option-button';
+                button.textContent = option.english;
+                button.dataset.index = index;
+                button.addEventListener('click', () => handleOptionClick(index));
+                optionsContainer.appendChild(button);
+            });
+        }
         
-        feedback.textContent = "Incorrect";
-        feedback.className = 'feedback incorrect';
-    } else {
+        function handleOptionClick(index) {
+            if (selectedAnswer !== null) return;
+            
+            selectedAnswer = index;
+            const isCorrect = index === correctAnswerIndex;
+            
+            const buttons = optionsContainer.querySelectorAll('.option-button');
+            
+            buttons[index].classList.add(isCorrect ? 'correct' : 'incorrect');
+            
+            if (!isCorrect) {
+                buttons[correctAnswerIndex].classList.add('correct');
+                
+                const currentWord = currentOptions[correctAnswerIndex];
+                incorrectWords.push(currentWord);
+                reviewQueue.push(currentWord);
+                
+                feedback.textContent = "Incorrect";
+                feedback.className = 'feedback incorrect';
+            } else {
+                feedback.textContent = "Correct!";
+                feedback.className = 'feedback correct';
+            }
+            
+            nextButton.style.display = 'block';
+        }
+
+        function handleNextButtonClick() {
+            showNextWord();
+        }
+
+        function updateProgress() {
+            counter.textContent = `${currentIndex}/${totalWords}`;
+            const progressPercent = (currentIndex / totalWords) * 100;
+            progressFill.style.width = `${progressPercent}%`;
+        }
         
-        feedback.textContent = "Correct!";
-        feedback.className = 'feedback correct';
-    }
-    
-    
-    nextButton.style.display = 'block';
-}
-
-
-function handleNextButtonClick() {
-    showNextWord();
-}
-
-
-function updateProgress() {
-    counter.textContent = `${currentIndex}/${totalWords}`;
-    const progressPercent = (currentIndex / totalWords) * 100;
-    progressFill.style.width = `${progressPercent}%`;
-}
-window.addEventListener('DOMContentLoaded', initializeApp);
-</script>
+        window.addEventListener('DOMContentLoaded', initializeApp);
+    </script>
+</body>
+</html>
