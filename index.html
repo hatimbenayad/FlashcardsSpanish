@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spanish Flashcard Game</title>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
         * {
             box-sizing: border-box;
@@ -11,17 +12,17 @@
         }
     
         body {
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            gap: 20px; 
-        }
-    
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 20px;
+    position: relative;
+}
         .app-container {
             background-color: white;
             border-radius: 12px;
@@ -434,6 +435,16 @@
                 <button class="lesson-button" data-lesson="b1-lesson8">B1 Lesson 8: Adverbs of Frequency</button>
                 <button class="lesson-button" data-lesson="b1-lesson9">B1 Lesson 9: Demonstrative Adjectives</button>
                 <button class="lesson-button" data-lesson="b1-lesson10">B1 Lesson 10: Basic Prepositions</button>
+                <button class="lesson-button" data-lesson="b1-lesson11">B1 Lesson 11: Imperfect Tense Regular Verbs</button>
+                <button class="lesson-button" data-lesson="b1-lesson12">B1 Lesson 12: Definite and Indefinite Articles</button>
+                <button class="lesson-button" data-lesson="b1-lesson13">B1 Lesson 13: Adjectives of Quantity</button>
+                <button class="lesson-button" data-lesson="b1-lesson14">B1 Lesson 14: Present Progressive</button>
+                <button class="lesson-button" data-lesson="b1-lesson15">B1 Lesson 15: Basic Question Words</button>
+                <button class="lesson-button" data-lesson="b1-lesson16">B1 Lesson 16: Comparatives and Superlatives</button>
+                <button class="lesson-button" data-lesson="b1-lesson17">B1 Lesson 17: Negation</button>
+                <button class="lesson-button" data-lesson="b1-lesson18">B1 Lesson 18: Stem-Changing Verbs (Present Tense)</button>
+                <button class="lesson-button" data-lesson="b1-lesson19">B1 Lesson 19: Adverbs Ending in -mente</button>
+                <button class="lesson-button" data-lesson="b1-lesson20">B1 Lesson 20: Time Expressions</button>
             </div>
         </div>
         <div class="section">
@@ -449,6 +460,16 @@
                 <button class="lesson-button" data-lesson="b2-lesson8">B2 Lesson 8: Relative Pronouns</button>
                 <button class="lesson-button" data-lesson="b2-lesson9">B2 Lesson 9: Preterite vs. Imperfect</button>
                 <button class="lesson-button" data-lesson="b2-lesson10">B2 Lesson 10: Commands (Imperative Mood)</button>
+                <button class="lesson-button" data-lesson="b2-lesson11">B2 Lesson 11: Present Subjunctive Irregular Verbs</button>
+                <button class="lesson-button" data-lesson="b2-lesson12">B2 Lesson 12: Reflexive Verbs in Subjunctive</button>
+                <button class="lesson-button" data-lesson="b2-lesson13">B2 Lesson 13: Se for Impersonal and Passive</button>
+                <button class="lesson-button" data-lesson="b2-lesson14">B2 Lesson 14: Past Subjunctive Triggers</button>
+                <button class="lesson-button" data-lesson="b2-lesson15">B2 Lesson 15: Conditional Sentences with Si</button>
+                <button class="lesson-button" data-lesson="b2-lesson16">B2 Lesson 16: Gerunds and Infinitives</button>
+                <button class="lesson-button" data-lesson="b2-lesson17">B2 Lesson 17: Double Object Pronouns</button>
+                <button class="lesson-button" data-lesson="b2-lesson18">B2 Lesson 18: Preterite Irregular Verbs</button>
+                <button class="lesson-button" data-lesson="b2-lesson19">B2 Lesson 19: Subjunctive with Conjunctions</button>
+                <button class="lesson-button" data-lesson="b2-lesson20">B2 Lesson 20: Adverbial Clauses</button>
             </div>
         </div>
     </div>
@@ -1475,6 +1496,7 @@ adjectives: [
 ]
         };
         const grammarLessons = {
+    // B1 Lessons (20 total)
     'b1-lesson1': {
         description: `
             <h3>Present Tense Regular Verbs</h3>
@@ -1497,8 +1519,7 @@ adjectives: [
         exercises: [
             { question: "Conjugate 'trabajar' for 'yo' in the present tense.", options: ["trabajo", "trabajas", "trabaja", "trabajamos"], correct: "trabajo" },
             { question: "Conjugate 'aprender' for 'tú' in the present tense.", options: ["aprendo", "aprendes", "aprende", "aprendemos"], correct: "aprendes" },
-            { question: "Conjugate 'vivir' for 'nosotros' in the present tense.", options: ["vivo", "vives", "vivimos", "viven"], correct: "vivimos" },
-            { question: "Conjugate 'cantar' for 'ellos' in the present tense.", options: ["canto", "cantas", "canta", "cantan"], correct: "cantan" }
+            { question: "Conjugate 'vivir' for 'nosotros' in the present tense.", options: ["vivo", "vives", "vivimos", "viven"], correct: "vivimos" }
         ]
     },
     'b1-lesson2': {
@@ -1518,8 +1539,7 @@ adjectives: [
         exercises: [
             { question: "Choose the correct verb: 'Ella ___ de México.'", options: ["es", "está"], correct: "es" },
             { question: "Choose the correct verb: 'Nosotros ___ muy cansados.'", options: ["somos", "estamos"], correct: "estamos" },
-            { question: "Choose the correct verb: 'El libro ___ en la mesa.'", options: ["es", "está"], correct: "está" },
-            { question: "Choose the correct verb: 'Ellos ___ estudiantes.'", options: ["son", "están"], correct: "son" }
+            { question: "Choose the correct verb: 'El libro ___ en la mesa.'", options: ["es", "está"], correct: "está" }
         ]
     },
     'b1-lesson3': {
@@ -1540,8 +1560,7 @@ adjectives: [
         exercises: [
             { question: "Replace the noun: 'Veo a Pedro.'", options: ["lo veo", "la veo", "me veo", "te veo"], correct: "lo veo" },
             { question: "Replace the noun: 'Escuchamos a las chicas.'", options: ["las escuchamos", "los escuchamos", "nos escuchamos", "te escuchamos"], correct: "las escuchamos" },
-            { question: "Replace the noun: 'Ella lee el libro.'", options: ["lo lee", "la lee", "me lee", "te lee"], correct: "lo lee" },
-            { question: "Replace the noun: 'Nosotros ayudamos a Juan.'", options: ["lo ayudamos", "la ayudamos", "nos ayudamos", "te ayudamos"], correct: "lo ayudamos" }
+            { question: "Replace the noun: 'Ella lee el libro.'", options: ["lo lee", "la lee", "me lee", "te lee"], correct: "lo lee" }
         ]
     },
     'b1-lesson4': {
@@ -1605,8 +1624,7 @@ adjectives: [
         exercises: [
             { question: "Conjugate 'hablar' for 'yo' in the preterite tense.", options: ["hablé", "hablaste", "habló", "hablamos"], correct: "hablé" },
             { question: "Conjugate 'vivir' for 'tú' in the preterite tense.", options: ["viví", "viviste", "vivió", "vivimos"], correct: "viviste" },
-            { question: "Conjugate 'comer' for 'ellos' in the preterite tense.", options: ["comí", "comiste", "comió", "comieron"], correct: "comieron" },
-            { question: "Conjugate 'trabajar' for 'nosotros' in the preterite tense.", options: ["trabajé", "trabajaste", "trabajamos", "trabajaron"], correct: "trabajamos" }
+            { question: "Conjugate 'comer' for 'ellos' in the preterite tense.", options: ["comí", "comiste", "comió", "comieron"], correct: "comieron" }
         ]
     },
     'b1-lesson7': {
@@ -1681,10 +1699,163 @@ adjectives: [
         exercises: [
             { question: "Choose the correct preposition: 'Voy ___ la escuela.'", options: ["en", "a", "de", "con"], correct: "a" },
             { question: "Choose the correct preposition: 'El libro es ___ María.'", options: ["en", "a", "de", "con"], correct: "de" },
-            { question: "Choose the correct preposition: 'Hablo ___ mis amigos.'", options: ["en", "a", "de", "con"], correct: "con" },
-            { question: "Choose the correct preposition: 'Trabajo ___ la mañana.'", options: ["en", "a", "de", "por"], correct: "por" }
+            { question: "Choose the correct preposition: 'Hablo ___ mis amigos.'", options: ["en", "a", "de", "con"], correct: "con" }
         ]
     },
+    'b1-lesson11': {
+        description: `
+            <h3>Imperfect Tense Regular Verbs</h3>
+            <p>The imperfect tense describes ongoing or habitual past actions. Regular verb endings are:</p>
+            <ul>
+                <li><strong>-ar verbs</strong>: -aba, -abas, -aba, -ábamos, -abais, -aban</li>
+                <li><strong>-er/-ir verbs</strong>: -ía, -ías, -ía, -íamos, -íais, -ían</li>
+            </ul>
+            <p>Example: <em>vivir</em> (to live)</p>
+            <ul>
+                <li>yo vivía</li>
+                <li>tú vivías</li>
+                <li>él/ella vivía</li>
+                <li>nosotros vivíamos</li>
+                <li>vosotros vivíais</li>
+                <li>ellos/ellas vivían</li>
+            </ul>
+        `,
+        exercises: [
+            { question: "Conjugate 'trabajar' for 'yo' in the imperfect tense.", options: ["trabajaba", "trabajabas", "trabajó", "trabajé"], correct: "trabajaba" },
+            { question: "Conjugate 'comer' for 'tú' in the imperfect tense.", options: ["comía", "comías", "comiste", "comió"], correct: "comías" },
+            { question: "Conjugate 'vivir' for 'ellos' in the imperfect tense.", options: ["vivían", "vivías", "vivieron", "vivimos"], correct: "vivían" }
+        ]
+    },
+    'b1-lesson12': {
+        description: `
+            <h3>Definite and Indefinite Articles</h3>
+            <p>Spanish uses definite articles (el, la, los, las) for specific nouns and indefinite articles (un, una, unos, unas) for non-specific nouns.</p>
+            <p>Examples:</p>
+            <ul>
+                <li><em>El perro</em> (the dog) - specific</li>
+                <li><em>Un perro</em> (a dog) - non-specific</li>
+            </ul>
+        `,
+        exercises: [
+            { question: "Choose the correct article: '___ casa es grande.' (the house)", options: ["el", "la", "un", "una"], correct: "la" },
+            { question: "Choose the correct article: 'Quiero ___ libro.' (a book)", options: ["el", "la", "un", "una"], correct: "un" },
+            { question: "Choose the correct article: '___ amigos llegan mañana.' (the friends)", options: ["el", "la", "los", "las"], correct: "los" }
+        ]
+    },
+    'b1-lesson13': {
+        description: `
+            <h3>Adjectives of Quantity</h3>
+            <p>Adjectives like <em>mucho</em>, <em>poco</em>, <em>alguno</em>, and <em>ninguno</em> describe quantity and agree in gender and number with the noun.</p>
+            <p>Example: <em>Tengo muchos libros</em> (I have many books).</p>
+        `,
+        exercises: [
+            { question: "Choose the correct adjective: 'Hay ___ agua en la botella.' (little)", options: ["mucha", "poca", "mucho", "poco"], correct: "poca" },
+            { question: "Choose the correct adjective: 'No tengo ___ problema.' (no)", options: ["algún", "ningún", "alguna", "ninguna"], correct: "ningún" },
+            { question: "Choose the correct adjective: 'Quiero ___ dulces.' (some)", options: ["algún", "algunos", "ningún", "ningunos"], correct: "algunos" }
+        ]
+    },
+    'b1-lesson14': {
+        description: `
+            <h3>Present Progressive</h3>
+            <p>The present progressive describes actions happening now, using <em>estar</em> + gerund (-ando for -ar verbs, -iendo for -er/-ir verbs).</p>
+            <p>Example: <em>Estoy estudiando</em> (I am studying).</p>
+        `,
+        exercises: [
+            { question: "Form the present progressive: 'Yo ___ (trabajar).'", options: ["estoy trabajando", "estás trabajando", "está trabajando", "trabajo"], correct: "estoy trabajando" },
+            { question: "Form the present progressive: 'Ellos ___ (comer).'", options: ["están comiendo", "estás comiendo", "estoy comiendo", "comen"], correct: "están comiendo" },
+            { question: "Form the present progressive: 'Tú ___ (vivir).'", options: ["estás viviendo", "estoy viviendo", "está viviendo", "vives"], correct: "estás viviendo" }
+        ]
+    },
+    'b1-lesson15': {
+        description: `
+            <h3>Basic Question Words</h3>
+            <p>Question words like <em>qué</em>, <em>quién</em>, <em>dónde</em>, <em>cuándo</em>, <em>por qué</em>, and <em>cómo</em> are used to form questions.</p>
+            <p>Example: <em>¿Dónde vives?</em> (Where do you live?)</p>
+        `,
+        exercises: [
+            { question: "Choose the correct question word: '___ es tu nombre?'", options: ["Qué", "Quién", "Dónde", "Cómo"], correct: "Qué" },
+            { question: "Choose the correct question word: '___ estás aquí?'", options: ["Qué", "Quién", "Por qué", "Cuándo"], correct: "Por qué" },
+            { question: "Choose the correct question word: '___ es tu amigo?'", options: ["Qué", "Quién", "Dónde", "Cómo"], correct: "Quién" }
+        ]
+    },
+    'b1-lesson16': {
+        description: `
+            <h3>Comparatives and Superlatives</h3>
+            <p>Comparatives use <em>más...que</em> (more than), <em>menos...que</em> (less than), or <em>tan...como</em> (as...as). Superlatives use <em>el/la más/menos</em>.</p>
+            <p>Examples:</p>
+            <ul>
+                <li><em>Más alto que</em> (taller than)</li>
+                <li><em>El más alto</em> (the tallest)</li>
+            </ul>
+        `,
+        exercises: [
+            { question: "Complete: 'Ana es ___ alta ___ María.' (more...than)", options: ["más...que", "menos...que", "tan...como", "el más"], correct: "más...que" },
+            { question: "Complete: 'Es ___ libro interesante.' (the most)", options: ["el más", "más que", "menos que", "tan como"], correct: "el más" },
+            { question: "Complete: 'Juan es ___ rápido ___ Pedro.' (as...as)", options: ["más...que", "menos...que", "tan...como", "el más"], correct: "tan...como" }
+        ]
+    },
+    'b1-lesson17': {
+        description: `
+            <h3>Negation</h3>
+            <p>Use <em>no</em> before the verb to negate a sentence. Double negatives like <em>nada</em>, <em>nadie</em>, <em>nunca</em> are common.</p>
+            <p>Example: <em>No veo nada</em> (I don’t see anything).</p>
+        `,
+        exercises: [
+            { question: "Negate: 'Voy a la fiesta.'", options: ["No voy a la fiesta.", "Voy no a la fiesta.", "Voy a no fiesta.", "No voy fiesta."], correct: "No voy a la fiesta." },
+            { question: "Choose the correct word: 'No hay ___ en la casa.' (nobody)", options: ["nada", "nadie", "nunca", "ninguno"], correct: "nadie" },
+            { question: "Choose the correct word: 'No tengo ___ tiempo.' (no)", options: ["nada", "nadie", "nunca", "ningún"], correct: "ningún" }
+        ]
+    },
+    'b1-lesson18': {
+        description: `
+            <h3>Stem-Changing Verbs (Present Tense)</h3>
+            <p>Stem-changing verbs change their stem vowel in the present tense (e.g., e→ie, o→ue, e→i), except in nosotros/vosotros forms.</p>
+            <p>Example: <em>querer</em> (e→ie)</p>
+            <ul>
+                <li>yo quiero</li>
+                <li>tú quieres</li>
+                <li>él/ella quiere</li>
+                <li>nosotros queremos</li>
+                <li>vosotros queréis</li>
+                <li>ellos/ellas quieren</li>
+            </ul>
+        `,
+        exercises: [
+            { question: "Conjugate 'poder' for 'yo' in the present tense.", options: ["puedo", "puedes", "puede", "podemos"], correct: "puedo" },
+            { question: "Conjugate 'dormir' for 'tú' in the present tense.", options: ["duermo", "duermes", "duerme", "dormimos"], correct: "duermes" },
+            { question: "Conjugate 'pedir' for 'ellos' in the present tense.", options: ["pido", "pides", "pide", "piden"], correct: "piden" }
+        ]
+    },
+    'b1-lesson19': {
+        description: `
+            <h3>Adverbs Ending in -mente</h3>
+            <p>Adverbs are formed by adding <em>-mente</em> to the feminine form of adjectives.</p>
+            <p>Example: <em>rápido</em> → <em>rápida</em> → <em>rápidamente</em> (quickly).</p>
+        `,
+        exercises: [
+            { question: "Form the adverb from 'claro'.", options: ["claramente", "claromente", "clara", "claro"], correct: "claramente" },
+            { question: "Form the adverb from 'lento'.", options: ["lentamente", "lentomente", "lenta", "lento"], correct: "lentamente" },
+            { question: "Form the adverb from 'fácil'.", options: ["fácilmente", "fácilmente", "fácila", "fácil"], correct: "fácilmente" }
+        ]
+    },
+    'b1-lesson20': {
+        description: `
+            <h3>Time Expressions</h3>
+            <p>Time expressions like <em>hace</em>, <em>desde</em>, and <em>dentro de</em> indicate duration or points in time.</p>
+            <p>Examples:</p>
+            <ul>
+                <li><em>Hace dos años</em> (two years ago)</li>
+                <li><em>Desde 2020</em> (since 2020)</li>
+            </ul>
+        `,
+        exercises: [
+            { question: "Complete: 'Vivo aquí ___ tres años.' (for)", options: ["hace", "desde", "dentro de", "en"], correct: "desde" },
+            { question: "Complete: 'Lo vi ___ una hora.' (ago)", options: ["hace", "desde", "dentro de", "en"], correct: "hace" },
+            { question: "Complete: 'Terminaré ___ dos días.' (in)", options: ["hace", "desde", "dentro de", "en"], correct: "dentro de" }
+        ]
+    },
+
+    // B2 Lessons (20 total)
     'b2-lesson1': {
         description: `
             <h3>Present Subjunctive Regular Verbs</h3>
@@ -1706,8 +1877,7 @@ adjectives: [
         exercises: [
             { question: "Conjugate 'hablar' in the present subjunctive for 'tú'.", options: ["hablas", "hables", "habla", "hablamos"], correct: "hables" },
             { question: "Conjugate 'comer' in the present subjunctive for 'él'.", options: ["come", "coma", "comes", "comamos"], correct: "coma" },
-            { question: "Conjugate 'vivir' in the present subjunctive for 'nosotros'.", options: ["vivimos", "vivamos", "vivan", "vivas"], correct: "vivamos" },
-            { question: "Complete: 'Espero que ellos ___ (aprender) rápido.'", options: ["aprenden", "aprendan", "aprendes", "aprendamos"], correct: "aprendan" }
+            { question: "Conjugate 'vivir' in the present subjunctive for 'nosotros'.", options: ["vivimos", "vivamos", "vivan", "vivas"], correct: "vivamos" }
         ]
     },
     'b2-lesson2': {
@@ -1739,8 +1909,7 @@ adjectives: [
         exercises: [
             { question: "Replace the noun: 'Doy un regalo a Juan.'", options: ["le doy", "lo doy", "me doy", "te doy"], correct: "le doy" },
             { question: "Replace the noun: 'Ella cuenta un cuento a los niños.'", options: ["les cuenta", "los cuenta", "le cuenta", "nos cuenta"], correct: "les cuenta" },
-            { question: "Complete: 'Nosotros ___ (enviar) invitaciones a los amigos.'", options: ["les enviamos", "los enviamos", "le enviamos", "te enviamos"], correct: "les enviamos" },
-            { question: "Replace the noun: 'Explico el problema a Ana.'", options: ["le explico", "la explico", "me explico", "te explico"], correct: "le explico" }
+            { question: "Complete: 'Nosotros ___ (enviar) invitaciones a los amigos.'", options: ["les enviamos", "los enviamos", "le enviamos", "te enviamos"], correct: "les enviamos" }
         ]
     },
     'b2-lesson4': {
@@ -1776,8 +1945,7 @@ adjectives: [
         exercises: [
             { question: "Conjugate 'vivir' in the future tense for 'yo'.", options: ["viviré", "vivirás", "vivirá", "viviremos"], correct: "viviré" },
             { question: "Conjugate 'comer' in the future tense for 'tú'.", options: ["comeré", "comerás", "comerá", "comeremos"], correct: "comerás" },
-            { question: "Conjugate 'hablar' in the future tense for 'ellos'.", options: ["hablaré", "hablarás", "hablará", "hablarán"], correct: "hablarán" },
-            { question: "Complete: 'Nosotros ___ (trabajar) mañana.'", options: ["trabajaré", "trabajarás", "trabajaremos", "trabajarán"], correct: "trabajaremos" }
+            { question: "Conjugate 'hablar' in the future tense for 'ellos'.", options: ["hablaré", "hablarás", "hablará", "hablarán"], correct: "hablarán" }
         ]
     },
     'b2-lesson6': {
@@ -1812,8 +1980,7 @@ adjectives: [
         exercises: [
             { question: "Choose the correct preposition: 'Trabajo ___ ganar dinero.'", options: ["por", "para"], correct: "para" },
             { question: "Choose the correct preposition: 'Caminé ___ el parque.'", options: ["por", "para"], correct: "por" },
-            { question: "Choose the correct preposition: 'Compré un regalo ___ mi madre.'", options: ["por", "para"], correct: "para" },
-            { question: "Choose the correct preposition: 'Lo hice ___ amor.'", options: ["por", "para"], correct: "por" }
+            { question: "Choose the correct preposition: 'Compré un regalo ___ mi madre.'", options: ["por", "para"], correct: "para" }
         ]
     },
     'b2-lesson8': {
@@ -1840,8 +2007,7 @@ adjectives: [
         exercises: [
             { question: "Choose the correct tense: 'Ayer ___ (llover) todo el día.'", options: ["llovió", "llovía"], correct: "llovió" },
             { question: "Choose the correct tense: 'Cuando era niño, ___ (jugar) mucho.'", options: ["jugué", "jugaba"], correct: "jugaba" },
-            { question: "Choose the correct tense: 'Ella ___ (cantar) cuando llegué.'", options: ["cantó", "cantaba"], correct: "cantaba" },
-            { question: "Choose the correct tense: 'Nosotros ___ (viajar) a España en 2020.'", options: ["viajamos", "viajábamos"], correct: "viajamos" }
+            { question: "Choose the correct tense: 'Ella ___ (cantar) cuando llegué.'", options: ["cantó", "cantaba"], correct: "cantaba" }
         ]
     },
     'b2-lesson10': {
@@ -1859,6 +2025,158 @@ adjectives: [
             { question: "Form the affirmative tú command for 'hablar'.", options: ["habla", "hables", "hablo", "hablamos"], correct: "habla" },
             { question: "Form the negative tú command for 'comer'.", options: ["come", "no comas", "no come", "comas"], correct: "no comas" },
             { question: "Form the affirmative tú command for 'vivir'.", options: ["vive", "vivas", "vivo", "vivimos"], correct: "vive" }
+        ]
+    },
+    'b2-lesson11': {
+        description: `
+            <h3>Present Subjunctive Irregular Verbs</h3>
+            <p>Irregular verbs in the present subjunctive often have stem changes or unique forms, e.g., <em>saber</em> → <em>sepa</em>, <em>ir</em> → <em>vaya</em>.</p>
+            <p>Example: <em>tener</em> (to have)</p>
+            <ul>
+                <li>que yo tenga</li>
+                <li>que tú tengas</li>
+                <li>que él/ella tenga</li>
+                <li>que nosotros tengamos</li>
+                <li>que vosotros tengáis</li>
+                <li>que ellos/ellas tengan</li>
+            </ul>
+        `,
+        exercises: [
+            { question: "Conjugate 'saber' in the present subjunctive for 'yo'.", options: ["sepa", "sepas", "sabe", "sepamos"], correct: "sepa" },
+            { question: "Conjugate 'ir' in the present subjunctive for 'tú'.", options: ["vas", "vayas", "va", "vamos"], correct: "vayas" },
+            { question: "Conjugate 'hacer' in the present subjunctive for 'ellos'.", options: ["hagan", "hagas", "haga", "hagamos"], correct: "hagan" }
+        ]
+    },
+    'b2-lesson12': {
+        description: `
+            <h3>Reflexive Verbs in Subjunctive</h3>
+            <p>Reflexive verbs in the present subjunctive follow the same conjugation rules, with reflexive pronouns (me, te, se, etc.).</p>
+            <p>Example: <em>levantarse</em> (to get up)</p>
+            <ul>
+                <li>que yo me levante</li>
+                <li>que tú te levantes</li>
+                <li>que él/ella se levante</li>
+                <li>que nosotros nos levantemos</li>
+                <li>que vosotros os levantéis</li>
+                <li>que ellos/ellas se levanten</li>
+            </ul>
+        `,
+        exercises: [
+            { question: "Conjugate 'ducharse' in the present subjunctive for 'yo'.", options: ["me duche", "te duches", "se duche", "nos duchemos"], correct: "me duche" },
+            { question: "Conjugate 'acostarse' in the present subjunctive for 'tú'.", options: ["te acuestes", "me acueste", "se acueste", "nos acostemos"], correct: "te acuestes" },
+            { question: "Complete: 'Espero que ellos ___ (despertarse) temprano.'", options: ["se despierten", "se despiertan", "te despiertes", "me despierte"], correct: "se despierten" }
+        ]
+    },
+    'b2-lesson13': {
+        description: `
+            <h3>Se for Impersonal and Passive</h3>
+            <p>The pronoun <em>se</em> is used for impersonal expressions (general subjects) or passive constructions.</p>
+            <p>Examples:</p>
+            <ul>
+                <li>Impersonal: <em>Se habla español</em> (Spanish is spoken).</li>
+                <li>Passive: <em>Se vendieron los libros</em> (The books were sold).</li>
+            </ul>
+        `,
+        exercises: [
+            { question: "Choose the correct form: '___ inglés en esta escuela.' (English is taught)", options: ["Se enseña", "Se enseñan", "Enseña", "Enseñan"], correct: "Se enseña" },
+            { question: "Choose the correct form: '___ los platos después de comer.' (The dishes are washed)", options: ["Se lava", "Se lavan", "Lava", "Lavan"], correct: "Se lavan" },
+            { question: "Complete: '___ que es peligroso.' (It is said)", options: ["Se dice", "Se dicen", "Dice", "Dicen"], correct: "Se dice" }
+        ]
+    },
+    'b2-lesson14': {
+        description: `
+            <h3>Past Subjunctive Triggers</h3>
+            <p>The imperfect subjunctive is often triggered by past-tense verbs expressing doubt, desire, or hypothetical situations, e.g., <em>quería que</em>, <em>si</em>.</p>
+            <p>Example: <em>Quería que vinieras</em> (I wanted you to come).</p>
+        `,
+        exercises: [
+            { question: "Complete: 'Esperaba que tú ___ (estudiar).'", options: ["estudiaras", "estudiabas", "estudias", "estudiara"], correct: "estudiaras" },
+            { question: "Complete: 'Si ___ (tener) tiempo, viajaría.'", options: ["tuviera", "tenía", "tengo", "tuviese"], correct: "tuviera" },
+            { question: "Complete: 'Dudaba que ellos ___ (llegar) a tiempo.'", options: ["llegaran", "llegaban", "llegasen", "llegaron"], correct: "llegaran" }
+        ]
+    },
+    'b2-lesson15': {
+        description: `
+            <h3>Conditional Sentences with Si</h3>
+            <p>Conditional sentences with <em>si</em> (if) use the imperfect subjunctive for hypothetical situations and the conditional for the result.</p>
+            <p>Example: <em>Si tuviera dinero, viajaría</em> (If I had money, I would travel).</p>
+        `,
+        exercises: [
+            { question: "Complete: 'Si ___ (saber) la verdad, te lo diría.'", options: ["supiera", "sabía", "sé", "supiese"], correct: "supiera" },
+            { question: "Complete: 'Si estudiaras, ___ (aprobar).'", options: ["aprobarías", "aprobabas", "apruebas", "aprobarías"], correct: "aprobarías" },
+            { question: "Complete: 'Si ___ (ser) rico, compraría una casa.'", options: ["fuera", "era", "es", "fuese"], correct: "fuera" }
+        ]
+    },
+    'b2-lesson16': {
+        description: `
+            <h3>Gerunds and Infinitives</h3>
+            <p>Gerunds (-ando, -iendo) describe ongoing actions, while infinitives are used after certain verbs like <em>querer</em> or prepositions.</p>
+            <p>Examples:</p>
+            <ul>
+                <li><em>Estoy corriendo</em> (I’m running).</li>
+                <li><em>Quiero aprender</em> (I want to learn).</li>
+            </ul>
+        `,
+        exercises: [
+            { question: "Choose the correct form: 'Me gusta ___ (cantar).'", options: ["cantar", "cantando", "canto", "cantas"], correct: "cantar" },
+            { question: "Choose the correct form: 'Ellos están ___ (trabajar).'", options: ["trabajando", "trabajar", "trabajan", "trabajas"], correct: "trabajando" },
+            { question: "Complete: 'Después de ___ (comer), descansaré.'", options: ["comer", "comiendo", "comí", "como"], correct: "comer" }
+        ]
+    },
+    'b2-lesson17': {
+        description: `
+            <h3>Double Object Pronouns</h3>
+            <p>When using direct and indirect object pronouns together, the indirect pronoun comes first (e.g., me lo, te la).</p>
+            <p>Example: <em>Dámelo</em> (Give it to me).</p>
+        `,
+        exercises: [
+            { question: "Complete: 'Ella ___ (dar, el libro, a mí).'", options: ["me lo da", "lo me da", "me la da", "la me da"], correct: "me lo da" },
+            { question: "Complete: 'Nosotros ___ (enviar, la carta, a ellos).'", options: ["se la enviamos", "la se enviamos", "se lo enviamos", "lo se enviamos"], correct: "se la enviamos" },
+            { question: "Complete: 'Tú ___ (comprar, el regalo, a ella).'", options: ["se lo compras", "lo se compras", "se la compras", "la se compras"], correct: "se lo compras" }
+        ]
+    },
+    'b2-lesson18': {
+        description: `
+            <h3>Preterite Irregular Verbs</h3>
+            <p>Some verbs have irregular stems in the preterite, e.g., <em>hacer</em> → <em>hice</em>, <em>venir</em> → <em>vine</em>.</p>
+            <p>Example: <em>querer</em> (to want)</p>
+            <ul>
+                <li>yo quise</li>
+                <li>tú quisiste</li>
+                <li>él/ella quiso</li>
+                <li>nosotros quisimos</li>
+                <li>vosotros quisisteis</li>
+                <li>ellos/ellas quisieron</li>
+            </ul>
+        `,
+        exercises: [
+            { question: "Conjugate 'hacer' in the preterite for 'yo'.", options: ["hice", "hiciste", "hizo", "hicimos"], correct: "hice" },
+            { question: "Conjugate 'venir' in the preterite for 'tú'.", options: ["vine", "viniste", "vino", "vinimos"], correct: "viniste" },
+            { question: "Conjugate 'saber' in the preterite for 'ellos'.", options: ["supe", "supiste", "supo", "supieron"], correct: "supieron" }
+        ]
+    },
+    'b2-lesson19': {
+        description: `
+            <h3>Subjunctive with Conjunctions</h3>
+            <p>Certain conjunctions like <em>a menos que</em>, <em>para que</em>, and <em>sin que</em> trigger the subjunctive when expressing purpose or condition.</p>
+            <p>Example: <em>Estudiaré para que apruebe</em> (I’ll study so that I pass).</p>
+        `,
+        exercises: [
+            { question: "Complete: 'No iré ___ (tú, venir) conmigo.'", options: ["a menos que vengas", "a menos que vienes", "para que vengas", "sin que vengas"], correct: "a menos que vengas" },
+            { question: "Complete: 'Trabajo ___ (ellos, estar) contentos.'", options: ["para que estén", "para que están", "sin que estén", "a menos que estén"], correct: "para que estén" },
+            { question: "Complete: 'Lo hice ___ (nadie, saberlo).'", options: ["sin que lo sepa", "sin que lo sabe", "para que lo sepa", "a menos que lo sepa"], correct: "sin que lo sepa" }
+        ]
+    },
+    'b2-lesson20': {
+        description: `
+            <h3>Adverbial Clauses</h3>
+            <p>Adverbial clauses with <em>cuando</em>, <em>mientras</em>, or <em>antes de que</em> may use the subjunctive for future or hypothetical actions.</p>
+            <p>Example: <em>Llámame antes de que vengas</em> (Call me before you come).</p>
+        `,
+        exercises: [
+            { question: "Complete: 'Te ayudaré ___ (tú, terminar).'", options: ["cuando termines", "cuando terminaste", "mientras termines", "antes de que termines"], correct: "cuando termines" },
+            { question: "Complete: 'Estudiaré ___ (llegar, ellos).'", options: ["antes de que lleguen", "antes de que llegaron", "mientras lleguen", "cuando lleguen"], correct: "antes de que lleguen" },
+            { question: "Complete: 'Hablábamos ___ (él, trabajar).'", options: ["mientras trabajaba", "mientras trabaje", "antes de que trabaje", "cuando trabaje"], correct: "mientras trabajaba" }
         ]
     }
 };
@@ -2257,6 +2575,21 @@ adjectives: [
     }
 
     window.addEventListener('DOMContentLoaded', initializeApp);
+    particlesJS('particles-js', {
+    particles: {
+        number: { value: 50, density: { enable: true, value_area: 800 } },
+        color: { value: ['#ff5722', '#2196f3', '#4caf50'] }, // Spanish-inspired colors
+        shape: { type: 'circle' },
+        opacity: { value: 0.5, random: true },
+        size: { value: 3, random: true },
+        move: { enable: true, speed: 1, direction: 'none', random: true }
+    },
+    interactivity: {
+        detect_on: 'canvas',
+        events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } },
+        modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } }
+    }
+});
 </script>
 </body>
 </html>
