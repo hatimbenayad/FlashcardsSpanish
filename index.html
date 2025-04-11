@@ -397,6 +397,27 @@
         #grammarContent ul {
             padding-left: 20px;
         }
+        .job-section-container {
+    width: 100%;
+    max-width: 500px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.job-button {
+    background-color: #FF9800; 
+}
+
+.job-button:hover {
+    background-color: #F57C00; 
+}
+
+.job-button.active {
+    background-color: #FF9800; 
+}
     </style>
 </head>
 <body>
@@ -523,6 +544,12 @@
             <button class="modal-button close-button" id="closeLessonModal">Close</button>
         </div>
     </div>
+    <!-- Job Guide Section -->
+<div class="job-section-container">
+    <div class="section">
+        <button class="section-button job-button" onclick="window.location.href='job.html'">Job Guide: Waiter/Waitress</button>
+    </div>
+</div>
 </body>
 
     <script>
